@@ -1,0 +1,114 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - navigation "Navegação principal" [ref=e5]:
+      - link "Amadeireira — início" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Amadeireira" [ref=e7]
+        - generic [ref=e8]:
+          - generic [ref=e9]: Amadeireira
+          - generic [ref=e10]: Móveis Sob Medida
+      - generic [ref=e11]:
+        - link "Mesas" [ref=e12] [cursor=pointer]:
+          - /url: /#categorias
+        - link "Projetos" [ref=e13] [cursor=pointer]:
+          - /url: /projetos
+        - link "Sobre" [ref=e14] [cursor=pointer]:
+          - /url: /sobre
+        - link "Depoimentos" [ref=e15] [cursor=pointer]:
+          - /url: /#depoimentos
+        - link "Contato" [ref=e16] [cursor=pointer]:
+          - /url: /contato
+      - link "Solicitar Orçamento →" [ref=e17] [cursor=pointer]:
+        - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Amadeireira%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.
+        - generic [ref=e18]: Solicitar Orçamento
+        - generic [ref=e19]: →
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - img "Amadeireira Background" [ref=e24]
+      - generic [ref=e26]:
+        - generic [ref=e27]: Móveis de Alto Padrão
+        - heading "FEITA PELA NATUREZA. REFINADA POR NÓS." [level=1] [ref=e31]
+        - paragraph [ref=e32]: Madeira maciça autoral. Peças únicas, duráveis e acabamento fino para espaços exclusivos.
+        - generic [ref=e33]:
+          - link "Solicitar Orçamento →" [ref=e34] [cursor=pointer]:
+            - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Amadeireira%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.
+            - generic [ref=e35]: Solicitar Orçamento
+            - generic [ref=e36]: →
+          - link "Conhecer Nossas Mesas →" [ref=e38] [cursor=pointer]:
+            - /url: https://amadereiravendas.vercel.app/#produtos
+            - generic [ref=e39]: Conhecer Nossas Mesas
+            - generic [ref=e40]: →
+      - generic:
+        - img "Amadeireira Foreground"
+    - generic [ref=e42]:
+      - generic:
+        - img "A Madeireira Background Texture"
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - generic [ref=e46]: NOSSA HISTÓRIA
+          - heading "TRADIÇÃO QUE GANHA FORMA" [level=2] [ref=e49]:
+            - generic [ref=e50]: TRADIÇÃO
+            - generic [ref=e51]: QUE GANHA
+            - generic [ref=e52]: FORMA
+          - paragraph [ref=e53]: Conheça de perto o nosso ateliê, o processo de produção e o cuidado que colocamos em cada detalhe. Da madeira bruta à mesa pronta, tudo é feito com propósito e respeito à natureza.
+          - generic [ref=e54]:
+            - generic [ref=e55]: MADEIRA DE ORIGEM CONTROLADA
+            - generic [ref=e61]: PROCESSO ARTESANAL
+            - generic [ref=e68]: PEÇAS ÚNICAS E EXCLUSIVAS
+        - generic [ref=e76] [cursor=pointer]:
+          - img "Ateliê A Madeireira Processo Artesanal" [ref=e77]
+          - generic [ref=e79]: Assistir ao Vídeo do Ateliê
+          - generic [ref=e84]:
+            - generic [ref=e85]: Campinas · SP
+            - generic [ref=e86]: Mobiliário Maciço Autoral
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - generic [ref=e91]: NOSSAS COLEÇÕES
+          - generic [ref=e92]: MADEIRA • DESIGN • DURABILIDADE
+        - generic [ref=e93]:
+          - heading "PEÇAS QUE TRANSFORMAM AMBIENTES REAIS." [level=2] [ref=e94]
+          - paragraph [ref=e95]: Três linhas de mesas em madeira maciça, cada uma com características únicas, pensadas para diferentes estilos e projetos.
+      - generic [ref=e96]:
+        - generic [ref=e98]:
+          - generic [ref=e100]:
+            - generic [ref=e101]: "01"
+            - heading "MESAS CASCATA" [level=3] [ref=e104]:
+              - text: MESAS
+              - generic [ref=e105]: CASCATA
+            - paragraph [ref=e106]: Design escultural com o tampo contínuo, unindo sofisticação e imponência em uma única peça.
+            - link "VER TODOS OS MODELOS" [ref=e108] [cursor=pointer]:
+              - /url: /mesas-cascata
+          - img "Mesa Cascata em Madeira Maciça" [ref=e113]
+          - generic [ref=e114]:
+            - img "Detalhe corte 45 graus Mesa Cascata" [ref=e116]
+            - img "Mesa Cascata em Pequiá Maciço" [ref=e118]
+        - generic [ref=e120]:
+          - img "Detalhe escultural da base da Mesa Raiz" [ref=e122]
+          - img "Mesa Raiz Monumental com Tampo de Vidro" [ref=e124]
+          - generic [ref=e126]:
+            - generic [ref=e127]: "02"
+            - heading "MESAS RAIZ" [level=3] [ref=e130]:
+              - text: MESAS
+              - generic [ref=e131]: RAIZ
+            - paragraph [ref=e132]: Peças únicas, esculpidas pela própria natureza. Cada raiz conta uma história e torna o ambiente exclusivo.
+            - link "VER TODOS OS MODELOS" [ref=e134] [cursor=pointer]:
+              - /url: /mesas-raiz
+          - generic [ref=e138]:
+            - img "Detalhes dos veios da madeira e acabamento da raiz" [ref=e140]
+            - img "Escultura viva de raiz centenária trabalhada à mão" [ref=e142]
+        - generic [ref=e144]:
+          - generic [ref=e146]:
+            - generic [ref=e147]: "03"
+            - heading "MESAS PRANCHA" [level=3] [ref=e150]:
+              - text: MESAS
+              - generic [ref=e151]: PRANCHA
+            - paragraph [ref=e152]: Tampo em peça única, valorizando o formato natural da madeira e suas características originais.
+            - link "VER TODOS OS MODELOS" [ref=e154] [cursor=pointer]:
+              - /url: /mesas-prancha
+          - img "Mesa Prancha Maciça com Borda Viva em Madeira Nobre" [ref=e159]
+          - generic [ref=e160]:
+            - img "Espessura e borda orgânica da Mesa Prancha" [ref=e162]
+            - img "Acabamento acetinado e detalhes de resina nobre" [ref=e164]
+  - link "Conversar no WhatsApp com a Amadeireira" [ref=e166] [cursor=pointer]:
+    - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Amadeireira%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.

@@ -1,0 +1,357 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - navigation "Navegação principal" [ref=e5]:
+      - link "Amadeireira — início" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Amadeireira" [ref=e7]
+        - generic [ref=e8]:
+          - generic [ref=e9]: Amadeireira
+          - generic [ref=e10]: Móveis Sob Medida
+      - generic [ref=e11]:
+        - link "Coleções" [ref=e12] [cursor=pointer]:
+          - /url: "#colecoes"
+        - link "Projetos" [ref=e13] [cursor=pointer]:
+          - /url: "#projetos"
+        - link "Depoimentos" [ref=e14] [cursor=pointer]:
+          - /url: "#depoimentos"
+        - link "Institucional" [ref=e15] [cursor=pointer]:
+          - /url: https://amadeireira.com.br
+        - link "Catálogo" [ref=e16] [cursor=pointer]:
+          - /url: https://amadereiravendas.vercel.app/#produtos
+      - link "Solicitar Orçamento →" [ref=e17] [cursor=pointer]:
+        - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Amadeireira%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.
+        - generic [ref=e18]: Solicitar Orçamento
+        - generic [ref=e19]: →
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - img "Amadeireira Background" [ref=e24]
+      - generic [ref=e26]:
+        - generic [ref=e27]: Móveis de Alto Padrão
+        - heading "FEITA PELA NATUREZA. REFINADA POR NÓS." [level=1] [ref=e31]
+        - paragraph [ref=e32]: Madeira maciça autoral. Peças únicas, duráveis e acabamento fino para espaços exclusivos.
+        - generic [ref=e33]:
+          - link "Solicitar Orçamento →" [ref=e34] [cursor=pointer]:
+            - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Amadeireira%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.
+            - generic [ref=e35]: Solicitar Orçamento
+            - generic [ref=e36]: →
+          - link "Conhecer Nossas Mesas →" [ref=e38] [cursor=pointer]:
+            - /url: https://amadereiravendas.vercel.app/#produtos
+            - generic [ref=e39]: Conhecer Nossas Mesas
+            - generic [ref=e40]: →
+      - generic:
+        - img "Amadeireira Foreground"
+    - generic [ref=e42]:
+      - generic:
+        - img "A Madeireira Background Texture"
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - generic [ref=e46]: NOSSA HISTÓRIA
+          - heading "TRADIÇÃO QUE GANHA FORMA" [level=2] [ref=e49]:
+            - generic [ref=e50]: TRADIÇÃO
+            - generic [ref=e51]: QUE GANHA
+            - generic [ref=e52]: FORMA
+          - paragraph [ref=e53]: Conheça de perto o nosso ateliê, o processo de produção e o cuidado que colocamos em cada detalhe. Da madeira bruta à mesa pronta, tudo é feito com propósito e respeito à natureza.
+          - generic [ref=e54]:
+            - generic [ref=e55]: MADEIRA DE ORIGEM CONTROLADA
+            - generic [ref=e61]: PROCESSO ARTESANAL
+            - generic [ref=e68]: PEÇAS ÚNICAS E EXCLUSIVAS
+        - iframe [ref=e77]
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e81]: NOSSAS COLEÇÕES
+        - generic [ref=e82]: MADEIRA • DESIGN • DURABILIDADE
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - generic [ref=e86]:
+              - generic [ref=e87]:
+                - heading "PEÇAS QUE TRANSFORMAM AMBIENTES REAIS." [level=2] [ref=e88]
+                - paragraph [ref=e89]: Quatro linhas exclusivas de mesas em madeira maciça, cada uma com características únicas, pensadas para diferentes estilos e projetos.
+              - generic [ref=e90]:
+                - generic [ref=e91]: "01"
+                - heading "MESAS CASCATA" [level=3] [ref=e94]:
+                  - text: MESAS
+                  - generic [ref=e95]: CASCATA
+                - paragraph [ref=e96]: Design escultural com o tampo contínuo, unindo sofisticação e imponência em uma única peça.
+                - link "VER TODOS OS MODELOS" [ref=e98] [cursor=pointer]:
+                  - /url: https://amadereiravendas.vercel.app/#produtos
+            - generic [ref=e102]:
+              - img "Mesa Cascata em Madeira Maciça com Corte 45 Graus"
+            - generic [ref=e103]:
+              - generic "Clique ou arraste para passar as fotos" [ref=e104]:
+                - img "Mesa Cascata com Veios Contínuos e Acabamento Nobre"
+              - generic "Clique ou arraste para passar as fotos" [ref=e105]:
+                - img "Mesa Cascata Orgânica em Madeira Maciça"
+          - generic [ref=e107]:
+            - generic [ref=e108]: 01 / 04
+            - generic [ref=e109]:
+              - button "Mesa Cascata anterior" [ref=e110] [cursor=pointer]
+              - button "Próxima foto da Mesa Cascata" [ref=e113] [cursor=pointer]
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - img "Base de Mesa Raiz Maciça Orgânica Escultural - Amadeireira"
+            - generic [ref=e120]:
+              - generic [ref=e121]: "02"
+              - heading "MESAS RAIZ" [level=3] [ref=e124]:
+                - text: MESAS
+                - generic [ref=e125]: RAIZ
+              - paragraph [ref=e126]: Peças únicas, esculpidas pela própria natureza. Cada raiz centenária carrega veios orgânicos irrepetíveis e transforma o espaço em uma galeria autoral.
+              - link "VER TODOS OS MODELOS" [ref=e128] [cursor=pointer]:
+                - /url: https://amadereiravendas.vercel.app/#produtos
+          - generic [ref=e133]:
+            - generic [ref=e134]: 01 / 04
+            - generic [ref=e135]:
+              - button "Mesa Raiz anterior" [ref=e136] [cursor=pointer]
+              - button "Próxima foto da Mesa Raiz" [ref=e139] [cursor=pointer]
+        - generic [ref=e142]:
+          - generic [ref=e143]:
+            - generic [ref=e145]:
+              - generic [ref=e146]: "03"
+              - heading "MESAS DE RESINA EPÓXI" [level=3] [ref=e149]:
+                - text: MESAS DE
+                - generic [ref=e150]: RESINA EPÓXI
+              - paragraph [ref=e151]: União perfeita entre a solidez da madeira nobre e a translucidez da resina de alta resistência, criando rios orgânicos e brilho acetinado único.
+              - link "VER TODOS OS MODELOS" [ref=e153] [cursor=pointer]:
+                - /url: https://amadereiravendas.vercel.app/#produtos
+            - generic [ref=e157]:
+              - img "Mesa de Resina Epóxi e Madeira Maciça de Alto Padrão"
+            - generic [ref=e158]:
+              - generic "Clique ou arraste para passar as fotos" [ref=e159]:
+                - img "Mesa com Resina Epóxi Translúcida e Madeira Selecionada"
+              - generic "Clique ou arraste para passar as fotos" [ref=e160]:
+                - img "Mesa de Jantar com Acabamento em Resina Epóxi"
+          - generic [ref=e162]:
+            - generic [ref=e163]: 01 / 04
+            - generic [ref=e164]:
+              - button "Mesa de Resina anterior" [ref=e165] [cursor=pointer]
+              - button "Próxima foto da Mesa de Resina" [ref=e168] [cursor=pointer]
+        - generic [ref=e171]:
+          - generic [ref=e172]:
+            - generic [ref=e173]:
+              - img "Mesa Prancha Maciça com Borda Viva em Madeira Nobre"
+            - generic [ref=e175]:
+              - generic [ref=e176]: "04"
+              - heading "MESAS PRANCHA" [level=3] [ref=e179]:
+                - text: MESAS
+                - generic [ref=e180]: PRANCHA
+              - paragraph [ref=e181]: Tampo em prancha única maciça com bordas naturais e orgânicas. Preserva toda a história botânica e a força monumental da árvore em uma peça exclusiva.
+              - link "VER TODOS OS MODELOS" [ref=e183] [cursor=pointer]:
+                - /url: https://amadereiravendas.vercel.app/#produtos
+          - generic [ref=e188]:
+            - generic [ref=e189]: 01 / 03
+            - generic [ref=e190]:
+              - button "Mesa Prancha anterior" [ref=e191] [cursor=pointer]
+              - button "Próxima foto da Mesa Prancha" [ref=e194] [cursor=pointer]
+    - generic [ref=e197]:
+      - generic:
+        - img "Textura Amadeireira"
+      - generic [ref=e199]:
+        - link [ref=e200] [cursor=pointer]:
+          - /url: https://amadereiravendas.vercel.app/#produtos
+          - heading "Veja os Demais Produtos" [level=4] [ref=e206]
+          - paragraph [ref=e207]: Centenas de peças exclusivas em cascata, pranchas, raízes e resina no catálogo.
+        - generic [ref=e208]:
+          - heading "Pronta Entrega" [level=4] [ref=e215]
+          - paragraph [ref=e216]: Peças catalogadas prontas para entrega imediata com envio seguro para todo Brasil.
+        - generic [ref=e217]:
+          - heading "Projetos Sob Medida" [level=4] [ref=e225]
+          - paragraph [ref=e226]: Personalização milimétrica de medidas, bordas naturais e acabamento nobre.
+        - generic [ref=e227]:
+          - link "Ir para o Catálogo" [ref=e228] [cursor=pointer]:
+            - /url: https://amadereiravendas.vercel.app/#produtos
+          - generic [ref=e232]: Acesso imediato às peças
+    - generic [ref=e233]:
+      - generic:
+        - img "Amadeireira Projetos Background"
+      - generic [ref=e234]:
+        - generic [ref=e235]:
+          - generic [ref=e236]:
+            - generic [ref=e237]: AMBIENTES REAIS & CLIENTES
+            - heading "PROJETOS & DEPOIMENTOS" [level=2] [ref=e240]
+            - paragraph [ref=e241]: Mais do que móveis, entregamos histórias. Veja como nossos clientes transformaram seus espaços com a qualidade da nossa madeira.
+          - generic [ref=e242]:
+            - link "Orçar no WhatsApp" [ref=e243] [cursor=pointer]:
+              - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20projeto%20sob%20medida%20com%20a%20Amadeireira.
+            - generic [ref=e248]:
+              - button "Voltar" [ref=e249] [cursor=pointer]
+              - button "Avançar" [ref=e252] [cursor=pointer]
+        - generic [ref=e255]:
+          - article [ref=e256]:
+            - img "Projeto Sorocaba - Mesa Prancha Maciça 5,00m"
+            - generic:
+              - generic: VÍDEO
+              - generic: Interior de SP
+            - button "Assistir vídeo de Cantor Sorocaba" [ref=e257] [cursor=pointer]
+            - generic:
+              - generic:
+                - generic: Cantor Sorocaba
+                - heading "Mesa Prancha Maciça 5,00m" [level=3]
+                - paragraph: “A imponência da madeira maciça e o acabamento da Amadeireira transformaram completamente nosso espaço.”
+                - generic:
+                  - generic: Pequiá Maciço Selecionado
+                  - link "VER PROJETO" [ref=e260] [cursor=pointer]:
+                    - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Projeto%20Sorocaba%20(Mesa%20Prancha%20Maci%C3%A7a%205%2C00m).
+          - article [ref=e264]:
+            - img "Fazenda Boa Vista - Mesa Cascata Pequiá 3,60m"
+            - generic:
+              - generic: FOTO REAL
+              - generic: Porto Feliz / SP
+            - generic:
+              - generic:
+                - generic: Rodrigo & Camila Silveira
+                - heading "Mesa Cascata Pequiá 3,60m" [level=3]
+                - paragraph: “A continuidade dos veios no corte 45 graus é uma verdadeira obra de arte.”
+                - generic:
+                  - generic: Pequiá com Corte 45°
+                  - link "VER PROJETO" [ref=e265] [cursor=pointer]:
+                    - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Fazenda%20Boa%20Vista%20(Mesa%20Cascata%20Pequi%C3%A1%203%2C60m).
+          - article [ref=e269]:
+            - img "Casa Alphaville - Mesa Raiz Monumental"
+            - generic:
+              - generic: FOTO REAL
+              - generic: Campinas / SP
+            - generic:
+              - generic:
+                - generic: Eduardo M. Prado
+                - heading "Mesa Raiz Monumental" [level=3]
+                - paragraph: “A mesa raiz virou a grande escultura focal da nossa casa.”
+                - generic:
+                  - generic: Raiz Nobre Centenária
+                  - link "VER PROJETO" [ref=e270] [cursor=pointer]:
+                    - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Casa%20Alphaville%20(Mesa%20Raiz%20Monumental).
+          - article [ref=e274]:
+            - img "Cobertura Jardins - Mesa Resina Epóxi & Madeira"
+            - generic:
+              - generic: VÍDEO
+              - generic: São Paulo / SP
+            - button "Assistir vídeo de Arq. Mariana Vasconcellos" [ref=e275] [cursor=pointer]
+            - generic:
+              - generic:
+                - generic: Arq. Mariana Vasconcellos
+                - heading "Mesa Resina Epóxi & Madeira" [level=3]
+                - paragraph: “Especificar a Amadeireira nos meus projetos de alto padrão é garantia de precisão e encantamento.”
+                - generic:
+                  - generic: Pequiá e Resina Translúcida
+                  - link "VER PROJETO" [ref=e278] [cursor=pointer]:
+                    - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Cobertura%20Jardins%20(Mesa%20Resina%20Ep%C3%B3xi%20%26%20Madeira).
+          - article [ref=e282]:
+            - img "Rancho Santa Fé - Mesa Prancha Borda Viva 4,20m"
+            - generic:
+              - generic: FOTO REAL
+              - generic: Ribeirão Preto / SP
+            - generic:
+              - generic:
+                - generic: Família Albuquerque
+                - heading "Mesa Prancha Borda Viva 4,20m" [level=3]
+                - paragraph: “A textura da borda orgânica e a robustez da peça impressionam todos os convidados.”
+                - generic:
+                  - generic: Pequiá 8cm Espessura
+                  - link "VER PROJETO" [ref=e283] [cursor=pointer]:
+                    - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Rancho%20Santa%20F%C3%A9%20(Mesa%20Prancha%20Borda%20Viva%204%2C20m).
+    - generic [ref=e289]:
+      - generic [ref=e290]:
+        - generic [ref=e291]:
+          - generic [ref=e292]: NOSSO ESPAÇO, SUA PRÓXIMA INSPIRAÇÃO
+          - heading "VENHA CONHECER NOSSO SHOWROOM" [level=2] [ref=e295]:
+            - generic [ref=e296]: VENHA CONHECER
+            - generic [ref=e297]: NOSSO SHOWROOM
+          - paragraph [ref=e298]: Sinta a textura natural, os aromas e a grandiosidade da madeira maciça em nosso espaço de exposição em Joaquim Egídio, Campinas.
+        - generic [ref=e299]:
+          - generic [ref=e305]:
+            - generic [ref=e306]: ENDEREÇO
+            - paragraph [ref=e307]: Rod. José Bonifácio Coutinho Nogueira, KM 12,5 - Joaquim Egídio Campinas - SP, 13106-001
+          - generic [ref=e313]:
+            - generic [ref=e314]: HORÁRIO DE FUNCIONAMENTO
+            - paragraph [ref=e315]: Segunda a Sexta08h30 às 17h30Sábado 08h30 às 15h00
+          - generic [ref=e320]:
+            - generic [ref=e321]: TELEFONE & WHATSAPP
+            - link "(19) 98415-3232" [ref=e322] [cursor=pointer]:
+              - /url: tel:19984153232
+            - paragraph [ref=e323]: Fale conosco para tirar dúvidas ou agendar sua visita.
+        - generic [ref=e324]:
+          - link "WhatsApp AGENDAR VISITA NO WHATSAPP →" [ref=e325] [cursor=pointer]:
+            - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita%20ao%20Showroom%20da%20Amadeireira%20em%20Campinas.
+            - img "WhatsApp" [ref=e326]
+            - generic [ref=e327]: AGENDAR VISITA NO WHATSAPP →
+          - link "COMO CHEGAR (ROTAS)" [ref=e328] [cursor=pointer]:
+            - /url: https://www.google.com/maps/dir/?api=1&destination=AMADEIREIRA+-+M%C3%B3veis+em+Madeira+Maci%C3%A7a,+Rod.+Jos%C3%A9+Bonif%C3%A1cio+Coutinho+Nogueira,+KM+12.5+-+Joaquim+Eg%C3%ADdio,+Campinas+-+SP
+      - iframe [ref=e333]
+  - contentinfo [ref=e334]:
+    - generic:
+      - img "Amadeireira Footer Background"
+    - generic [ref=e335]:
+      - generic [ref=e336]:
+        - generic [ref=e337]:
+          - link [ref=e338] [cursor=pointer]:
+            - /url: "#"
+            - img "Amadeireira - Móveis em Madeira Maciça" [ref=e339]
+          - paragraph [ref=e340]: Móveis autorais em madeira maciça, peças de grande porte e projetos sob medida com acabamento nobre para residências e espaços contemporâneos.
+          - generic [ref=e341]:
+            - link "Instagram da Amadeireira" [ref=e342] [cursor=pointer]:
+              - /url: https://www.instagram.com/amadeireira_/
+            - link "WhatsApp da Amadeireira" [ref=e346] [cursor=pointer]:
+              - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20consultor%20da%20Amadeireira.
+              - img "WhatsApp" [ref=e347]
+        - generic [ref=e348]:
+          - heading "Coleções" [level=4] [ref=e349]
+          - list [ref=e350]:
+            - listitem [ref=e351]:
+              - link "Mesa Cascata" [ref=e352] [cursor=pointer]:
+                - /url: "#colecoes"
+            - listitem [ref=e353]:
+              - link "Mesa Prancha" [ref=e354] [cursor=pointer]:
+                - /url: "#colecoes"
+            - listitem [ref=e355]:
+              - link "Mesa Raiz" [ref=e356] [cursor=pointer]:
+                - /url: "#colecoes"
+            - listitem [ref=e357]:
+              - link "Mesa Resina Epóxi" [ref=e358] [cursor=pointer]:
+                - /url: "#colecoes"
+            - listitem [ref=e359]:
+              - link "Catálogo Completo" [ref=e360] [cursor=pointer]:
+                - /url: https://amadereiravendas.vercel.app/#produtos
+        - generic [ref=e365]:
+          - heading "Navegação" [level=4] [ref=e366]
+          - list [ref=e367]:
+            - listitem [ref=e368]:
+              - link "Início" [ref=e369] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e370]:
+              - link "Nossas Linhas" [ref=e371] [cursor=pointer]:
+                - /url: "#colecoes"
+            - listitem [ref=e372]:
+              - link "Projetos & Clientes" [ref=e373] [cursor=pointer]:
+                - /url: "#projetos"
+            - listitem [ref=e374]:
+              - link "Depoimentos" [ref=e375] [cursor=pointer]:
+                - /url: "#depoimentos"
+            - listitem [ref=e376]:
+              - link "Showroom & Mapa" [ref=e377] [cursor=pointer]:
+                - /url: "#localizacao"
+            - listitem [ref=e378]:
+              - link "Institucional" [ref=e379] [cursor=pointer]:
+                - /url: https://amadeireira.com.br
+            - listitem [ref=e380]:
+              - link "Orçar no WhatsApp" [ref=e381] [cursor=pointer]:
+                - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20sob%20medida.
+        - generic [ref=e386]:
+          - heading "Atendimento" [level=4] [ref=e387]
+          - generic [ref=e388]:
+            - paragraph [ref=e389]:
+              - generic [ref=e393]: Rod. José Bonifácio Coutinho Nogueira, KM 12,5 - Joaquim Egídio, Campinas - SP
+            - paragraph [ref=e394]:
+              - link "(19) 98415-3232" [ref=e397] [cursor=pointer]:
+                - /url: tel:19984153232
+            - generic [ref=e402]:
+              - paragraph [ref=e403]: Segunda a Sexta · 08h30 às 17h30
+              - paragraph [ref=e404]: Sábado · 08h30 às 15h00
+      - generic [ref=e405]:
+        - paragraph [ref=e406]: © 2026 Amadeireira. Todos os direitos reservados.
+        - paragraph [ref=e407]:
+          - generic [ref=e408]: Móveis Autorais de Madeira Maciça
+          - generic [ref=e409]: ·
+          - generic [ref=e410]: Entrega Segura para Todo o Brasil
+  - link "Conversar no WhatsApp com a Amadeireira" [ref=e412] [cursor=pointer]:
+    - /url: https://wa.me/5519984153232?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Amadeireira%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.
+    - img "WhatsApp" [ref=e413]
