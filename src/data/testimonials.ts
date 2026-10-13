@@ -15,7 +15,7 @@ export const TESTIMONIALS: Testimonial[] = [
     customerName: 'Rodrigo & Camila Silveira',
     location: 'Campinas / SP',
     projectType: 'Residência Unifamiliar',
-    image: '/images/categories/cascata.jpg',
+    image: '/images/categories/cascata.webp',
     product: 'Mesa Cascata Pequiá 3,20m'
   },
   {
@@ -24,7 +24,7 @@ export const TESTIMONIALS: Testimonial[] = [
     customerName: 'Eduardo M. Prado',
     location: 'Porto Feliz / SP',
     projectType: 'Área Gourmet Fazenda',
-    image: '/images/categories/prancha.jpg',
+    image: '/images/categories/prancha.webp',
     product: 'Mesa Prancha 4,00m'
   },
   {
@@ -33,7 +33,7 @@ export const TESTIMONIALS: Testimonial[] = [
     customerName: 'Arq. Mariana Vasconcellos',
     location: 'São Paulo / SP',
     projectType: 'Projeto de Interiores Residencial',
-    image: '/images/categories/raiz.jpg',
+    image: '/images/categories/raiz.webp',
     product: 'Mesa Raiz com Tampo de Cristal'
   }
 ];

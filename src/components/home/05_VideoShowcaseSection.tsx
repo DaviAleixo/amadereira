@@ -8,9 +8,11 @@ export const VideoShowcaseSection: React.FC = () => {
       {/* 1. Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <img
-          src="/images/backgroundvideo.png"
+          src="/images/backgroundvideo.webp"
           alt="A Madeireira Background Texture"
           className="w-full h-full object-cover object-center"
+          loading="lazy"
+          decoding="async"
         />
         {/* Subtle vignette/contrast overlay */}
         <div className="absolute inset-0 bg-black/25 mix-blend-multiply" />

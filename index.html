@@ -29,13 +29,34 @@
     <link rel="icon" type="image/webp" href="/images/logo.webp" />
     <link rel="apple-touch-icon" href="/images/logo.webp" />
 
-    <!-- Google Fonts: Alfa Slab One + Bebas Neue + Plus Jakarta Sans -->
+    <!-- Resource Hints & Preloads for Instant Paint -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload Critical Above-The-Fold Hero Assets -->
+    <link rel="preload" as="image" href="/images/partedecima.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/partedebaixo.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- Google Fonts: Alfa Slab One + Bebas Neue + Plus Jakarta Sans (Non-blocking) -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">

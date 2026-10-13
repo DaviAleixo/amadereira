@@ -73,9 +73,11 @@ export const RealEnvironmentsSection: React.FC = () => {
       {/* 1. Background Image with backgroundprojetos.png */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <img
-          src="/images/backgroundprojetos.png"
+          src="/images/backgroundprojetos.webp"
           alt="Amadeireira Projetos Background"
           className="w-full h-full object-cover object-center"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 

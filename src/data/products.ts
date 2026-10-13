@@ -89,7 +89,7 @@ export const PRODUCTS: Product[] = [
     description: 'Linhas puras que valorizam a arquitetura do hall de entrada ou living. Fixação invisível de alta resistência e encaixes tradicionais.',
     tag: 'Design Autoral',
     images: [
-      '/images/gallery/aparador-1.jpg',
+      '/images/gallery/aparador-1.webp',
       '/images/img-1.png'
     ],
     featured: true,
@@ -106,8 +106,8 @@ export const PRODUCTS: Product[] = [
     description: 'Duas pranchas espelhadas conectadas por rio de resina epóxi de alta dureza com transparência fumê acetinada e bordas orgânicas externas.',
     tag: 'Edição Especial',
     images: [
-      '/images/gallery/resina-1.jpg',
-      '/images/gallery/macro-1.jpg'
+      '/images/gallery/resina-1.webp',
+      '/images/gallery/macro-1.webp'
     ],
     featured: false,
     catalogUrl: `${CATALOG_BASE_URL}#produtos`,
@@ -123,8 +123,8 @@ export const PRODUCTS: Product[] = [
     description: 'Desenhada especificamente para varandas e espaços gourmet integrados. Tratamento especial hidrorrepelente que preserva os veios dourados da madeira.',
     tag: 'Gourmet',
     images: [
-      '/images/categories/cascata.jpg',
-      '/images/banner3.png'
+      '/images/categories/cascata.webp',
+      '/images/banner3.webp'
     ],
     featured: false,
     catalogUrl: `${CATALOG_BASE_URL}#produtos`,

@@ -8,10 +8,11 @@ export const ProductsCatalogCtaSection: React.FC = () => {
       {/* Background Image Pure without dark effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
-          src="/images/ctaprodutos.png"
+          src="/images/ctaprodutos.webp"
           alt="Textura Amadeireira"
           className="w-full h-full object-cover object-center"
           loading="lazy"
+          decoding="async"
         />
       </div>
 

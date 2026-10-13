@@ -9,9 +9,11 @@ export const Footer: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <img
-          src="/images/backgroundfooter.png"
+          src="/images/backgroundfooter.webp"
           alt="Amadeireira Footer Background"
           className="w-full h-full object-cover object-center"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 

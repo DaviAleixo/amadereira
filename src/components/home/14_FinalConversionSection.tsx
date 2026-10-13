@@ -9,10 +9,11 @@ export const FinalConversionSection: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/categories/prancha.jpg"
+          src="/images/categories/prancha.webp"
           alt="Mesa de madeira maciça Amadeireira"
           className="w-full h-full object-cover object-center opacity-30 scale-105"
           loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0e0805] via-[#0e0805]/80 to-[#0e0805]" />
       </div>
