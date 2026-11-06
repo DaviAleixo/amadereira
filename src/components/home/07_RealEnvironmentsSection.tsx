@@ -56,6 +56,17 @@ export const RealEnvironmentsSection: React.FC = () => {
     });
   };
 
+  const toggleVideo = (id: string) => {
+    if (isDragging.current) return;
+    const v = videoRefs.current[id];
+    if (!v) return;
+    if (v.paused) {
+      v.play();
+    } else {
+      v.pause();
+    }
+  };
+
   // Mouse drag handlers
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollContainerRef.current) return;
@@ -191,7 +202,15 @@ export const RealEnvironmentsSection: React.FC = () => {
                   }
                 }}
                 onEnded={() => setPlayingVideoId(null)}
-                className="w-full h-full object-cover object-center"
+                onClick={() => toggleVideo(item.id)}
+                className="w-full h-full object-cover object-center cursor-pointer"
+              />
+
+              {/* Clickable Area Over Video: Click to pause/resume */}
+              <div
+                onClick={() => toggleVideo(item.id)}
+                className="absolute inset-0 bottom-24 z-10 cursor-pointer"
+                title={playingVideoId === item.id ? "Clique para pausar" : "Clique para continuar"}
               />
 
               {/* Center Play Overlay Button when not playing */}
@@ -201,10 +220,7 @@ export const RealEnvironmentsSection: React.FC = () => {
                   onClick={(e) => {
                     if (isDragging.current) return;
                     e.stopPropagation();
-                    const v = videoRefs.current[item.id];
-                    if (v) {
-                      v.play();
-                    }
+                    toggleVideo(item.id);
                   }}
                   aria-label={`Assistir feedback ${idx + 1}`}
                   className="absolute inset-0 m-auto w-16 h-16 rounded-full bg-black/65 hover:bg-[#be7b4c] text-white hover:text-[#110c09] border border-white/30 hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer z-20 backdrop-blur-sm shadow-2xl"

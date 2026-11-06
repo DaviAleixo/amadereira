@@ -73,6 +73,17 @@ export const VideoShowcaseSection: React.FC = () => {
     });
   };
 
+  const toggleVideo = (id: string) => {
+    if (isDragging.current) return;
+    const v = videoRefs.current[id];
+    if (!v) return;
+    if (v.paused) {
+      v.play();
+    } else {
+      v.pause();
+    }
+  };
+
   // Mouse drag handlers
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollContainerRef.current) return;
@@ -257,11 +268,19 @@ export const VideoShowcaseSection: React.FC = () => {
                         }
                       }}
                       onEnded={() => setPlayingVideoId(null)}
-                      className="w-full h-full object-cover"
+                      onClick={() => toggleVideo(item.id)}
+                      className="w-full h-full object-cover cursor-pointer"
                     >
                       <source src={item.src} type="video/mp4" />
                       Seu navegador não suporta a reprodução deste vídeo.
                     </video>
+
+                    {/* Clickable Area Over Video: Click to pause/resume */}
+                    <div
+                      onClick={() => toggleVideo(item.id)}
+                      className="absolute inset-0 bottom-28 z-10 cursor-pointer"
+                      title={playingVideoId === item.id ? "Clique para pausar" : "Clique para continuar"}
+                    />
 
                     {/* Stylish Play Overlay Button when not playing */}
                     {playingVideoId !== item.id && (
@@ -270,10 +289,7 @@ export const VideoShowcaseSection: React.FC = () => {
                         onClick={(e) => {
                           if (isDragging.current) return;
                           e.stopPropagation();
-                          const v = videoRefs.current[item.id];
-                          if (v) {
-                            v.play();
-                          }
+                          toggleVideo(item.id);
                         }}
                         aria-label={`Assistir ao vídeo ${item.title}`}
                         className="absolute inset-0 flex items-center justify-center bg-black/35 hover:bg-black/15 transition-all cursor-pointer z-20 group/btn"
