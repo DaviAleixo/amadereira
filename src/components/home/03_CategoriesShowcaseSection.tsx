@@ -1,37 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { CATALOG_BASE_URL } from '../../data/products';
 
-interface ShowcaseImage {
+interface ShowcaseMedia {
   src: string;
   alt: string;
+  type?: 'image' | 'video';
+  thumbnail?: string;
 }
 
-const CASCATA_IMAGES: ShowcaseImage[] = [
-  { src: '/images/mesacascata1.webp', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus' },
-  { src: '/images/mesacascata2.webp', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre' },
-  { src: '/images/mesacascata3.webp', alt: 'Mesa Cascata Orgânica em Madeira Maciça' },
-  { src: '/images/mesacascata4.webp', alt: 'Mesa Cascata Monumental sob Medida - Amadeireira' },
+const CASCATA_MEDIA: ShowcaseMedia[] = [
+  {
+    src: '/images/mesacascata.MOV',
+    alt: 'Vídeo Oficial - Mesa Cascata em Madeira Maciça Autoral',
+    type: 'video',
+    thumbnail: '/images/mesacascata1.webp',
+  },
+  { src: '/images/mesacascata1.webp', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
+  { src: '/images/mesacascata2.webp', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
+  { src: '/images/mesacascata3.webp', alt: 'Mesa Cascata Orgânica em Madeira Maciça', type: 'image' },
+  { src: '/images/mesacascata4.webp', alt: 'Mesa Cascata Monumental sob Medida - Amadeireira', type: 'image' },
 ];
 
-const RAIZ_IMAGES: ShowcaseImage[] = [
-  { src: '/images/baseraiz1.webp', alt: 'Base de Mesa Raiz Maciça Orgânica Escultural - Amadeireira' },
-  { src: '/images/baseraiz2.webp', alt: 'Base Raiz Centenária com Acabamento Nobre' },
-  { src: '/images/baseraiz3.webp', alt: 'Escultura Viva em Madeira Maciça - Base Raiz' },
-  { src: '/images/baseraiz4.webp', alt: 'Mesa Base Raiz Autoral Exclusiva sob Medida' },
+const RAIZ_MEDIA: ShowcaseMedia[] = [
+  {
+    src: '/images/baseraiz.mp4',
+    alt: 'Vídeo Oficial - Base de Mesa Raiz Maciça Orgânica Escultural',
+    type: 'video',
+    thumbnail: '/images/baseraiz1.webp',
+  },
+  { src: '/images/baseraiz1.webp', alt: 'Base de Mesa Raiz Maciça Orgânica Escultural - Amadeireira', type: 'image' },
+  { src: '/images/baseraiz2.webp', alt: 'Base Raiz Centenária com Acabamento Nobre', type: 'image' },
+  { src: '/images/baseraiz3.webp', alt: 'Escultura Viva em Madeira Maciça - Base Raiz', type: 'image' },
+  { src: '/images/baseraiz4.webp', alt: 'Mesa Base Raiz Autoral Exclusiva sob Medida', type: 'image' },
 ];
 
-const RESINA_IMAGES: ShowcaseImage[] = [
-  { src: '/images/mesaresinaepoxi1.webp', alt: 'Mesa de Resina Epóxi e Madeira Maciça de Alto Padrão' },
-  { src: '/images/mesaresinaepoxi2.webp', alt: 'Mesa com Resina Epóxi Translúcida e Madeira Selecionada' },
-  { src: '/images/mesaresinaepoxi3.webp', alt: 'Mesa de Jantar com Acabamento em Resina Epóxi' },
-  { src: '/images/mesaresinaepoxi4.webp', alt: 'Mesa Autoral com Efeito Rio em Resina Epóxi' },
+const RESINA_MEDIA: ShowcaseMedia[] = [
+  { src: '/images/mesaresinaepoxi1.webp', alt: 'Mesa de Resina Epóxi e Madeira Maciça de Alto Padrão', type: 'image' },
+  { src: '/images/mesaresinaepoxi2.webp', alt: 'Mesa com Resina Epóxi Translúcida e Madeira Selecionada', type: 'image' },
+  { src: '/images/mesaresinaepoxi3.webp', alt: 'Mesa de Jantar com Acabamento em Resina Epóxi', type: 'image' },
+  { src: '/images/mesaresinaepoxi4.webp', alt: 'Mesa Autoral com Efeito Rio em Resina Epóxi', type: 'image' },
 ];
 
-const PRANCHA_IMAGES: ShowcaseImage[] = [
-  { src: '/images/mesaprancha1.webp', alt: 'Mesa Prancha Maciça com Borda Viva em Madeira Nobre' },
-  { src: '/images/mesaprancha2.webp', alt: 'Mesa Prancha Monumental em Madeira Maciça' },
+const PRANCHA_MEDIA: ShowcaseMedia[] = [
+  { src: '/images/mesaprancha1.webp', alt: 'Mesa Prancha Maciça com Borda Viva em Madeira Nobre', type: 'image' },
+  { src: '/images/mesaprancha2.webp', alt: 'Mesa Prancha Monumental em Madeira Maciça', type: 'image' },
+  { src: '/images/mesaprancha3.webp', alt: 'Mesa Prancha Autoral em Madeira Maciça', type: 'image' },
+];
+
+const ESCULTURA_MEDIA: ShowcaseMedia[] = [
+  { src: '/images/escultura1.jpeg', alt: 'Escultura Autoral em Madeira Maciça Nobre - Amadeireira', type: 'image' },
+  { src: '/images/escultura2.jpeg', alt: 'Escultura Orgânica em Raiz Maciça Centenária', type: 'image' },
+  { src: '/images/escultura3.jpeg', alt: 'Obra de Arte Escultural Exclusiva em Madeira Nobre', type: 'image' },
+  { src: '/images/escultura4.jpeg', alt: 'Escultura Decorativa Monumental em Madeira Maciça', type: 'image' },
 ];
 
 export const CategoriesShowcaseSection: React.FC = () => {
@@ -51,27 +73,31 @@ export const CategoriesShowcaseSection: React.FC = () => {
   const [pranchaIdx, setPranchaIdx] = useState(0);
   const [isPranchaPaused, setIsPranchaPaused] = useState(false);
 
+  // Escultura Queue State
+  const [esculturaIdx, setEsculturaIdx] = useState(0);
+  const [isEsculturaPaused, setIsEsculturaPaused] = useState(false);
+
   // Auto-play timers
   useEffect(() => {
-    if (isCascataPaused) return;
+    if (isCascataPaused || CASCATA_MEDIA[cascataIdx]?.type === 'video') return;
     const timer = setInterval(() => {
-      setCascataIdx((prev) => (prev + 1) % CASCATA_IMAGES.length);
+      setCascataIdx((prev) => (prev + 1) % CASCATA_MEDIA.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [isCascataPaused]);
+  }, [isCascataPaused, cascataIdx]);
 
   useEffect(() => {
-    if (isRaizPaused) return;
+    if (isRaizPaused || RAIZ_MEDIA[raizIdx]?.type === 'video') return;
     const timer = setInterval(() => {
-      setRaizIdx((prev) => (prev + 1) % RAIZ_IMAGES.length);
+      setRaizIdx((prev) => (prev + 1) % RAIZ_MEDIA.length);
     }, 5500);
     return () => clearInterval(timer);
-  }, [isRaizPaused]);
+  }, [isRaizPaused, raizIdx]);
 
   useEffect(() => {
     if (isResinaPaused) return;
     const timer = setInterval(() => {
-      setResinaIdx((prev) => (prev + 1) % RESINA_IMAGES.length);
+      setResinaIdx((prev) => (prev + 1) % RESINA_MEDIA.length);
     }, 5800);
     return () => clearInterval(timer);
   }, [isResinaPaused]);
@@ -79,23 +105,91 @@ export const CategoriesShowcaseSection: React.FC = () => {
   useEffect(() => {
     if (isPranchaPaused) return;
     const timer = setInterval(() => {
-      setPranchaIdx((prev) => (prev + 1) % PRANCHA_IMAGES.length);
+      setPranchaIdx((prev) => (prev + 1) % PRANCHA_MEDIA.length);
     }, 6000);
     return () => clearInterval(timer);
   }, [isPranchaPaused]);
 
+  useEffect(() => {
+    if (isEsculturaPaused) return;
+    const timer = setInterval(() => {
+      setEsculturaIdx((prev) => (prev + 1) % ESCULTURA_MEDIA.length);
+    }, 6200);
+    return () => clearInterval(timer);
+  }, [isEsculturaPaused]);
+
   // Navigation handlers
-  const nextCascata = () => setCascataIdx((prev) => (prev + 1) % CASCATA_IMAGES.length);
-  const prevCascata = () => setCascataIdx((prev) => (prev === 0 ? CASCATA_IMAGES.length - 1 : prev - 1));
+  const nextCascata = () => setCascataIdx((prev) => (prev + 1) % CASCATA_MEDIA.length);
+  const prevCascata = () => setCascataIdx((prev) => (prev === 0 ? CASCATA_MEDIA.length - 1 : prev - 1));
 
-  const nextRaiz = () => setRaizIdx((prev) => (prev + 1) % RAIZ_IMAGES.length);
-  const prevRaiz = () => setRaizIdx((prev) => (prev === 0 ? RAIZ_IMAGES.length - 1 : prev - 1));
+  const nextRaiz = () => setRaizIdx((prev) => (prev + 1) % RAIZ_MEDIA.length);
+  const prevRaiz = () => setRaizIdx((prev) => (prev === 0 ? RAIZ_MEDIA.length - 1 : prev - 1));
 
-  const nextResina = () => setResinaIdx((prev) => (prev + 1) % RESINA_IMAGES.length);
-  const prevResina = () => setResinaIdx((prev) => (prev === 0 ? RESINA_IMAGES.length - 1 : prev - 1));
+  const nextResina = () => setResinaIdx((prev) => (prev + 1) % RESINA_MEDIA.length);
+  const prevResina = () => setResinaIdx((prev) => (prev === 0 ? RESINA_MEDIA.length - 1 : prev - 1));
 
-  const nextPrancha = () => setPranchaIdx((prev) => (prev + 1) % PRANCHA_IMAGES.length);
-  const prevPrancha = () => setPranchaIdx((prev) => (prev === 0 ? PRANCHA_IMAGES.length - 1 : prev - 1));
+  const nextPrancha = () => setPranchaIdx((prev) => (prev + 1) % PRANCHA_MEDIA.length);
+  const prevPrancha = () => setPranchaIdx((prev) => (prev === 0 ? PRANCHA_MEDIA.length - 1 : prev - 1));
+
+  const nextEscultura = () => setEsculturaIdx((prev) => (prev + 1) % ESCULTURA_MEDIA.length);
+  const prevEscultura = () => setEsculturaIdx((prev) => (prev === 0 ? ESCULTURA_MEDIA.length - 1 : prev - 1));
+
+  // Helpers de Renderização de Mídia
+  const renderMainMedia = (item: ShowcaseMedia) => {
+    if (item.type === 'video') {
+      const isMov = item.src.toLowerCase().endsWith('.mov');
+      return (
+        <div className="relative w-full h-full bg-black flex items-center justify-center overflow-hidden">
+          <video
+            key={item.src}
+            src={item.src}
+            title={item.alt}
+            aria-label={item.alt}
+            playsInline
+            controls
+            preload="auto"
+            className="w-full h-full object-contain object-center"
+          >
+            <source src={item.src} type={isMov ? 'video/quicktime' : 'video/mp4'} />
+            <source src={item.src} type="video/mp4" />
+          </video>
+        </div>
+      );
+    }
+
+    return (
+      <img
+        src={item.src}
+        alt={item.alt}
+        draggable={false}
+        className="w-full h-full object-cover object-center pointer-events-none select-none"
+        loading="lazy"
+      />
+    );
+  };
+
+  const renderThumbnail = (item: ShowcaseMedia) => (
+    <div className="relative h-full w-full overflow-hidden bg-[#1c1510]">
+      <img
+        src={item.thumbnail || item.src}
+        alt={item.alt}
+        draggable={false}
+        className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
+      {item.type === 'video' && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none">
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#be7b4c] text-[#141414] flex items-center justify-center shadow-lg">
+            <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current translate-x-0.5" />
+          </div>
+          <div className="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-black/75 backdrop-blur-sm text-[#f3e2ba] text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider flex items-center gap-1 border border-white/10">
+            Vídeo
+          </div>
+        </div>
+      )}
+    </div>
+  );
 
   // Drag handler helper (works on all photos with mouse, pointer and touch)
   const createDragHandler = (onNext: () => void, onPrev: () => void) => {
@@ -141,19 +235,21 @@ export const CategoriesShowcaseSection: React.FC = () => {
   const raizDrag = createDragHandler(nextRaiz, prevRaiz);
   const resinaDrag = createDragHandler(nextResina, prevResina);
   const pranchaDrag = createDragHandler(nextPrancha, prevPrancha);
+  const esculturaDrag = createDragHandler(nextEscultura, prevEscultura);
 
   // Helper to get 3 queue slots
-  const getQueueImages = (images: ShowcaseImage[], current: number) => {
+  const getQueueImages = (images: ShowcaseMedia[], current: number) => {
     const main = images[current % images.length];
     const top = images[(current + 1) % images.length];
     const bottom = images[(current + 2) % images.length];
     return { main, top, bottom };
   };
 
-  const cascataQueue = getQueueImages(CASCATA_IMAGES, cascataIdx);
-  const raizQueue = getQueueImages(RAIZ_IMAGES, raizIdx);
-  const resinaQueue = getQueueImages(RESINA_IMAGES, resinaIdx);
-  const pranchaQueue = getQueueImages(PRANCHA_IMAGES, pranchaIdx);
+  const cascataQueue = getQueueImages(CASCATA_MEDIA, cascataIdx);
+  const raizQueue = getQueueImages(RAIZ_MEDIA, raizIdx);
+  const resinaQueue = getQueueImages(RESINA_MEDIA, resinaIdx);
+  const pranchaQueue = getQueueImages(PRANCHA_MEDIA, pranchaIdx);
+  const esculturaQueue = getQueueImages(ESCULTURA_MEDIA, esculturaIdx);
 
   return (
     <section id="colecoes" className="relative w-full bg-[#f5efe6] text-[#1a1614] py-14 sm:py-18 lg:py-24 overflow-hidden border-t border-[#dfd4c5]">
@@ -186,7 +282,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
             <span className="text-[#be7b4c]">AMBIENTES REAIS.</span>
           </h2>
           <p className="text-[12px] text-[#5c4f42] font-light leading-relaxed max-w-sm text-center">
-            Quatro linhas de mesas em madeira maciça, cada uma com características únicas, pensadas para diferentes estilos e projetos.
+            Linhas exclusivas em madeira maciça e design autoral, cada uma com características únicas, pensadas para diferentes estilos e projetos.
           </p>
         </div>
 
@@ -211,7 +307,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                     <span className="text-[#be7b4c]">AMBIENTES REAIS.</span>
                   </h2>
                   <p className="text-[12px] lg:text-[13px] text-[#5c4f42] font-light leading-relaxed max-w-[270px]">
-                    Quatro linhas exclusivas de mesas em madeira maciça, cada uma com características únicas, pensadas para diferentes estilos e projetos.
+                    Linhas exclusivas em madeira maciça e design autoral, cada uma com características únicas, pensadas para diferentes estilos e projetos.
                   </p>
                 </div>
 
@@ -241,7 +337,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Coluna 2: Fotografia Principal (Slot Grande com Drag) */}
+              {/* Coluna 2: Fotografia/Vídeo Principal (Slot Grande com Drag) */}
               <div 
                 className="relative h-full w-full overflow-hidden bg-[#1c1510] group cursor-grab active:cursor-grabbing select-none touch-pan-y"
                 onMouseEnter={() => setIsCascataPaused(true)}
@@ -249,18 +345,16 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 {...cascataDrag}
               >
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <motion.div
                     key={cascataQueue.main.src}
-                    src={cascataQueue.main.src}
-                    alt={cascataQueue.main.alt}
-                    draggable={false}
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.02 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
-                    className="w-full h-full object-cover object-center pointer-events-none select-none"
-                    loading="lazy"
-                  />
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    className="w-full h-full"
+                  >
+                    {renderMainMedia(cascataQueue.main)}
+                  </motion.div>
                 </AnimatePresence>
               </div>
 
@@ -272,50 +366,44 @@ export const CategoriesShowcaseSection: React.FC = () => {
               >
                 {/* Slot Menor 1 (Topo) - Com Drag e Clique */}
                 <div 
-                  onClick={() => setCascataIdx((prev) => (prev + 1) % CASCATA_IMAGES.length)}
+                  onClick={() => setCascataIdx((prev) => (prev + 1) % CASCATA_MEDIA.length)}
                   className="relative h-full w-full overflow-hidden bg-[#1c1510] group cursor-grab active:cursor-grabbing border border-transparent hover:border-[#be7b4c]/60 transition-all duration-300 select-none touch-pan-y"
                   title="Clique ou arraste para passar as fotos"
                   {...cascataDrag}
                 >
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={cascataQueue.top.src}
-                      src={cascataQueue.top.src}
-                      alt={cascataQueue.top.alt}
-                      draggable={false}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.5 }}
-                      className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
-                      loading="lazy"
-                    />
+                      className="w-full h-full"
+                    >
+                      {renderThumbnail(cascataQueue.top)}
+                    </motion.div>
                   </AnimatePresence>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
                 </div>
 
                 {/* Slot Menor 2 (Base) - Com Drag e Clique */}
                 <div 
-                  onClick={() => setCascataIdx((prev) => (prev + 2) % CASCATA_IMAGES.length)}
+                  onClick={() => setCascataIdx((prev) => (prev + 2) % CASCATA_MEDIA.length)}
                   className="relative h-full w-full overflow-hidden bg-[#1c1510] group cursor-grab active:cursor-grabbing border border-transparent hover:border-[#be7b4c]/60 transition-all duration-300 select-none touch-pan-y"
                   title="Clique ou arraste para passar as fotos"
                   {...cascataDrag}
                 >
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={cascataQueue.bottom.src}
-                      src={cascataQueue.bottom.src}
-                      alt={cascataQueue.bottom.alt}
-                      draggable={false}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.5 }}
-                      className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
-                      loading="lazy"
-                    />
+                      className="w-full h-full"
+                    >
+                      {renderThumbnail(cascataQueue.bottom)}
+                    </motion.div>
                   </AnimatePresence>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
                 </div>
               </div>
             </div>
@@ -326,7 +414,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
               <div />
               <div className="flex items-center justify-between w-full">
                 <div className="text-[11px] font-mono text-[#8c6f56] tracking-wider uppercase font-medium">
-                  {String(cascataIdx + 1).padStart(2, '0')} / {String(CASCATA_IMAGES.length).padStart(2, '0')}
+                  {String(cascataIdx + 1).padStart(2, '0')} / {String(CASCATA_MEDIA.length).padStart(2, '0')}
                 </div>
                 <div className="flex items-center gap-1.5 bg-[#14100c]/90 backdrop-blur-sm p-1 border border-white/10 shadow-md">
                   <button
@@ -380,13 +468,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 className="relative aspect-[16/10] w-full overflow-hidden bg-[#1c1510] select-none touch-pan-y cursor-grab active:cursor-grabbing"
                 {...cascataDrag}
               >
-                <img
-                  src={cascataQueue.main.src}
-                  alt={cascataQueue.main.alt}
-                  draggable={false}
-                  className="w-full h-full object-cover object-center pointer-events-none select-none"
-                  loading="lazy"
-                />
+                {renderMainMedia(cascataQueue.main)}
                 {/* Setas Circulares Brancas Overlay */}
                 <button
                   onClick={(e) => {
@@ -413,30 +495,18 @@ export const CategoriesShowcaseSection: React.FC = () => {
               {/* 2 Fotos Secundárias Lado a Lado */}
               <div className="grid grid-cols-2 gap-2 w-full aspect-[2/1]">
                 <div 
-                  onClick={() => setCascataIdx((prev) => (prev + 1) % CASCATA_IMAGES.length)}
-                  className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y"
+                  onClick={() => setCascataIdx((prev) => (prev + 1) % CASCATA_MEDIA.length)}
+                  className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y group"
                   {...cascataDrag}
                 >
-                  <img
-                    src={cascataQueue.top.src}
-                    alt={cascataQueue.top.alt}
-                    draggable={false}
-                    className="w-full h-full object-cover object-center pointer-events-none select-none"
-                    loading="lazy"
-                  />
+                  {renderThumbnail(cascataQueue.top)}
                 </div>
                 <div 
-                  onClick={() => setCascataIdx((prev) => (prev + 2) % CASCATA_IMAGES.length)}
-                  className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y"
+                  onClick={() => setCascataIdx((prev) => (prev + 2) % CASCATA_MEDIA.length)}
+                  className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y group"
                   {...cascataDrag}
                 >
-                  <img
-                    src={cascataQueue.bottom.src}
-                    alt={cascataQueue.bottom.alt}
-                    draggable={false}
-                    className="w-full h-full object-cover object-center pointer-events-none select-none"
-                    loading="lazy"
-                  />
+                  {renderThumbnail(cascataQueue.bottom)}
                 </div>
               </div>
             </div>
@@ -448,7 +518,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
           <div className="w-full">
             {/* Desktop Layout (Grid 2: Carrossel 68% + Bloco Editorial à Direita 32%) */}
             <div className="showcase-desktop-only showcase-grid-2">
-              {/* Coluna 1: Carrossel da Mesa Raiz com Suporte a Drag em Toda Área */}
+              {/* Coluna 1: Carrossel/Vídeo da Mesa Raiz com Suporte a Drag em Toda Área */}
               <div 
                 className="relative h-full w-full overflow-hidden bg-[#1c1510] group cursor-grab active:cursor-grabbing select-none touch-pan-y"
                 onMouseEnter={() => setIsRaizPaused(true)}
@@ -456,18 +526,16 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 {...raizDrag}
               >
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <motion.div
                     key={raizQueue.main.src}
-                    src={raizQueue.main.src}
-                    alt={raizQueue.main.alt}
-                    draggable={false}
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.02 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
-                    className="w-full h-full object-cover object-center pointer-events-none select-none"
-                    loading="lazy"
-                  />
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    className="w-full h-full"
+                  >
+                    {renderMainMedia(raizQueue.main)}
+                  </motion.div>
                 </AnimatePresence>
               </div>
 
@@ -503,7 +571,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
             <div className="hidden md:grid grid-cols-[68%_32%] gap-4 pt-2.5 items-center">
               <div className="flex items-center justify-end gap-3">
                 <div className="text-[11px] font-mono text-[#8c6f56] tracking-wider uppercase font-medium">
-                  {String(raizIdx + 1).padStart(2, '0')} / {String(RAIZ_IMAGES.length).padStart(2, '0')}
+                  {String(raizIdx + 1).padStart(2, '0')} / {String(RAIZ_MEDIA.length).padStart(2, '0')}
                 </div>
                 <div className="flex items-center gap-1.5 bg-[#14100c]/90 backdrop-blur-sm p-1 border border-white/10 shadow-md">
                   <button
@@ -558,13 +626,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 className="relative aspect-[16/10] w-full overflow-hidden bg-[#1c1510] select-none touch-pan-y cursor-grab active:cursor-grabbing"
                 {...raizDrag}
               >
-                <img
-                  src={raizQueue.main.src}
-                  alt={raizQueue.main.alt}
-                  draggable={false}
-                  className="w-full h-full object-cover object-center pointer-events-none select-none"
-                  loading="lazy"
-                />
+                {renderMainMedia(raizQueue.main)}
                 {/* Setas Circulares Brancas Overlay */}
                 <button
                   onClick={(e) => {
@@ -588,7 +650,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 </button>
                 {/* Dots Pagination */}
                 <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 pointer-events-none z-10">
-                  {RAIZ_IMAGES.map((_, i) => (
+                  {RAIZ_MEDIA.map((_, i) => (
                     <span
                       key={i}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
@@ -665,7 +727,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
               >
                 {/* Slot Menor 1 (Topo) - Com Drag e Clique */}
                 <div 
-                  onClick={() => setResinaIdx((prev) => (prev + 1) % RESINA_IMAGES.length)}
+                  onClick={() => setResinaIdx((prev) => (prev + 1) % RESINA_MEDIA.length)}
                   className="relative h-full w-full overflow-hidden bg-[#1c1510] group cursor-grab active:cursor-grabbing border border-transparent hover:border-[#be7b4c]/60 transition-all duration-300 select-none touch-pan-y"
                   title="Clique ou arraste para passar as fotos"
                   {...resinaDrag}
@@ -689,7 +751,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
 
                 {/* Slot Menor 2 (Base) - Com Drag e Clique */}
                 <div 
-                  onClick={() => setResinaIdx((prev) => (prev + 2) % RESINA_IMAGES.length)}
+                  onClick={() => setResinaIdx((prev) => (prev + 2) % RESINA_MEDIA.length)}
                   className="relative h-full w-full overflow-hidden bg-[#1c1510] group cursor-grab active:cursor-grabbing border border-transparent hover:border-[#be7b4c]/60 transition-all duration-300 select-none touch-pan-y"
                   title="Clique ou arraste para passar as fotos"
                   {...resinaDrag}
@@ -719,7 +781,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
               <div />
               <div className="flex items-center justify-between w-full">
                 <div className="text-[11px] font-mono text-[#8c6f56] tracking-wider uppercase font-medium">
-                  {String(resinaIdx + 1).padStart(2, '0')} / {String(RESINA_IMAGES.length).padStart(2, '0')}
+                  {String(resinaIdx + 1).padStart(2, '0')} / {String(RESINA_MEDIA.length).padStart(2, '0')}
                 </div>
                 <div className="flex items-center gap-1.5 bg-[#14100c]/90 backdrop-blur-sm p-1 border border-white/10 shadow-md">
                   <button
@@ -806,7 +868,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
               {/* 2 Fotos Secundárias Lado a Lado */}
               <div className="grid grid-cols-2 gap-2 w-full aspect-[2/1]">
                 <div 
-                  onClick={() => setResinaIdx((prev) => (prev + 1) % RESINA_IMAGES.length)}
+                  onClick={() => setResinaIdx((prev) => (prev + 1) % RESINA_MEDIA.length)}
                   className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y"
                   {...resinaDrag}
                 >
@@ -819,7 +881,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   />
                 </div>
                 <div 
-                  onClick={() => setResinaIdx((prev) => (prev + 2) % RESINA_IMAGES.length)}
+                  onClick={() => setResinaIdx((prev) => (prev + 2) % RESINA_MEDIA.length)}
                   className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y"
                   {...resinaDrag}
                 >
@@ -896,7 +958,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
             <div className="hidden md:grid grid-cols-[68%_32%] gap-4 pt-2.5 items-center">
               <div className="flex items-center justify-end gap-3">
                 <div className="text-[11px] font-mono text-[#8c6f56] tracking-wider uppercase font-medium">
-                  {String(pranchaIdx + 1).padStart(2, '0')} / {String(PRANCHA_IMAGES.length).padStart(2, '0')}
+                  {String(pranchaIdx + 1).padStart(2, '0')} / {String(PRANCHA_MEDIA.length).padStart(2, '0')}
                 </div>
                 <div className="flex items-center gap-1.5 bg-[#14100c]/90 backdrop-blur-sm p-1 border border-white/10 shadow-md">
                   <button
@@ -981,7 +1043,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 </button>
                 {/* Dots Pagination */}
                 <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 pointer-events-none z-10">
-                  {PRANCHA_IMAGES.map((_, i) => (
+                  {PRANCHA_MEDIA.map((_, i) => (
                     <span
                       key={i}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
@@ -989,6 +1051,240 @@ export const CategoriesShowcaseSection: React.FC = () => {
                       }`}
                     />
                   ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ------------------------------------------------------------ */}
+          {/* SEÇÃO 05 — ESCULTURAS (Layout 3 Colunas: 22% | 56% | 22%)     */}
+          {/* ------------------------------------------------------------ */}
+          <div className="w-full">
+            {/* Desktop Layout (Grid 3) */}
+            <div className="showcase-desktop-only showcase-grid-3">
+              {/* Coluna 1: Bloco Editorial 05 */}
+              <div className="flex flex-col justify-center pr-4 lg:pr-6 text-left h-full">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="w-5 h-[2px] bg-[#be7b4c]" />
+                    <span className="text-[11px] font-bold text-[#be7b4c] uppercase tracking-widest font-mono">05</span>
+                  </div>
+                  <h3 className="font-slab text-xl lg:text-2xl text-[#1a1614] uppercase leading-[0.98] tracking-tight">
+                    ESCULTURAS <span className="text-[#be7b4c] block mt-0.5">AUTORAIS</span>
+                  </h3>
+                  <p className="text-[12px] lg:text-[13px] text-[#5c4f42] font-light leading-relaxed max-w-[250px]">
+                    Peças de arte orgânicas lapidadas a partir de madeiras nobres e raízes centenárias. Obras exclusivas que conferem imponência e alma a ambientes sofisticados.
+                  </p>
+                  <div className="pt-1">
+                    <a
+                      href={`${CATALOG_BASE_URL}#produtos`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
+                    >
+                      <span>VER TODOS OS MODELOS</span>
+                      <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Coluna 2: Fotografia Principal Panorâmica (Slot Grande com Drag) */}
+              <div 
+                className="relative h-full w-full overflow-hidden bg-[#1c1510] group cursor-grab active:cursor-grabbing select-none touch-pan-y"
+                onMouseEnter={() => setIsEsculturaPaused(true)}
+                onMouseLeave={() => setIsEsculturaPaused(false)}
+                {...esculturaDrag}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={esculturaQueue.main.src}
+                    src={esculturaQueue.main.src}
+                    alt={esculturaQueue.main.alt}
+                    draggable={false}
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.02 }}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                    className="w-full h-full object-cover object-center pointer-events-none select-none"
+                    loading="lazy"
+                  />
+                </AnimatePresence>
+              </div>
+
+              {/* Coluna 3: Duas Fotografias Empilhadas da Fila com Drag */}
+              <div 
+                className="showcase-subgrid-2rows relative"
+                onMouseEnter={() => setIsEsculturaPaused(true)}
+                onMouseLeave={() => setIsEsculturaPaused(false)}
+              >
+                {/* Slot Menor 1 (Topo) - Com Drag e Clique */}
+                <div 
+                  onClick={() => setEsculturaIdx((prev) => (prev + 1) % ESCULTURA_MEDIA.length)}
+                  className="relative h-full w-full overflow-hidden bg-[#1c1510] group cursor-grab active:cursor-grabbing border border-transparent hover:border-[#be7b4c]/60 transition-all duration-300 select-none touch-pan-y"
+                  title="Clique ou arraste para passar as fotos"
+                  {...esculturaDrag}
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={esculturaQueue.top.src}
+                      src={esculturaQueue.top.src}
+                      alt={esculturaQueue.top.alt}
+                      draggable={false}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
+                      loading="lazy"
+                    />
+                  </AnimatePresence>
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
+                </div>
+
+                {/* Slot Menor 2 (Base) - Com Drag e Clique */}
+                <div 
+                  onClick={() => setEsculturaIdx((prev) => (prev + 2) % ESCULTURA_MEDIA.length)}
+                  className="relative h-full w-full overflow-hidden bg-[#1c1510] group cursor-grab active:cursor-grabbing border border-transparent hover:border-[#be7b4c]/60 transition-all duration-300 select-none touch-pan-y"
+                  title="Clique ou arraste para passar as fotos"
+                  {...esculturaDrag}
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={esculturaQueue.bottom.src}
+                      src={esculturaQueue.bottom.src}
+                      alt={esculturaQueue.bottom.alt}
+                      draggable={false}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
+                      loading="lazy"
+                    />
+                  </AnimatePresence>
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
+                </div>
+              </div>
+            </div>
+
+            {/* BARRA DE CONTROLE / SETAS ABAIXO DA COLUNA DIREITA */}
+            <div className="hidden md:grid grid-cols-[22%_56%_22%] gap-2 pt-2.5 items-center">
+              <div />
+              <div />
+              <div className="flex items-center justify-between w-full">
+                <div className="text-[11px] font-mono text-[#8c6f56] tracking-wider uppercase font-medium">
+                  {String(esculturaIdx + 1).padStart(2, '0')} / {String(ESCULTURA_MEDIA.length).padStart(2, '0')}
+                </div>
+                <div className="flex items-center gap-1.5 bg-[#14100c]/90 backdrop-blur-sm p-1 border border-white/10 shadow-md">
+                  <button
+                    onClick={prevEscultura}
+                    aria-label="Escultura anterior"
+                    className="w-7 h-7 rounded-none bg-[#241c16] hover:bg-[#be7b4c] text-white hover:text-[#141414] flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    onClick={nextEscultura}
+                    aria-label="Próxima foto de Escultura"
+                    className="w-7 h-7 rounded-none bg-[#be7b4c] hover:bg-[#d49a6a] text-[#141414] flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95 font-bold"
+                  >
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Layout */}
+            <div className="showcase-mobile-only space-y-3 text-center">
+              {/* Header do Item 05 */}
+              <div className="space-y-1.5 flex flex-col items-center text-center">
+                <div className="flex items-center justify-center gap-2">
+                  <span className="w-4 h-[2px] bg-[#be7b4c]" />
+                  <span className="text-[11px] font-bold text-[#be7b4c] uppercase tracking-widest font-mono">05</span>
+                  <span className="w-4 h-[2px] bg-[#be7b4c]" />
+                </div>
+                <h3 className="font-slab text-xl text-[#1a1614] uppercase leading-none text-center">
+                  ESCULTURAS <span className="text-[#be7b4c]">AUTORAIS</span>
+                </h3>
+                <p className="text-[11.5px] text-[#5c4f42] font-light leading-relaxed max-w-sm text-center">
+                  Peças de arte únicas lapidadas em madeira nobre e raiz, unindo beleza orgânica e acabamento refinado.
+                </p>
+                <div className="pt-0.5 flex justify-center">
+                  <a
+                    href={`${CATALOG_BASE_URL}#produtos`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors pb-0.5 border-b border-[#be7b4c]/40"
+                  >
+                    <span>VER TODOS OS MODELOS</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Foto Principal Mobile com Setas Circulares Brancas */}
+              <div 
+                className="relative aspect-[16/10] w-full overflow-hidden bg-[#1c1510] select-none touch-pan-y cursor-grab active:cursor-grabbing"
+                {...esculturaDrag}
+              >
+                <img
+                  src={esculturaQueue.main.src}
+                  alt={esculturaQueue.main.alt}
+                  draggable={false}
+                  className="w-full h-full object-cover object-center pointer-events-none select-none"
+                  loading="lazy"
+                />
+                {/* Setas Circulares Brancas Overlay */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevEscultura();
+                  }}
+                  aria-label="Foto anterior"
+                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/95 text-[#1a1614] shadow-md flex items-center justify-center cursor-pointer active:scale-90 transition-transform z-10"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    nextEscultura();
+                  }}
+                  aria-label="Próxima foto"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/95 text-[#1a1614] shadow-md flex items-center justify-center cursor-pointer active:scale-90 transition-transform z-10"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* 2 Fotos Secundárias Lado a Lado */}
+              <div className="grid grid-cols-2 gap-2 w-full aspect-[2/1]">
+                <div 
+                  onClick={() => setEsculturaIdx((prev) => (prev + 1) % ESCULTURA_MEDIA.length)}
+                  className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y"
+                  {...esculturaDrag}
+                >
+                  <img
+                    src={esculturaQueue.top.src}
+                    alt={esculturaQueue.top.alt}
+                    draggable={false}
+                    className="w-full h-full object-cover object-center pointer-events-none select-none"
+                    loading="lazy"
+                  />
+                </div>
+                <div 
+                  onClick={() => setEsculturaIdx((prev) => (prev + 2) % ESCULTURA_MEDIA.length)}
+                  className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y"
+                  {...esculturaDrag}
+                >
+                  <img
+                    src={esculturaQueue.bottom.src}
+                    alt={esculturaQueue.bottom.alt}
+                    draggable={false}
+                    className="w-full h-full object-cover object-center pointer-events-none select-none"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>

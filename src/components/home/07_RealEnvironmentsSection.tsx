@@ -1,10 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Play, X, ArrowUpRight } from 'lucide-react';
-import { REAL_PROJECTS } from '../../data/projects';
+import { ChevronLeft, ChevronRight, Play, ArrowUpRight } from 'lucide-react';
 import { WHATSAPP_BASE_URL } from '../../data/products';
+
+interface FeedbackVideo {
+  id: string;
+  src: string;
+}
+
+const FEEDBACK_VIDEOS: FeedbackVideo[] = [
+  { id: '1', src: '/feedbacks/feedback1.mp4' },
+  { id: '2', src: '/feedbacks/feedback2.mp4' },
+  { id: '3', src: '/feedbacks/feedback3.mp4' },
+  { id: '4', src: '/feedbacks/feedback4.mp4' },
+];
 
 export const RealEnvironmentsSection: React.FC = () => {
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
+  const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -32,6 +44,15 @@ export const RealEnvironmentsSection: React.FC = () => {
     scrollContainerRef.current.scrollBy({
       left: direction === 'left' ? -offset : offset,
       behavior: 'smooth'
+    });
+  };
+
+  const handlePlay = (id: string) => {
+    setPlayingVideoId(id);
+    Object.entries(videoRefs.current).forEach(([k, v]) => {
+      if (k !== id && v && !v.paused) {
+        v.pause();
+      }
     });
   };
 
@@ -70,6 +91,9 @@ export const RealEnvironmentsSection: React.FC = () => {
       className="relative w-full py-16 sm:py-24 overflow-hidden scroll-mt-20"
     >
       <div id="depoimentos" className="absolute top-0 -translate-y-20 pointer-events-none" />
+      <div id="feedback" className="absolute top-0 -translate-y-20 pointer-events-none" />
+      <div id="feedbacks" className="absolute top-0 -translate-y-20 pointer-events-none" />
+
       {/* 1. Background Image with backgroundprojetos.png */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <img
@@ -89,15 +113,15 @@ export const RealEnvironmentsSection: React.FC = () => {
             <div className="flex items-center justify-center lg:justify-start gap-2">
               <span className="w-5 h-[1.5px] bg-[#9e5d2b]" />
               <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#9e5d2b]">
-                AMBIENTES REAIS & CLIENTES
+                FEEDBACKS REAIS & CLIENTES
               </span>
               <span className="w-5 h-[1.5px] bg-[#9e5d2b] lg:hidden" />
             </div>
             <h2 className="font-slab text-3xl sm:text-4xl lg:text-[42px] text-[#120e0b] uppercase tracking-tight leading-[1.05]">
-              PROJETOS & DEPOIMENTOS
+              DEPOIMENTOS & FEEDBACKS
             </h2>
             <p className="text-xs sm:text-sm text-[#5c4f42] font-normal leading-relaxed pt-1 max-w-xl">
-              Mais do que móveis, entregamos histórias. Veja como nossos clientes transformaram seus espaços com a qualidade da nossa madeira.
+              Mais do que móveis, entregamos histórias e satisfação real. Veja os relatos de quem transformou seus ambientes com a Amadeireira.
             </p>
           </div>
 
@@ -146,86 +170,65 @@ export const RealEnvironmentsSection: React.FC = () => {
           className="flex gap-5 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 cursor-grab active:cursor-grabbing select-none"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {REAL_PROJECTS.map((project) => (
+          {FEEDBACK_VIDEOS.map((item, idx) => (
             <article
-              key={project.id}
-              className="relative shrink-0 w-[300px] sm:w-[350px] lg:w-[370px] aspect-[3/4.2] bg-[#110c09] rounded-none overflow-hidden snap-start group border border-[#2a2018] select-none shadow-2xl"
+              key={item.id}
+              className="relative shrink-0 w-[270px] sm:w-[310px] lg:w-[330px] aspect-[9/16] bg-black rounded-none overflow-hidden snap-start group border border-[#2a2018] select-none shadow-2xl flex flex-col justify-between"
             >
-              {playingVideoId === project.id ? (
-                <div className="relative w-full h-full bg-black">
-                  <iframe
-                    src={`${project.videoUrl || 'https://www.youtube-nocookie.com/embed/sAVHpVLfgng'}?autoplay=1&rel=0&modestbranding=1`}
-                    title={`${project.client} - ${project.piece}`}
-                    className="w-full h-full border-0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setPlayingVideoId(null);
-                    }}
-                    aria-label="Fechar vídeo"
-                    className="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-black/85 hover:bg-[#be7b4c] text-white hover:text-[#110c09] flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-              ) : (
-                <>
-                  {/* Image Visual */}
-                  <img
-                    src={project.image}
-                    alt={`${project.title} - ${project.piece}`}
-                    className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
-                    loading="lazy"
-                    draggable={false}
-                  />
+              {/* Native Video Player */}
+              <video
+                ref={(el) => {
+                  videoRefs.current[item.id] = el;
+                }}
+                src={item.src}
+                playsInline
+                preload="metadata"
+                controls={playingVideoId === item.id}
+                onPlay={() => handlePlay(item.id)}
+                onPause={() => {
+                  if (playingVideoId === item.id) {
+                    setPlayingVideoId(null);
+                  }
+                }}
+                onEnded={() => setPlayingVideoId(null)}
+                className="w-full h-full object-cover object-center"
+              />
 
-                  {/* Video Play Button (center) */}
-                  <button
-                    onClick={(e) => {
-                      if (isDragging.current) return;
-                      e.stopPropagation();
-                      setPlayingVideoId(project.id);
-                    }}
-                    aria-label={`Assistir vídeo de ${project.client}`}
-                    className="absolute inset-0 m-auto w-16 h-16 rounded-full bg-black/75 hover:bg-[#be7b4c] text-white hover:text-[#110c09] border border-white/20 hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer z-20 backdrop-blur-sm shadow-2xl"
-                  >
-                    <Play className="w-6 h-6 fill-current translate-x-0.5" />
-                  </button>
-
-                  {/* Bottom Card Content with dark gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent flex flex-col justify-end p-5 text-white text-left z-10 pointer-events-none">
-                    <div className="space-y-1">
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-[#d49a6a] font-extrabold block">
-                        {project.client}
-                      </span>
-
-                      <h3 className="font-slab text-lg sm:text-xl text-white uppercase leading-tight font-normal">
-                        {project.piece}
-                      </h3>
-
-                      {/* Botão Solicitar Projeto no WhatsApp */}
-                      <div className="pt-2">
-                        <a
-                          href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20projeto%20sob%20medida%20inspirado%20no%20${encodeURIComponent(project.title)}%20(${encodeURIComponent(project.piece)}).`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => {
-                            if (isDragging.current) e.preventDefault();
-                            e.stopPropagation();
-                          }}
-                          className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-none bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bebas font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-md active:scale-95 pointer-events-auto"
-                        >
-                          <img src="/images/wpp.png" alt="WhatsApp" className="w-3.5 h-3.5 object-contain brightness-0" />
-                          <span>Solicitar Projeto</span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </>
+              {/* Center Play Overlay Button when not playing */}
+              {playingVideoId !== item.id && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    if (isDragging.current) return;
+                    e.stopPropagation();
+                    const v = videoRefs.current[item.id];
+                    if (v) {
+                      v.play();
+                    }
+                  }}
+                  aria-label={`Assistir feedback ${idx + 1}`}
+                  className="absolute inset-0 m-auto w-16 h-16 rounded-full bg-black/65 hover:bg-[#be7b4c] text-white hover:text-[#110c09] border border-white/30 hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer z-20 backdrop-blur-sm shadow-2xl"
+                >
+                  <Play className="w-6 h-6 fill-current translate-x-0.5" />
+                </button>
               )}
+
+              {/* Bottom Card Content: APENAS o Botão de Solicitar como solicitado */}
+              <div className="absolute inset-x-0 bottom-0 p-4 z-20 bg-gradient-to-t from-black via-black/80 to-transparent pt-12 pointer-events-none">
+                <a
+                  href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Vi%20os%20feedbacks%20no%20site%20da%20Amadeireira%20e%20gostaria%20de%20solicitar%20um%20projeto%20sob%20medida.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (isDragging.current) e.preventDefault();
+                    e.stopPropagation();
+                  }}
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-none bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-md active:scale-95 pointer-events-auto"
+                >
+                  <img src="/images/wpp.png" alt="WhatsApp" className="w-3.5 h-3.5 object-contain brightness-0" />
+                  <span>Solicitar Projeto</span>
+                </a>
+              </div>
             </article>
           ))}
         </div>
