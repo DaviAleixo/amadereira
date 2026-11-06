@@ -55,7 +55,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
   const mainPhoto = slot1;
 
   return (
-    <section id="estrutura" className="relative w-full py-20 sm:py-28 overflow-hidden bg-[#0f0f0f] border-t border-[#be7b4c]/20 text-[#f3e2ba]">
+    <section id="estrutura" className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden bg-[#0f0f0f] border-t border-[#be7b4c]/20 text-[#f3e2ba] py-8 sm:py-10 lg:py-10">
       {/* Background Image - exatamente o mesmo fundo do Footer */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <img
@@ -69,21 +69,21 @@ export const ProductionEnvironmentSection: React.FC = () => {
 
       <div className="container-editorial relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         {/* Header da Seção */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 sm:mb-12 gap-6">
-          <div className="space-y-3 max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-5 sm:mb-6 gap-4">
+          <div className="space-y-1.5 max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
             <div className="flex items-center justify-center lg:justify-start gap-2">
               <span className="w-5 h-[1.5px] bg-[#be7b4c]" />
-              <span className="text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-[#be7b4c]">
+              <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-[#be7b4c]">
                 BASTIDORES & ESTRUTURA PRÓPRIA
               </span>
               <span className="w-5 h-[1.5px] bg-[#be7b4c] lg:hidden" />
             </div>
 
-            <h2 className="font-slab text-3xl sm:text-4xl lg:text-[42px] text-[#f3e2ba] uppercase tracking-tight leading-[1.08]">
+            <h2 className="font-slab text-2xl sm:text-3xl lg:text-[34px] text-[#f3e2ba] uppercase tracking-tight leading-[1.08]">
               ONDE CADA PEÇA <span className="text-[#be7b4c]">GANHA VIDA</span>
             </h2>
 
-            <p className="text-xs sm:text-sm text-[#f3e2ba]/80 font-light leading-relaxed max-w-xl">
+            <p className="text-xs sm:text-[13px] text-[#f3e2ba]/80 font-light leading-relaxed max-w-xl">
               Aqui não terceirizamos o cuidado. Da seleção de pranchas brutas monumentais ao corte, 
               lixamento e acabamento minucioso, conheça nosso espaço de produção.
             </p>
@@ -91,37 +91,37 @@ export const ProductionEnvironmentSection: React.FC = () => {
 
           {/* Controles de Navegação (Igual ao componente de vitrine de produtos) */}
           <div className="flex items-center justify-center lg:justify-end gap-3 self-center lg:self-end">
-            <div className="text-[12px] font-mono text-[#be7b4c] tracking-widest uppercase font-bold">
+            <div className="text-[11px] font-mono text-[#be7b4c] tracking-widest uppercase font-bold">
               {String(activeIdx + 1).padStart(2, '0')} / {String(AMBIENTE_PHOTOS.length).padStart(2, '0')}
             </div>
 
-            <div className="flex items-center gap-1.5 bg-[#14100c]/90 backdrop-blur-sm p-1 border border-white/10 shadow-md">
+            <div className="flex items-center gap-1 bg-[#14100c]/90 backdrop-blur-sm p-1 border border-white/10 shadow-md">
               <button
                 type="button"
                 onClick={prevPhoto}
                 aria-label="Foto anterior"
-                className="w-8 h-8 rounded-none bg-[#241c16] hover:bg-[#be7b4c] text-white hover:text-[#141414] flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95"
+                className="w-7 h-7 rounded-none bg-[#241c16] hover:bg-[#be7b4c] text-white hover:text-[#141414] flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-3.5 h-3.5" />
               </button>
               <button
                 type="button"
                 onClick={nextPhoto}
                 aria-label="Próxima foto"
-                className="w-8 h-8 rounded-none bg-[#be7b4c] hover:bg-[#d49a6a] text-[#141414] flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95 font-bold"
+                className="w-7 h-7 rounded-none bg-[#be7b4c] hover:bg-[#d49a6a] text-[#141414] flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95 font-bold"
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* 1. DESKTOP: Bento Grid Clássico (2+1 e 1+2) com rotação suave ao clicar nas setas */}
-        <div className="hidden lg:grid grid-cols-3 gap-5 select-none">
+        {/* 1. DESKTOP: Bento Grid Clássico (2+1 e 1+2) com proporção otimizada para 100% da tela */}
+        <div className="hidden lg:grid grid-cols-3 gap-3.5 sm:gap-4 select-none">
           {/* Card 1: Grande (2 Colunas) */}
           <div 
             onClick={nextPhoto}
-            className="col-span-2 h-[380px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
+            className="col-span-2 h-[235px] xl:h-[255px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
             title="Clique para avançar"
           >
             <AnimatePresence mode="wait">
@@ -132,7 +132,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.35 }}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 loading="eager"
               />
@@ -142,7 +142,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
           {/* Card 2: Menor (1 Coluna) */}
           <div 
             onClick={nextPhoto}
-            className="col-span-1 h-[380px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
+            className="col-span-1 h-[235px] xl:h-[255px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
             title="Clique para avançar"
           >
             <AnimatePresence mode="wait">
@@ -153,7 +153,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.35 }}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 loading="lazy"
               />
@@ -163,7 +163,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
           {/* Card 3: Menor (1 Coluna) */}
           <div 
             onClick={nextPhoto}
-            className="col-span-1 h-[380px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
+            className="col-span-1 h-[235px] xl:h-[255px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
             title="Clique para avançar"
           >
             <AnimatePresence mode="wait">
@@ -174,7 +174,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.35 }}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 loading="lazy"
               />
@@ -184,7 +184,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
           {/* Card 4: Grande (2 Colunas) */}
           <div 
             onClick={nextPhoto}
-            className="col-span-2 h-[380px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
+            className="col-span-2 h-[235px] xl:h-[255px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
             title="Clique para avançar"
           >
             <AnimatePresence mode="wait">
@@ -195,7 +195,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.35 }}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 loading="lazy"
               />
@@ -212,7 +212,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
         >
           <div 
             onClick={nextPhoto}
-            className="relative aspect-[16/11] sm:aspect-[16/10] w-full overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-2xl cursor-pointer"
+            className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-2xl cursor-pointer"
             title="Toque ou deslize para passar a foto"
           >
             <AnimatePresence mode="wait">
@@ -232,15 +232,15 @@ export const ProductionEnvironmentSection: React.FC = () => {
         </div>
 
         {/* Rodapé da Seção com Convite & WhatsApp */}
-        <div className="flex flex-col sm:flex-row items-center justify-between pt-8 sm:pt-10 mt-6 sm:mt-8 border-t border-[#be7b4c]/20 gap-4">
-          <p className="text-xs sm:text-sm text-[#f3e2ba]/80 font-light text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row items-center justify-between pt-4 sm:pt-5 mt-4 sm:mt-5 border-t border-[#be7b4c]/20 gap-3">
+          <p className="text-[11.5px] sm:text-xs text-[#f3e2ba]/80 font-light text-center sm:text-left">
             Gostaria de conhecer nosso estoque e escolher pessoalmente a prancha do seu projeto? Nossas portas estão abertas.
           </p>
           <a
             href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Vi%20as%20fotos%20da%20estrutura%20da%20Amadeireira%20no%20site%20e%20gostaria%20de%20agendar%20uma%20visita.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-lg active:scale-95 shrink-0 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-[11px] uppercase tracking-wider transition-all duration-300 shadow-md active:scale-95 shrink-0 w-full sm:w-auto"
           >
             <span>Agendar Visita à Estrutura</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
