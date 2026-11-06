@@ -7,31 +7,27 @@ interface ShowcaseVideo {
   id: string;
   title: string;
   subtitle: string;
-  tag: string;
   src: string;
 }
 
 const SHOWCASE_VIDEOS: ShowcaseVideo[] = [
   {
+    id: 'confiar',
+    title: 'Por Que Confiar',
+    subtitle: 'Segurança & Origem Legal',
+    src: '/images/confiar.mp4',
+  },
+  {
     id: 'diferencial',
     title: 'Nossos Diferenciais',
     subtitle: 'Exclusividade & Mestria Autoral',
-    tag: 'Diferenciais',
     src: '/images/diferencial.mp4',
   },
   {
     id: 'vendameio',
     title: 'Processo & Atendimento',
     subtitle: 'Cuidado do Início ao Fim',
-    tag: 'VD09 - Venda Meio',
     src: '/images/vendameio.mp4',
-  },
-  {
-    id: 'confiar',
-    title: 'Por Que Confiar',
-    subtitle: 'Segurança & Origem Legal',
-    tag: 'Institucional',
-    src: '/images/confiar.mp4',
   },
 ];
 
@@ -246,13 +242,6 @@ export const VideoShowcaseSection: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     className="relative z-10 w-full aspect-[9/16] rounded-none overflow-hidden border-2 border-[#be7b4c] bg-[#1a1410] shadow-[0_30px_60px_rgba(0,0,0,0.9)] group flex flex-col justify-between"
                   >
-                    {/* Top Tag Badge */}
-                    <div className="absolute top-3 left-3 z-20 pointer-events-none">
-                      <span className="px-2.5 py-1 bg-black/75 backdrop-blur-md border border-[#be7b4c]/60 text-[#f3e2ba] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider shadow-md">
-                        {item.tag}
-                      </span>
-                    </div>
-
                     {/* Native Video Player */}
                     <video
                       ref={(el) => {
