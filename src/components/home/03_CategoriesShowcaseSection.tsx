@@ -12,7 +12,7 @@ interface ShowcaseMedia {
 
 const CASCATA_MEDIA: ShowcaseMedia[] = [
   {
-    src: '/images/mesacascata.MOV',
+    src: '/images/mesacascata.mp4',
     alt: 'Vídeo Oficial - Mesa Cascata em Madeira Maciça Autoral',
     type: 'video',
     thumbnail: '/images/mesacascata1.webp',

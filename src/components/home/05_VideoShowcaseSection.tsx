@@ -124,8 +124,7 @@ export const VideoShowcaseSection: React.FC = () => {
                   onPause={() => setIsPlaying(false)}
                   className="w-full h-full object-cover"
                 >
-                  <source src="/images/confiar.MOV" type="video/mp4" />
-                  <source src="/images/confiar.MOV" type="video/quicktime" />
+                  <source src="/images/confiar.mp4" type="video/mp4" />
                   Seu navegador não suporta a reprodução deste vídeo.
                 </video>
 
