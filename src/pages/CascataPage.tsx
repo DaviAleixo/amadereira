@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, MessageCircle, ArrowUpRight, Compass, ShieldCheck, Sparkles } from 'lucide-react';
-import { CATALOG_BASE_URL, buildWhatsAppUrl, PRODUCTS } from '../data/products';
+import { buildWhatsAppUrl, PRODUCTS } from '../data/products';
 
 export const CascataPage: React.FC = () => {
   const cascataProducts = PRODUCTS.filter(p => p.category === 'mesas-cascata');
@@ -32,12 +32,12 @@ export const CascataPage: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
             <a
-              href={`${CATALOG_BASE_URL}#produtos`}
+              href={buildWhatsAppUrl('Olá! Gostaria de consultar modelos e medidas de Mesa Cascata no WhatsApp.')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#be7b4c] hover:bg-[#a76538] text-[#141414] font-bebas text-sm uppercase tracking-wider rounded transition-all shadow-xl hover:scale-[1.02] active:scale-95 font-bold"
             >
-              <span>Ver Cascatas no Catálogo</span>
+              <span>Consultar Cascatas no WhatsApp</span>
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -96,12 +96,12 @@ export const CascataPage: React.FC = () => {
               </h2>
             </div>
             <a
-              href={`${CATALOG_BASE_URL}#produtos`}
+              href={buildWhatsAppUrl('Olá! Gostaria de ver o acervo completo de Mesas Cascata no WhatsApp.')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-bebas text-sm uppercase tracking-wider text-[#be7b4c] hover:text-[#f3e2ba]"
             >
-              <span>Ver acervo completo</span>
+              <span>Ver acervo no WhatsApp</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
@@ -136,23 +136,15 @@ export const CascataPage: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="pt-6 border-t border-[#be7b4c]/20 flex items-center justify-between gap-4">
-                    <a
-                      href={product.catalogUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bebas text-sm uppercase tracking-wider text-[#dcd0ba] hover:text-[#f3e2ba] inline-flex items-center gap-1"
-                    >
-                      <span>Catálogo</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
+                  <div className="pt-6 border-t border-[#be7b4c]/20">
                     <a
                       href={buildWhatsAppUrl(product.whatsappMessage)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a76538] text-[#141414] font-bebas text-sm uppercase tracking-wider rounded transition-all shadow-md active:scale-95 font-bold"
+                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#be7b4c] hover:bg-[#a76538] text-[#141414] font-bebas text-sm uppercase tracking-wider rounded transition-all shadow-md active:scale-95 font-bold"
                     >
-                      Consultar Disponibilidade
+                      <span>Consultar Disponibilidade no WhatsApp</span>
+                      <ArrowRight className="w-4 h-4" />
                     </a>
                   </div>
                 </div>

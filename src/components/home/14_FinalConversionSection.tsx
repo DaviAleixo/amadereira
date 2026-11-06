@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle } from 'lucide-react';
-import { WHATSAPP_BASE_URL, CATALOG_BASE_URL } from '../../data/products';
+import { WHATSAPP_BASE_URL } from '../../data/products';
 
 export const FinalConversionSection: React.FC = () => {
   return (
@@ -35,7 +35,7 @@ export const FinalConversionSection: React.FC = () => {
             <em className="font-serif italic font-normal text-[#d49a6a]">pode estar aqui.</em>
           </h2>
           <p className="text-sm sm:text-base text-[#f5ede3]/85 max-w-xl mx-auto leading-relaxed">
-            Descubra as peças disponíveis no catálogo ou envie as medidas do seu projeto para um orçamento sob medida no WhatsApp.
+            Descubra as peças exclusivas da Amadeireira ou envie as medidas do seu projeto para um orçamento sob medida no WhatsApp.
           </p>
         </motion.div>
 
@@ -47,12 +47,12 @@ export const FinalConversionSection: React.FC = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
         >
           <a
-            href={`${CATALOG_BASE_URL}#produtos`}
+            href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Gostaria%20de%20ver%20as%20pe%C3%A7as%20dispon%C3%ADveis%20no%20WhatsApp.`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#be7b4c] hover:bg-[#a6653b] text-[#0e0805] font-black text-xs uppercase tracking-wider rounded transition-all duration-300 shadow-2xl shadow-[#be7b4c]/30 hover:scale-[1.02] active:scale-95 group text-center"
           >
-            <span>Ver Peças Disponíveis</span>
+            <span>Ver Peças no WhatsApp</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
 

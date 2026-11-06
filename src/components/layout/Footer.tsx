@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, MapPin, Clock, Phone } from 'lucide-react';
 import { InstagramIcon } from '../ui/Icons';
-import { WHATSAPP_BASE_URL, CATALOG_BASE_URL } from '../../data/products';
+import { WHATSAPP_BASE_URL } from '../../data/products';
 
 export const Footer: React.FC = () => {
   return (
@@ -83,12 +83,12 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href={`${CATALOG_BASE_URL}#produtos`}
+                  href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20pe%C3%A7as%20da%20Amadeireira.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#f3e2ba] inline-flex items-center gap-1 font-bold text-[#be7b4c] transition-colors"
                 >
-                  <span>Catálogo Completo</span>
+                  <span>Atendimento WhatsApp</span>
                   <ArrowUpRight className="w-3 h-3 text-[#be7b4c]" />
                 </a>
               </li>

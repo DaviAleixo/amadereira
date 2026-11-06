@@ -1,6 +1,6 @@
 "use client";
 
-import { WHATSAPP_BASE_URL, CATALOG_BASE_URL } from "../../data/products";
+import { WHATSAPP_BASE_URL } from "../../data/products";
 
 export function HeroSection() {
   return (
@@ -65,7 +65,7 @@ export function HeroSection() {
 
           {/* Secondary Button */}
           <a
-            href={`${CATALOG_BASE_URL}#produtos`}
+            href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Amadeireira%20e%20gostaria%20de%20conhecer%20os%20modelos%20de%20mesas.`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:flex-1 h-12 sm:h-13 rounded-xl sm:rounded-2xl bg-[#141414]/75 hover:bg-[#141414]/90 border border-[#f3e2ba]/30 hover:border-[#f3e2ba]/60 backdrop-blur-md flex items-center justify-between text-[#f3e2ba] font-bebas text-base tracking-[0.16em] uppercase overflow-hidden transition-all hover:scale-[1.01] active:scale-100"

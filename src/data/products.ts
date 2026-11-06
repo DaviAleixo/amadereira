@@ -15,8 +15,8 @@ export interface Product {
   whatsappMessage: string;
 }
 
-export const CATALOG_BASE_URL = 'https://amadereiravendas.vercel.app/';
 export const WHATSAPP_BASE_URL = 'https://wa.me/5519984153232';
+export const CATALOG_BASE_URL = WHATSAPP_BASE_URL;
 
 export const buildWhatsAppUrl = (message: string) => {
   return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`;
@@ -39,7 +39,7 @@ export const PRODUCTS: Product[] = [
       '/images/mesacascata4.webp'
     ],
     featured: true,
-    catalogUrl: `${CATALOG_BASE_URL}#produtos`,
+    catalogUrl: WHATSAPP_BASE_URL,
     whatsappMessage: 'Olá! Gostaria de informações sobre a Mesa Cascata Pequiá Nobre (3,20m x 1,10m) que vi no site.'
   },
   {
@@ -57,7 +57,7 @@ export const PRODUCTS: Product[] = [
       '/images/mesaprancha3.webp'
     ],
     featured: true,
-    catalogUrl: `${CATALOG_BASE_URL}#produtos`,
+    catalogUrl: WHATSAPP_BASE_URL,
     whatsappMessage: 'Olá! Gostaria de consultar a disponibilidade da Mesa Prancha Borda Orgânica de 4 metros.'
   },
   {
@@ -76,7 +76,7 @@ export const PRODUCTS: Product[] = [
       '/images/baseraiz4.webp'
     ],
     featured: true,
-    catalogUrl: `${CATALOG_BASE_URL}#produtos`,
+    catalogUrl: WHATSAPP_BASE_URL,
     whatsappMessage: 'Olá! Fiquei encantado com a Mesa Raiz Orgânica Escultural e gostaria de mais detalhes.'
   },
   {
@@ -93,7 +93,7 @@ export const PRODUCTS: Product[] = [
       '/images/img-1.png'
     ],
     featured: true,
-    catalogUrl: `${CATALOG_BASE_URL}#produtos`,
+    catalogUrl: WHATSAPP_BASE_URL,
     whatsappMessage: 'Olá! Gostaria de orçar o Aparador Suspenso Borda Viva em madeira maciça.'
   },
   {
@@ -110,7 +110,7 @@ export const PRODUCTS: Product[] = [
       '/images/gallery/macro-1.webp'
     ],
     featured: false,
-    catalogUrl: `${CATALOG_BASE_URL}#produtos`,
+    catalogUrl: WHATSAPP_BASE_URL,
     whatsappMessage: 'Olá! Gostaria de consultar valores e detalhes da Mesa River Epóxi Translúcida.'
   },
   {
@@ -127,7 +127,7 @@ export const PRODUCTS: Product[] = [
       '/images/banner3.webp'
     ],
     featured: false,
-    catalogUrl: `${CATALOG_BASE_URL}#produtos`,
+    catalogUrl: WHATSAPP_BASE_URL,
     whatsappMessage: 'Olá! Gostaria de saber mais sobre a Mesa Cascata Área Gourmet em Muiracatiara.'
   }
 ];

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight, Play } from 'lucide-react';
-import { CATALOG_BASE_URL } from '../../data/products';
+import { buildWhatsAppUrl } from '../../data/products';
 
 interface ShowcaseMedia {
   src: string;
@@ -325,7 +325,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   </p>
                   <div className="pt-1">
                     <a
-                      href={`${CATALOG_BASE_URL}#produtos`}
+                      href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Cascata disponíveis.')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
@@ -452,7 +452,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 </p>
                 <div className="pt-0.5 flex justify-center">
                   <a
-                    href={`${CATALOG_BASE_URL}#produtos`}
+                    href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Cascata disponíveis.')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors pb-0.5 border-b border-[#be7b4c]/40"
@@ -554,7 +554,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   </p>
                   <div className="pt-2">
                     <a
-                      href={`${CATALOG_BASE_URL}#produtos`}
+                      href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Raiz disponíveis.')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
@@ -610,7 +610,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 </p>
                 <div className="pt-0.5 flex justify-center">
                   <a
-                    href={`${CATALOG_BASE_URL}#produtos`}
+                    href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Raiz disponíveis.')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors pb-0.5 border-b border-[#be7b4c]/40"
@@ -684,7 +684,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   </p>
                   <div className="pt-1">
                     <a
-                      href={`${CATALOG_BASE_URL}#produtos`}
+                      href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa de Resina Epóxi disponíveis.')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
@@ -819,7 +819,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 </p>
                 <div className="pt-0.5 flex justify-center">
                   <a
-                    href={`${CATALOG_BASE_URL}#produtos`}
+                    href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa de Resina Epóxi disponíveis.')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors pb-0.5 border-b border-[#be7b4c]/40"
@@ -941,7 +941,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   </p>
                   <div className="pt-2">
                     <a
-                      href={`${CATALOG_BASE_URL}#produtos`}
+                      href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Prancha disponíveis.')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
@@ -997,7 +997,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 </p>
                 <div className="pt-0.5 flex justify-center">
                   <a
-                    href={`${CATALOG_BASE_URL}#produtos`}
+                    href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Prancha disponíveis.')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors pb-0.5 border-b border-[#be7b4c]/40"
@@ -1077,7 +1077,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   </p>
                   <div className="pt-1">
                     <a
-                      href={`${CATALOG_BASE_URL}#produtos`}
+                      href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Esculturas Autorais disponíveis.')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
@@ -1212,7 +1212,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 </p>
                 <div className="pt-0.5 flex justify-center">
                   <a
-                    href={`${CATALOG_BASE_URL}#produtos`}
+                    href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Esculturas Autorais disponíveis.')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors pb-0.5 border-b border-[#be7b4c]/40"

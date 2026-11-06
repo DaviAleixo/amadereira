@@ -89,8 +89,8 @@ export const ProductionEnvironmentSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Controles de Navegação (Igual ao componente de vitrine de produtos) */}
-          <div className="flex items-center justify-center lg:justify-end gap-3 self-center lg:self-end">
+          {/* Controles de Navegação Desktop */}
+          <div className="hidden lg:flex items-center justify-end gap-3 self-end">
             <div className="text-[11px] font-mono text-[#be7b4c] tracking-widest uppercase font-bold">
               {String(activeIdx + 1).padStart(2, '0')} / {String(AMBIENTE_PHOTOS.length).padStart(2, '0')}
             </div>
@@ -203,7 +203,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
           </div>
         </div>
 
-        {/* 2. MOBILE: Visualização Otimizada com Swipe Touch e Setas */}
+        {/* 2. MOBILE: Visualização Otimizada com Swipe Touch e Setas Embaixo */}
         <div 
           className="block lg:hidden select-none"
           onTouchStart={handleTouchStart}
@@ -228,6 +228,37 @@ export const ProductionEnvironmentSection: React.FC = () => {
                 loading="eager"
               />
             </AnimatePresence>
+          </div>
+
+          {/* Controles de navegação embaixo da foto no mobile */}
+          <div className="mt-3 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 bg-[#14100c]/90 backdrop-blur-sm p-1 border border-white/10 shadow-md">
+                <button
+                  type="button"
+                  onClick={prevPhoto}
+                  aria-label="Foto anterior"
+                  className="w-8 h-8 rounded-none bg-[#241c16] hover:bg-[#be7b4c] text-white hover:text-[#141414] flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={nextPhoto}
+                  aria-label="Próxima foto"
+                  className="w-8 h-8 rounded-none bg-[#be7b4c] hover:bg-[#d49a6a] text-[#141414] flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95 font-bold"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-mono tracking-wider text-[#be7b4c] uppercase">
+                ARRASTE OU CLIQUE
+              </span>
+            </div>
+
+            <div className="text-[11px] font-mono text-[#be7b4c] tracking-widest uppercase font-bold">
+              {String(activeIdx + 1).padStart(2, '0')} / {String(AMBIENTE_PHOTOS.length).padStart(2, '0')}
+            </div>
           </div>
         </div>
 

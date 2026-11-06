@@ -1,6 +1,6 @@
 import React from 'react';
-import { ArrowRight, MessageCircle, ArrowUpRight, Sparkles, Gem, Recycle } from 'lucide-react';
-import { CATALOG_BASE_URL, buildWhatsAppUrl, PRODUCTS } from '../data/products';
+import { ArrowRight, MessageCircle, Sparkles, Gem, Recycle } from 'lucide-react';
+import { buildWhatsAppUrl, PRODUCTS } from '../data/products';
 
 export const RaizPage: React.FC = () => {
   const raizProducts = PRODUCTS.filter(p => p.category === 'mesas-raiz');
@@ -32,12 +32,12 @@ export const RaizPage: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
             <a
-              href={`${CATALOG_BASE_URL}#produtos`}
+              href={buildWhatsAppUrl('Olá! Fiquei muito interessado nas Mesas Raiz e gostaria de conhecer as bases disponíveis no WhatsApp.')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#be7b4c] hover:bg-[#a76538] text-[#141414] font-bebas text-sm uppercase tracking-wider rounded transition-all shadow-xl hover:scale-[1.02] active:scale-95 font-bold"
             >
-              <span>Ver Raízes no Catálogo</span>
+              <span>Consultar Raízes no WhatsApp</span>
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -124,23 +124,15 @@ export const RaizPage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-[#be7b4c]/20 flex items-center justify-between">
-                  <a
-                    href={p.catalogUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-bebas text-sm uppercase tracking-wider text-[#dcd0ba] hover:text-[#f3e2ba] inline-flex items-center gap-1"
-                  >
-                    <span>Ver no Catálogo</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
+                <div className="pt-6 border-t border-[#be7b4c]/20">
                   <a
                     href={buildWhatsAppUrl(p.whatsappMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3 bg-[#be7b4c] hover:bg-[#a76538] text-[#141414] font-bebas text-sm uppercase tracking-wider rounded transition-all shadow-md active:scale-95 font-bold"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#be7b4c] hover:bg-[#a76538] text-[#141414] font-bebas text-sm uppercase tracking-wider rounded transition-all shadow-md active:scale-95 font-bold"
                   >
-                    Consultar esta Peça
+                    <span>Consultar esta Peça no WhatsApp</span>
+                    <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
               </div>

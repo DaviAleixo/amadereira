@@ -1,6 +1,6 @@
 import React from 'react';
-import { ArrowRight, MessageCircle, ArrowUpRight, Trees, Hammer, Layers } from 'lucide-react';
-import { CATALOG_BASE_URL, buildWhatsAppUrl, PRODUCTS } from '../data/products';
+import { ArrowRight, MessageCircle, Trees, Hammer, Layers } from 'lucide-react';
+import { buildWhatsAppUrl, PRODUCTS } from '../data/products';
 
 export const PranchaPage: React.FC = () => {
   const pranchaProducts = PRODUCTS.filter(p => p.category === 'mesas-prancha');
@@ -32,12 +32,12 @@ export const PranchaPage: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
             <a
-              href={`${CATALOG_BASE_URL}#produtos`}
+              href={buildWhatsAppUrl('Olá! Gostaria de consultar modelos de Mesa Prancha no WhatsApp.')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#be7b4c] hover:bg-[#a76538] text-[#141414] font-bebas text-sm uppercase tracking-wider rounded transition-all shadow-xl hover:scale-[1.02] active:scale-95 font-bold"
             >
-              <span>Ver Pranchas no Catálogo</span>
+              <span>Consultar Pranchas no WhatsApp</span>
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -99,12 +99,12 @@ export const PranchaPage: React.FC = () => {
               </p>
               <div className="pt-2">
                 <a
-                  href={`${CATALOG_BASE_URL}#produtos`}
+                  href={buildWhatsAppUrl('Olá! Gostaria de ver as pranchas prontas para entrega no WhatsApp.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 font-bebas text-sm uppercase tracking-widest text-[#be7b4c] hover:text-[#f3e2ba]"
                 >
-                  <span>Ver Pranchas Prontas para Entrega</span>
+                  <span>Ver Pranchas Prontas no WhatsApp</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -162,23 +162,15 @@ export const PranchaPage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[#be7b4c]/20 flex items-center justify-between">
-                  <a
-                    href={p.catalogUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-bebas text-sm uppercase tracking-wider text-[#dcd0ba] hover:text-[#f3e2ba] inline-flex items-center gap-1"
-                  >
-                    <span>Catálogo</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
+                <div className="pt-4 border-t border-[#be7b4c]/20">
                   <a
                     href={buildWhatsAppUrl(p.whatsappMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a76538] text-[#141414] font-bebas text-sm uppercase tracking-wider rounded transition-all shadow-md active:scale-95 font-bold"
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#be7b4c] hover:bg-[#a76538] text-[#141414] font-bebas text-sm uppercase tracking-wider rounded transition-all shadow-md active:scale-95 font-bold"
                   >
-                    Consultar Tora
+                    <span>Consultar Tora no WhatsApp</span>
+                    <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
               </div>
