@@ -47,30 +47,12 @@ export const ProductionEnvironmentSection: React.FC = () => {
     touchEndX.current = 0;
   };
 
-  // Mouse drag handlers
-  const isMouseDown = useRef(false);
-  const mouseStartX = useRef(0);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    isMouseDown.current = true;
-    mouseStartX.current = e.clientX;
-  };
-
-  const handleMouseUp = (e: React.MouseEvent) => {
-    if (!isMouseDown.current) return;
-    const diff = mouseStartX.current - e.clientX;
-    if (diff > 40) {
-      nextPhoto();
-    } else if (diff < -40) {
-      prevPhoto();
-    }
-    isMouseDown.current = false;
-  };
-
-  // Fila de fotos para os slots do Grid
-  const mainPhoto = AMBIENTE_PHOTOS[activeIdx];
-  const sidePhotoTop = AMBIENTE_PHOTOS[(activeIdx + 1) % AMBIENTE_PHOTOS.length];
-  const sidePhotoBottom = AMBIENTE_PHOTOS[(activeIdx + 2) % AMBIENTE_PHOTOS.length];
+  // Slots do Bento Grid para Desktop (calculados a partir do activeIdx)
+  const slot1 = AMBIENTE_PHOTOS[activeIdx];
+  const slot2 = AMBIENTE_PHOTOS[(activeIdx + 1) % AMBIENTE_PHOTOS.length];
+  const slot3 = AMBIENTE_PHOTOS[(activeIdx + 2) % AMBIENTE_PHOTOS.length];
+  const slot4 = AMBIENTE_PHOTOS[(activeIdx + 3) % AMBIENTE_PHOTOS.length];
+  const mainPhoto = slot1;
 
   return (
     <section id="estrutura" className="relative w-full py-20 sm:py-28 overflow-hidden bg-[#0f0f0f] border-t border-[#be7b4c]/20 text-[#f3e2ba]">
@@ -134,20 +116,104 @@ export const ProductionEnvironmentSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Bento Grid com Transição Suave e Fotos 100% Limpas */}
+        {/* 1. DESKTOP: Bento Grid Clássico (2+1 e 1+2) com rotação suave ao clicar nas setas */}
+        <div className="hidden lg:grid grid-cols-3 gap-5 select-none">
+          {/* Card 1: Grande (2 Colunas) */}
+          <div 
+            onClick={nextPhoto}
+            className="col-span-2 h-[380px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
+            title="Clique para avançar"
+          >
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={slot1.src}
+                src={slot1.src}
+                alt={slot1.alt}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="eager"
+              />
+            </AnimatePresence>
+          </div>
+
+          {/* Card 2: Menor (1 Coluna) */}
+          <div 
+            onClick={nextPhoto}
+            className="col-span-1 h-[380px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
+            title="Clique para avançar"
+          >
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={slot2.src}
+                src={slot2.src}
+                alt={slot2.alt}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+            </AnimatePresence>
+          </div>
+
+          {/* Card 3: Menor (1 Coluna) */}
+          <div 
+            onClick={nextPhoto}
+            className="col-span-1 h-[380px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
+            title="Clique para avançar"
+          >
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={slot3.src}
+                src={slot3.src}
+                alt={slot3.alt}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+            </AnimatePresence>
+          </div>
+
+          {/* Card 4: Grande (2 Colunas) */}
+          <div 
+            onClick={nextPhoto}
+            className="col-span-2 h-[380px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
+            title="Clique para avançar"
+          >
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={slot4.src}
+                src={slot4.src}
+                alt={slot4.alt}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* 2. MOBILE: Visualização Otimizada com Swipe Touch e Setas */}
         <div 
-          className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 select-none"
+          className="block lg:hidden select-none"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
         >
-          {/* Slot Grande Principal (Destaque) - 8 Colunas */}
           <div 
             onClick={nextPhoto}
-            className="lg:col-span-8 relative aspect-[16/11] sm:aspect-[16/10] lg:aspect-auto lg:h-[500px] w-full overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-2xl cursor-pointer group"
-            title="Clique ou arraste para passar a foto"
+            className="relative aspect-[16/11] sm:aspect-[16/10] w-full overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-2xl cursor-pointer"
+            title="Toque ou deslize para passar a foto"
           >
             <AnimatePresence mode="wait">
               <motion.img
@@ -157,81 +223,12 @@ export const ProductionEnvironmentSection: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.02 }}
-                transition={{ duration: 0.45, ease: 'easeOut' }}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+                className="w-full h-full object-cover object-center"
                 loading="eager"
               />
             </AnimatePresence>
           </div>
-
-          {/* Coluna Lateral: Duas fotos empilhadas (Slots Secundários) - 4 Colunas */}
-          <div className="hidden lg:grid lg:col-span-4 grid-rows-2 gap-4 sm:gap-5 h-[500px]">
-            {/* Slot Secundário Topo */}
-            <div 
-              onClick={() => setActiveIdx((prev) => (prev + 1) % AMBIENTE_PHOTOS.length)}
-              className="relative w-full h-full overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl cursor-pointer group hover:border-[#be7b4c]/80 transition-all duration-300"
-              title="Clique para avançar"
-            >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={sidePhotoTop.src}
-                  src={sidePhotoTop.src}
-                  alt={sidePhotoTop.alt}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.45 }}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
-              </AnimatePresence>
-            </div>
-
-            {/* Slot Secundário Base */}
-            <div 
-              onClick={() => setActiveIdx((prev) => (prev + 2) % AMBIENTE_PHOTOS.length)}
-              className="relative w-full h-full overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl cursor-pointer group hover:border-[#be7b4c]/80 transition-all duration-300"
-              title="Clique para avançar"
-            >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={sidePhotoBottom.src}
-                  src={sidePhotoBottom.src}
-                  alt={sidePhotoBottom.alt}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.45 }}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-
-        {/* Barra de Miniaturas (Thumbnails Strip) de ambiente1 a ambiente6 */}
-        <div className="grid grid-cols-6 gap-2 sm:gap-3 mt-4 sm:mt-5">
-          {AMBIENTE_PHOTOS.map((photo, idx) => (
-            <button
-              key={photo.id}
-              type="button"
-              onClick={() => setActiveIdx(idx)}
-              aria-label={`Ver ${photo.alt}`}
-              className={`relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden border transition-all duration-300 cursor-pointer ${
-                activeIdx === idx
-                  ? 'border-[#be7b4c] ring-2 ring-[#be7b4c]/60 opacity-100 scale-[1.02]'
-                  : 'border-[#be7b4c]/20 opacity-60 hover:opacity-100 hover:border-[#be7b4c]/60'
-              }`}
-            >
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                className="w-full h-full object-cover object-center"
-                loading="lazy"
-              />
-            </button>
-          ))}
         </div>
 
         {/* Rodapé da Seção com Convite & WhatsApp */}
