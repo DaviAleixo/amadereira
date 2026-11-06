@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Trees, ShieldCheck, Gem, Play, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Trees, ShieldCheck, Gem, Play } from 'lucide-react';
 import { WHATSAPP_BASE_URL } from '../../data/products';
 
 interface ShowcaseVideo {
@@ -35,34 +35,12 @@ export const VideoShowcaseSection: React.FC = () => {
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
 
   // Mouse & Touch Dragging State
   const isDown = useRef(false);
   const startX = useRef(0);
   const scrollLeftStart = useRef(0);
   const isDragging = useRef(false);
-
-  const checkScroll = () => {
-    if (!scrollContainerRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-    setCanScrollLeft(scrollLeft > 20);
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 20);
-  };
-
-  useEffect(() => {
-    checkScroll();
-  }, []);
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (!scrollContainerRef.current) return;
-    const offset = scrollContainerRef.current.clientWidth * 0.75;
-    scrollContainerRef.current.scrollBy({
-      left: direction === 'left' ? -offset : offset,
-      behavior: 'smooth'
-    });
-  };
 
   const handlePlay = (id: string) => {
     setPlayingVideoId(id);
@@ -110,7 +88,6 @@ export const VideoShowcaseSection: React.FC = () => {
       isDragging.current = true;
     }
     scrollContainerRef.current.scrollLeft = scrollLeftStart.current - walk;
-    checkScroll();
   };
 
   const renderPillars = () => (
@@ -188,35 +165,6 @@ export const VideoShowcaseSection: React.FC = () => {
               legal certificada, processo artesanal minucioso e um compromisso transparente com a excelência e durabilidade do seu projeto.
             </p>
 
-            {/* Navigation Controls & Hint */}
-            <div className="flex items-center gap-3 pt-1">
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => scroll('left')}
-                  disabled={!canScrollLeft}
-                  aria-label="Vídeo anterior"
-                  className="w-10 h-10 border border-[#be7b4c]/40 bg-[#1a1410]/80 hover:bg-[#be7b4c] text-[#f3e2ba] hover:text-[#120e0b] disabled:opacity-25 disabled:cursor-not-allowed flex items-center justify-center transition-all cursor-pointer rounded-none active:scale-95 shadow-md"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => scroll('right')}
-                  disabled={!canScrollRight}
-                  aria-label="Próximo vídeo"
-                  className="w-10 h-10 border border-[#be7b4c]/40 bg-[#1a1410]/80 hover:bg-[#be7b4c] text-[#f3e2ba] hover:text-[#120e0b] disabled:opacity-25 disabled:cursor-not-allowed flex items-center justify-center transition-all cursor-pointer rounded-none active:scale-95 shadow-md"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-
-              <span className="text-[11px] font-mono text-[#be7b4c]/90 uppercase tracking-widest pl-1">
-                Arraste ou clique para ver mais
-              </span>
-            </div>
-
             {/* 3 Pillars - VISÍVEL APENAS NO DESKTOP */}
             <div className="hidden lg:block w-full pt-2">
               {renderPillars()}
@@ -227,7 +175,6 @@ export const VideoShowcaseSection: React.FC = () => {
           <div className="lg:col-span-7 w-full overflow-hidden">
             <div
               ref={scrollContainerRef}
-              onScroll={checkScroll}
               onMouseDown={handleMouseDown}
               onMouseLeave={handleMouseLeave}
               onMouseUp={handleMouseUp}
