@@ -5,6 +5,7 @@ const VideoShowcaseSection = lazy(() => import('../components/home/05_VideoShowc
 const CategoriesShowcaseSection = lazy(() => import('../components/home/03_CategoriesShowcaseSection').then(m => ({ default: m.CategoriesShowcaseSection })));
 const ProductsCatalogCtaSection = lazy(() => import('../components/home/ProductsCatalogCtaSection').then(m => ({ default: m.ProductsCatalogCtaSection })));
 const RealEnvironmentsSection = lazy(() => import('../components/home/07_RealEnvironmentsSection').then(m => ({ default: m.RealEnvironmentsSection })));
+const ProductionEnvironmentSection = lazy(() => import('../components/home/09_ProductionEnvironmentSection').then(m => ({ default: m.ProductionEnvironmentSection })));
 const ShowroomLocationSection = lazy(() => import('../components/home/13_ShowroomLocationSection').then(m => ({ default: m.ShowroomLocationSection })));
 
 export const Home: React.FC = () => {
@@ -27,7 +28,10 @@ export const Home: React.FC = () => {
         {/* 05 Ambientes Reais & Depoimentos Unificados (com Destaque Sorocaba) */}
         <RealEnvironmentsSection />
 
-        {/* 06 Showroom & Localização Física */}
+        {/* 06 Estrutura & Bastidores da Produção */}
+        <ProductionEnvironmentSection />
+
+        {/* 07 Showroom & Localização Física */}
         <ShowroomLocationSection />
       </Suspense>
     </main>
