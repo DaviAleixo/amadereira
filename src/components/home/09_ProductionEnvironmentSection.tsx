@@ -15,9 +15,6 @@ const CardContentOne = () => (
     <h3 className="font-slab text-2xl sm:text-3xl md:text-4xl text-[#f3e2ba] uppercase tracking-tight leading-tight">
       Estoque Monumental de Pranchas Maciças
     </h3>
-    <p className="text-xs sm:text-sm text-[#f3e2ba]/90 font-light leading-relaxed max-w-xl">
-      Toras nobres centenárias de manejo 100% legal e certificado pelo IBAMA. Pranchas maciças de Pequiá, Cumaru e Ipê com secagem controlada e veios orgânicos preservados, prontas para se tornarem o centro das atenções no seu ambiente.
-    </p>
     <div className="pt-2">
       <a
         href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Vi%20as%20pranchas%20maci%C3%A7as%20no%20site%20da%20Amadeireira%20e%20gostaria%20de%20consultar%20disponibilidade.`}
@@ -44,9 +41,6 @@ const CardContentTwo = () => (
     <h3 className="font-slab text-2xl sm:text-3xl md:text-4xl text-[#f3e2ba] uppercase tracking-tight leading-tight">
       Corte & Encaixes de Alta Precisão
     </h3>
-    <p className="text-xs sm:text-sm text-[#f3e2ba]/90 font-light leading-relaxed max-w-xl">
-      Mão de obra especializada na arte da madeira pesada. Cada corte em 45º para mesas cascata, plainamento e ajuste estrutural é feito manualmente para garantir estabilidade absoluta e encaixes perfeitos.
-    </p>
     <div className="pt-2">
       <a
         href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20projeto%20sob%20medida%20com%20corte%20especial.`}
@@ -73,9 +67,6 @@ const CardContentThree = () => (
     <h3 className="font-slab text-2xl sm:text-3xl md:text-4xl text-[#f3e2ba] uppercase tracking-tight leading-tight">
       Acabamento Nobre & Toque Aveludado
     </h3>
-    <p className="text-xs sm:text-sm text-[#f3e2ba]/90 font-light leading-relaxed max-w-xl">
-      Aplicação minuciosa de resinas cristalinas de alta densidade e seladoras nobres. O resultado é uma superfície impermeabilizada, altamente resistente ao calor e manchas de vinho ou café, preservando o toque e a alma da madeira.
-    </p>
     <div className="pt-2">
       <a
         href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20mesas%20com%20resina%20ep%C3%B3xi.`}
@@ -102,9 +93,6 @@ const CardContentFour = () => (
     <h3 className="font-slab text-2xl sm:text-3xl md:text-4xl text-[#f3e2ba] uppercase tracking-tight leading-tight">
       Peças Monumentais Sob Medida
     </h3>
-    <p className="text-xs sm:text-sm text-[#f3e2ba]/90 font-light leading-relaxed max-w-xl">
-      Nenhuma peça sai da nossa produção igual a outra. Cada mesa é uma escultura viva personalizada para a planta e o estilo do seu ambiente residencial ou corporativo.
-    </p>
     <div className="pt-2">
       <a
         href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20personalizado%20para%20meu%20espa%C3%A7o.`}
@@ -123,32 +111,24 @@ const CardContentFour = () => (
 const CARDS: LayoutGridCard[] = [
   {
     id: 1,
-    title: 'Estoque Monumental de Pranchas',
-    subtitle: 'Acervo & Pátio',
     className: 'md:col-span-2',
     thumbnail: '/images/ctaprodutos.webp',
     content: <CardContentOne />,
   },
   {
     id: 2,
-    title: 'Corte & Encaixes de Alta Precisão',
-    subtitle: 'Mestria Manual',
     className: 'col-span-1',
     thumbnail: '/images/mesaprancha2.webp',
     content: <CardContentTwo />,
   },
   {
     id: 3,
-    title: 'Acabamento Nobre & Resina',
-    subtitle: 'Proteção & Toque Aveludado',
     className: 'col-span-1',
     thumbnail: '/images/mesaresinaepoxi2.webp',
     content: <CardContentThree />,
   },
   {
     id: 4,
-    title: 'Peças Monumentais Sob Medida',
-    subtitle: 'Exclusividade Autoral',
     className: 'md:col-span-2',
     thumbnail: '/images/mesacascata1.webp',
     content: <CardContentFour />,
@@ -157,12 +137,12 @@ const CARDS: LayoutGridCard[] = [
 
 export const ProductionEnvironmentSection: React.FC = () => {
   return (
-    <section id="estrutura" className="relative w-full py-20 sm:py-28 overflow-hidden bg-[#120f0d] text-[#f3e2ba]">
-      {/* Background Texture com overlay sutil */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none opacity-20">
+    <section id="estrutura" className="relative w-full py-20 sm:py-28 overflow-hidden bg-[#0f0f0f] border-t border-[#be7b4c]/20 text-[#f3e2ba]">
+      {/* Background Image - exatamente o mesmo fundo do Footer */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <img
-          src="/images/backgroundprojetos.webp"
-          alt="Textura de fundo Amadeireira"
+          src="/images/backgroundfooter.webp"
+          alt="Amadeireira Background"
           className="w-full h-full object-cover object-center"
           loading="lazy"
           decoding="async"
@@ -187,7 +167,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
 
             <p className="text-xs sm:text-sm text-[#f3e2ba]/80 font-light leading-relaxed max-w-xl">
               Aqui não terceirizamos o cuidado. Da seleção de pranchas brutas monumentais ao corte, 
-              lixamento e acabamento minucioso, clique em cada etapa para conhecer nossos bastidores.
+              lixamento e acabamento minucioso, clique nas fotos para ver os detalhes.
             </p>
           </div>
 
@@ -202,7 +182,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
           </div>
         </div>
 
-        {/* LayoutGrid Interativo com Expansão e Suporte Mobile */}
+        {/* LayoutGrid Interativo com Fotos 100% Limpas */}
         <LayoutGrid cards={CARDS} />
       </div>
     </section>

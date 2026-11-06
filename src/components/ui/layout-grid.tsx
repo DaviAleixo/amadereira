@@ -7,8 +7,6 @@ export type LayoutGridCard = {
   content: React.ReactNode;
   className: string;
   thumbnail: string;
-  title?: string;
-  subtitle?: string;
 };
 
 export const LayoutGrid = ({ cards }: { cards: LayoutGridCard[] }) => {
@@ -26,7 +24,7 @@ export const LayoutGrid = ({ cards }: { cards: LayoutGridCard[] }) => {
   };
 
   return (
-    <div className="w-full py-6 grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-4 sm:gap-6 relative">
+    <div className="w-full py-4 grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-4 sm:gap-6 relative">
       {cards.map((card, i) => (
         <div key={i} className={cn(card.className, "min-h-[280px] xs:min-h-[320px] sm:min-h-[360px] md:min-h-[380px]")}>
           <motion.div
@@ -42,11 +40,7 @@ export const LayoutGrid = ({ cards }: { cards: LayoutGridCard[] }) => {
             )}
             layoutId={`card-${card.id}`}
           >
-            {selected?.id === card.id ? (
-              <SelectedCard selected={selected} />
-            ) : (
-              <DefaultCardPreview card={card} />
-            )}
+            {selected?.id === card.id && <SelectedCard selected={selected} />}
             <ImageComponent card={card} />
           </motion.div>
         </div>
@@ -77,27 +71,6 @@ const ImageComponent = ({ card }: { card: LayoutGridCard }) => {
       alt="Amadeireira Produção"
       loading="lazy"
     />
-  );
-};
-
-const DefaultCardPreview = ({ card }: { card: LayoutGridCard }) => {
-  return (
-    <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-5 sm:p-6 text-left">
-      {card.subtitle && (
-        <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#be7b4c] font-bold mb-1 drop-shadow">
-          {card.subtitle}
-        </span>
-      )}
-      {card.title && (
-        <h3 className="font-slab text-lg sm:text-2xl text-[#f3e2ba] uppercase tracking-tight drop-shadow leading-snug">
-          {card.title}
-        </h3>
-      )}
-      <span className="text-[10px] font-mono uppercase tracking-widest text-[#f3e2ba]/70 mt-2 flex items-center gap-1 group-hover:text-[#be7b4c] transition-colors">
-        <span>Clique para explorar</span>
-        <span>→</span>
-      </span>
-    </div>
   );
 };
 
