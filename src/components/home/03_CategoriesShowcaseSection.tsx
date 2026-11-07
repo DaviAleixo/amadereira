@@ -325,12 +325,12 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   </p>
                   <div className="pt-1">
                     <a
-                      href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Cascata disponíveis.')}
+                      href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Cascata.')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
                     >
-                      <span>VER TODOS OS MODELOS</span>
+                      <span>SOLICITE O ORÇAMENTO</span>
                       <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                     </a>
                   </div>
@@ -450,17 +450,6 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 <p className="text-[11.5px] text-[#5c4f42] font-light leading-relaxed max-w-sm text-center">
                   Design escultural com o tampo contínuo, unindo sofisticação e imponência em uma única peça.
                 </p>
-                <div className="pt-0.5 flex justify-center">
-                  <a
-                    href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Cascata disponíveis.')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors pb-0.5 border-b border-[#be7b4c]/40"
-                  >
-                    <span>VER TODOS OS MODELOS</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
               </div>
 
               {/* Foto Principal Mobile com Setas Circulares Brancas */}
@@ -509,6 +498,19 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   {renderThumbnail(cascataQueue.bottom)}
                 </div>
               </div>
+
+              {/* Botão Solicitar Orçamento embaixo no Mobile */}
+              <div className="pt-2 flex justify-center">
+                <a
+                  href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Cascata.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
+                >
+                  <span>Solicite o Orçamento</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -554,12 +556,12 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   </p>
                   <div className="pt-2">
                     <a
-                      href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Raiz disponíveis.')}
+                      href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Raiz.')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
                     >
-                      <span>VER TODOS OS MODELOS</span>
+                      <span>SOLICITE O ORÇAMENTO</span>
                       <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                     </a>
                   </div>
@@ -608,17 +610,6 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 <p className="text-[11.5px] text-[#5c4f42] font-light leading-relaxed max-w-sm text-center">
                   Peças únicas, esculpidas pela própria natureza. Cada raiz conta uma história e torna o ambiente exclusivo.
                 </p>
-                <div className="pt-0.5 flex justify-center">
-                  <a
-                    href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Raiz disponíveis.')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors pb-0.5 border-b border-[#be7b4c]/40"
-                  >
-                    <span>VER TODOS OS MODELOS</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
               </div>
 
               {/* Foto Principal Mobile com Setas Circulares Brancas e Dots */}
@@ -660,6 +651,19 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Botão Solicitar Orçamento embaixo no Mobile */}
+              <div className="pt-2 flex justify-center">
+                <a
+                  href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Raiz.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
+                >
+                  <span>Solicite o Orçamento</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -684,12 +688,12 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   </p>
                   <div className="pt-1">
                     <a
-                      href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa de Resina Epóxi disponíveis.')}
+                      href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa de Resina Epóxi.')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
                     >
-                      <span>VER TODOS OS MODELOS</span>
+                      <span>SOLICITE O ORÇAMENTO</span>
                       <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                     </a>
                   </div>
@@ -817,17 +821,6 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 <p className="text-[11.5px] text-[#5c4f42] font-light leading-relaxed max-w-sm text-center">
                   União perfeita entre a nobreza da madeira maciça e a modernidade da resina epóxi translúcida.
                 </p>
-                <div className="pt-0.5 flex justify-center">
-                  <a
-                    href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa de Resina Epóxi disponíveis.')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors pb-0.5 border-b border-[#be7b4c]/40"
-                  >
-                    <span>VER TODOS OS MODELOS</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
               </div>
 
               {/* Foto Principal Mobile com Setas Circulares Brancas */}
@@ -894,6 +887,19 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   />
                 </div>
               </div>
+
+              {/* Botão Solicitar Orçamento embaixo no Mobile */}
+              <div className="pt-2 flex justify-center">
+                <a
+                  href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa de Resina Epóxi.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
+                >
+                  <span>Solicite o Orçamento</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -941,12 +947,12 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   </p>
                   <div className="pt-2">
                     <a
-                      href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Prancha disponíveis.')}
+                      href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Prancha.')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
                     >
-                      <span>VER TODOS OS MODELOS</span>
+                      <span>SOLICITE O ORÇAMENTO</span>
                       <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                     </a>
                   </div>
@@ -995,17 +1001,6 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 <p className="text-[11.5px] text-[#5c4f42] font-light leading-relaxed max-w-sm text-center">
                   Tampo em peça única, valorizando o formato natural da madeira e suas características originais.
                 </p>
-                <div className="pt-0.5 flex justify-center">
-                  <a
-                    href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Mesa Prancha disponíveis.')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors pb-0.5 border-b border-[#be7b4c]/40"
-                  >
-                    <span>VER TODOS OS MODELOS</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
               </div>
 
               {/* Foto Principal Mobile com Setas Circulares Brancas e Dots */}
@@ -1053,6 +1048,19 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Botão Solicitar Orçamento embaixo no Mobile */}
+              <div className="pt-2 flex justify-center">
+                <a
+                  href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Prancha.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
+                >
+                  <span>Solicite o Orçamento</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -1077,12 +1085,12 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   </p>
                   <div className="pt-1">
                     <a
-                      href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Esculturas Autorais disponíveis.')}
+                      href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Esculturas Autorais.')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
                     >
-                      <span>VER TODOS OS MODELOS</span>
+                      <span>SOLICITE O ORÇAMENTO</span>
                       <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                     </a>
                   </div>
@@ -1210,17 +1218,6 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 <p className="text-[11.5px] text-[#5c4f42] font-light leading-relaxed max-w-sm text-center">
                   Peças de arte únicas lapidadas em madeira nobre e raiz, unindo beleza orgânica e acabamento refinado.
                 </p>
-                <div className="pt-0.5 flex justify-center">
-                  <a
-                    href={buildWhatsAppUrl('Olá! Gostaria de ver os modelos de Esculturas Autorais disponíveis.')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors pb-0.5 border-b border-[#be7b4c]/40"
-                  >
-                    <span>VER TODOS OS MODELOS</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
               </div>
 
               {/* Foto Principal Mobile com Setas Circulares Brancas */}
@@ -1286,6 +1283,19 @@ export const CategoriesShowcaseSection: React.FC = () => {
                     loading="lazy"
                   />
                 </div>
+              </div>
+
+              {/* Botão Solicitar Orçamento embaixo no Mobile */}
+              <div className="pt-2 flex justify-center">
+                <a
+                  href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Esculturas Autorais.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
+                >
+                  <span>Solicite o Orçamento</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           </div>
