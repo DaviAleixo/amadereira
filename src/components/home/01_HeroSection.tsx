@@ -34,15 +34,13 @@ export function HeroSection() {
         </div>
 
         {/* Heading */}
-        <h1 className="mb-6 sm:mb-7 text-[29px] xs:text-[32px] sm:text-4xl md:text-5xl lg:text-[56px] font-slab uppercase leading-[1.08] tracking-tight [text-wrap:balance]">
+        <h1 className="mb-11 xs:mb-12 sm:mb-7 text-[26px] xs:text-[29px] sm:text-4xl md:text-5xl lg:text-[56px] font-slab uppercase leading-[1.16] sm:leading-[1.08] tracking-tight">
           <span className="text-[#f3e2ba]">FEITA PELA</span>{" "}
-          <br className="sm:hidden" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f3e2ba] via-[#e2a87b] to-[#be7b4c]">
             NATUREZA.
           </span>{" "}
-          <br className="hidden sm:block" />
+          <br />
           <span className="text-[#f3e2ba]">REFINADA</span>{" "}
-          <br className="sm:hidden" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e2a87b] to-[#be7b4c]">
             POR NÓS.
           </span>
