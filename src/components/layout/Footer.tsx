@@ -3,6 +3,8 @@ import { ArrowUpRight, MapPin, Clock, Phone } from 'lucide-react';
 import { InstagramIcon } from '../ui/Icons';
 import { WHATSAPP_BASE_URL } from '../../data/products';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const Footer: React.FC = () => {
   return (
     <footer className="relative bg-[#0f0f0f] border-t border-[#be7b4c]/20 pt-16 pb-12 text-[#f3e2ba] overflow-hidden">
@@ -180,7 +182,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Credits */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8e8474]">
-          <p>© {new Date().getFullYear()} Amadeireira. Todos os direitos reservados.</p>
+          <p>© {CURRENT_YEAR} Amadeireira. Todos os direitos reservados.</p>
           <p className="flex items-center gap-4">
             <span>Móveis Autorais de Madeira Maciça</span>
             <span>·</span>
