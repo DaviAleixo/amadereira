@@ -160,7 +160,8 @@ export const CategoriesShowcaseSection: React.FC = () => {
             aria-label={item.alt}
             playsInline
             controls
-            preload="auto"
+            preload="none"
+            poster={item.thumbnail}
             className="w-full h-full object-contain object-center"
           >
             <source src={item.src} type={isMov ? 'video/quicktime' : 'video/mp4'} />

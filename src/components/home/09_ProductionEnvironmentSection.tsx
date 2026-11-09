@@ -81,7 +81,8 @@ export const ProductionEnvironmentSection: React.FC = () => {
               aria-label={item.alt}
               playsInline
               controls
-              preload="auto"
+              preload="none"
+              poster={item.thumbnail}
               className="w-full h-full object-contain object-center"
             >
               <source src={item.src} type="video/mp4" />

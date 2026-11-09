@@ -5,10 +5,10 @@ import { WHATSAPP_BASE_URL } from "../../data/products";
 export function HeroSection() {
   return (
     <section className="relative h-[100dvh] w-full overflow-hidden bg-[#141414]">
-      {/* 1. Background Image Layer - Apenas a foto hero.png com os gradientes idênticos ao layout de exemplo */}
+      {/* 1. Background Image Layer - Apenas a foto hero.webp com os gradientes idênticos ao layout de exemplo */}
       <div className="absolute inset-0 z-0 h-full w-full">
         <img
-          src="/images/hero.png"
+          src="/images/hero.webp"
           alt="Amadeireira — Móveis Autorais de Madeira Maciça"
           fetchPriority="high"
           decoding="async"

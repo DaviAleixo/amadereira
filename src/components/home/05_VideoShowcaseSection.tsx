@@ -8,6 +8,7 @@ interface ShowcaseVideo {
   title: string;
   subtitle: string;
   src: string;
+  poster: string;
 }
 
 const SHOWCASE_VIDEOS: ShowcaseVideo[] = [
@@ -16,18 +17,21 @@ const SHOWCASE_VIDEOS: ShowcaseVideo[] = [
     title: 'Por Que Confiar',
     subtitle: 'Segurança & Origem Legal',
     src: '/images/confiar.mp4',
+    poster: '/images/confiar-poster.webp',
   },
   {
     id: 'diferencial',
     title: 'Nossos Diferenciais',
     subtitle: 'Exclusividade & Mestria Autoral',
     src: '/images/diferencial.mp4',
+    poster: '/images/diferencial-poster.webp',
   },
   {
     id: 'vendameio',
     title: 'Processo & Atendimento',
     subtitle: 'Cuidado do Início ao Fim',
     src: '/images/vendameio.mp4',
+    poster: '/images/vendameio-poster.webp',
   },
 ];
 
@@ -206,7 +210,8 @@ export const VideoShowcaseSection: React.FC = () => {
                         videoRefs.current[item.id] = el;
                       }}
                       playsInline
-                      preload="metadata"
+                      preload="none"
+                      poster={item.poster}
                       controls={playingVideoId === item.id}
                       onPlay={() => handlePlay(item.id)}
                       onPause={() => {
