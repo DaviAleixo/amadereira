@@ -72,7 +72,7 @@ export const CATEGORIES: CategoryInfo[] = [
     headline: 'Formas orgânicas irrepetíveis criadas pela terra.',
     description: 'Cada Mesa Raiz é uma obra de arte única no mundo. Bases formadas por raízes centenárias de manejo sustentável e reaproveitamento, tratadas e polidas com perfeição milimétrica.',
     heroImage: '/images/baseraiz1.webp',
-    detailImage: '/images/fotobaseraiz.jpeg',
+    detailImage: '/images/fotobaseraiz2.jpeg',
     woodTypes: ['Raiz de Pequiá', 'Raiz de Vinhático', 'Raiz de Jacarandá'],
     keyAttributes: [
       {
