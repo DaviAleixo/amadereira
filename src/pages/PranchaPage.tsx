@@ -11,7 +11,7 @@ export const PranchaPage: React.FC = () => {
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/mesaprancha1.webp"
+            src="/images/pranchafoto.jpeg"
             alt="Mesa Prancha rústica de tora maciça inteiriça"
             className="w-full h-full object-cover object-center scale-105"
             loading="eager"

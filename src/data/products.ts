@@ -53,8 +53,10 @@ export const PRODUCTS: Product[] = [
     description: 'Tampo único esculpido pela natureza com bordas vivas preservadas e base em aço carbono com pintura eletrostática preta fosca.',
     tag: 'Grande Porte',
     images: [
-      '/images/mesaprancha1.webp',
-      '/images/mesaprancha2.webp',
+      '/images/pranchafoto.jpeg',
+      '/images/pranchafoto2.jpeg',
+      '/images/pranchafoto3.jpeg',
+      '/images/pranchafoto4.jpeg',
       '/images/mesaprancha3.webp'
     ],
     featured: true,

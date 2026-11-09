@@ -11,12 +11,6 @@ interface ShowcaseMedia {
 }
 
 const CASCATA_MEDIA: ShowcaseMedia[] = [
-  {
-    src: '/images/mesacascata.mp4',
-    alt: 'Vídeo Oficial - Mesa Cascata em Madeira Maciça Autoral',
-    type: 'video',
-    thumbnail: '/images/cascatafoto.jpeg',
-  },
   { src: '/images/cascatafoto.jpeg', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
   { src: '/images/cascatafoto2.jpeg', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
   { src: '/images/cascatafoto3.jpeg', alt: 'Mesa Cascata Orgânica em Madeira Maciça', type: 'image' },
@@ -38,15 +32,23 @@ const RAIZ_MEDIA: ShowcaseMedia[] = [
 ];
 
 const RESINA_MEDIA: ShowcaseMedia[] = [
+  {
+    src: '/images/mesacascata.mp4',
+    alt: 'Vídeo Oficial - Mesa com Rio de Resina Epóxi em Madeira Maciça',
+    type: 'video',
+    thumbnail: '/images/mesaprancha2.webp',
+  },
+  { src: '/images/mesaprancha2.webp', alt: 'Mesa Monumental com Rio de Resina Epóxi Verde Esmeralda', type: 'image' },
   { src: '/images/mesaresinaepoxi1.webp', alt: 'Mesa de Resina Epóxi e Madeira Maciça de Alto Padrão', type: 'image' },
   { src: '/images/mesaresinaepoxi2.webp', alt: 'Mesa com Resina Epóxi Translúcida e Madeira Selecionada', type: 'image' },
   { src: '/images/mesaresinaepoxi3.webp', alt: 'Mesa de Jantar com Acabamento em Resina Epóxi', type: 'image' },
-  { src: '/images/mesaresinaepoxi4.webp', alt: 'Mesa Autoral com Efeito Rio em Resina Epóxi', type: 'image' },
 ];
 
 const PRANCHA_MEDIA: ShowcaseMedia[] = [
-  { src: '/images/mesaprancha1.webp', alt: 'Mesa Prancha Maciça com Borda Viva em Madeira Nobre', type: 'image' },
-  { src: '/images/mesaprancha2.webp', alt: 'Mesa Prancha Monumental em Madeira Maciça', type: 'image' },
+  { src: '/images/pranchafoto.jpeg', alt: 'Mesa Prancha Maciça com Borda Viva em Madeira Nobre', type: 'image' },
+  { src: '/images/pranchafoto2.jpeg', alt: 'Mesa Prancha Monumental em Madeira Maciça', type: 'image' },
+  { src: '/images/pranchafoto3.jpeg', alt: 'Mesa Prancha Orgânica sob Medida', type: 'image' },
+  { src: '/images/pranchafoto4.jpeg', alt: 'Mesa Prancha Rústica com Acabamento Nobre', type: 'image' },
   { src: '/images/mesaprancha3.webp', alt: 'Mesa Prancha Autoral em Madeira Maciça', type: 'image' },
 ];
 
@@ -96,12 +98,12 @@ export const CategoriesShowcaseSection: React.FC = () => {
   }, [isRaizPaused, raizIdx]);
 
   useEffect(() => {
-    if (isResinaPaused) return;
+    if (isResinaPaused || RESINA_MEDIA[resinaIdx]?.type === 'video') return;
     const timer = setInterval(() => {
       setResinaIdx((prev) => (prev + 1) % RESINA_MEDIA.length);
     }, 5800);
     return () => clearInterval(timer);
-  }, [isResinaPaused]);
+  }, [isResinaPaused, resinaIdx]);
 
   useEffect(() => {
     if (isPranchaPaused) return;
@@ -709,18 +711,16 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 {...resinaDrag}
               >
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <motion.div
                     key={resinaQueue.main.src}
-                    src={resinaQueue.main.src}
-                    alt={resinaQueue.main.alt}
-                    draggable={false}
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.02 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
-                    className="w-full h-full object-cover object-center pointer-events-none select-none"
-                    loading="lazy"
-                  />
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    className="w-full h-full"
+                  >
+                    {renderMainMedia(resinaQueue.main)}
+                  </motion.div>
                 </AnimatePresence>
               </div>
 
@@ -738,18 +738,16 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   {...resinaDrag}
                 >
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={resinaQueue.top.src}
-                      src={resinaQueue.top.src}
-                      alt={resinaQueue.top.alt}
-                      draggable={false}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.5 }}
-                      className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
-                      loading="lazy"
-                    />
+                      className="w-full h-full"
+                    >
+                      {renderThumbnail(resinaQueue.top)}
+                    </motion.div>
                   </AnimatePresence>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
                 </div>
@@ -762,18 +760,16 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   {...resinaDrag}
                 >
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={resinaQueue.bottom.src}
-                      src={resinaQueue.bottom.src}
-                      alt={resinaQueue.bottom.alt}
-                      draggable={false}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.5 }}
-                      className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
-                      loading="lazy"
-                    />
+                      className="w-full h-full"
+                    >
+                      {renderThumbnail(resinaQueue.bottom)}
+                    </motion.div>
                   </AnimatePresence>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
                 </div>
@@ -829,13 +825,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 className="relative aspect-[16/10] w-full overflow-hidden bg-[#1c1510] select-none touch-pan-y cursor-grab active:cursor-grabbing"
                 {...resinaDrag}
               >
-                <img
-                  src={resinaQueue.main.src}
-                  alt={resinaQueue.main.alt}
-                  draggable={false}
-                  className="w-full h-full object-cover object-center pointer-events-none select-none"
-                  loading="lazy"
-                />
+                {renderMainMedia(resinaQueue.main)}
                 {/* Setas Circulares Brancas Overlay */}
                 <button
                   onClick={(e) => {
@@ -866,26 +856,14 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y"
                   {...resinaDrag}
                 >
-                  <img
-                    src={resinaQueue.top.src}
-                    alt={resinaQueue.top.alt}
-                    draggable={false}
-                    className="w-full h-full object-cover object-center pointer-events-none select-none"
-                    loading="lazy"
-                  />
+                  {renderThumbnail(resinaQueue.top)}
                 </div>
                 <div 
                   onClick={() => setResinaIdx((prev) => (prev + 2) % RESINA_MEDIA.length)}
                   className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y"
                   {...resinaDrag}
                 >
-                  <img
-                    src={resinaQueue.bottom.src}
-                    alt={resinaQueue.bottom.alt}
-                    draggable={false}
-                    className="w-full h-full object-cover object-center pointer-events-none select-none"
-                    loading="lazy"
-                  />
+                  {renderThumbnail(resinaQueue.bottom)}
                 </div>
               </div>
 

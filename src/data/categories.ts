@@ -45,8 +45,8 @@ export const CATEGORIES: CategoryInfo[] = [
     tagline: 'Matéria-Prima & Borda Orgânica',
     headline: 'Grandes toras únicas com bordas naturais vivas.',
     description: 'A Mesa Prancha celebra a grandiosidade da natureza em seu estado mais autêntico. Toras centenárias selecionadas individualmente, com espessuras imponentes e bordas vivas trabalhadas à mão.',
-    heroImage: '/images/mesaprancha1.webp',
-    detailImage: '/images/mesaprancha2.webp',
+    heroImage: '/images/pranchafoto.jpeg',
+    detailImage: '/images/pranchafoto2.jpeg',
     woodTypes: ['Pequiá Amarelo', 'Pequiá Rajado', 'Angelim', 'Teca'],
     keyAttributes: [
       {
