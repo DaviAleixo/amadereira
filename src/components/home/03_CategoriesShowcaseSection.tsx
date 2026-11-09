@@ -152,7 +152,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
     if (item.type === 'video') {
       const isMov = item.src.toLowerCase().endsWith('.mov');
       return (
-        <div className="relative w-full h-full bg-black flex items-center justify-center overflow-hidden">
+        <div className="relative w-full h-full bg-black/60 flex items-center justify-center overflow-hidden border border-white/15">
           <video
             key={item.src}
             src={item.src}
@@ -166,6 +166,8 @@ export const CategoriesShowcaseSection: React.FC = () => {
             <source src={item.src} type={isMov ? 'video/quicktime' : 'video/mp4'} />
             <source src={item.src} type="video/mp4" />
           </video>
+          {/* Efeito sutil de borda interna translúcida e leve - 100% acelerado por hardware, peso zero */}
+          <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_24px_rgba(0,0,0,0.55)] border border-white/10" />
         </div>
       );
     }
