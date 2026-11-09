@@ -63,6 +63,12 @@ const PRANCHA_MEDIA: ShowcaseMedia[] = [
 ];
 
 const ESCULTURA_MEDIA: ShowcaseMedia[] = [
+  {
+    src: '/images/estruturavideo.mp4',
+    alt: 'Vídeo Oficial - Escultura Autoral e Estrutura em Madeira Maciça',
+    type: 'video',
+    thumbnail: '/images/estruturavideo-poster.webp',
+  },
   { src: '/images/escultura1.jpeg', alt: 'Escultura Autoral em Madeira Maciça Nobre - Amadeireira', type: 'image' },
   { src: '/images/escultura2.jpeg', alt: 'Escultura Orgânica em Raiz Maciça Centenária', type: 'image' },
   { src: '/images/escultura3.jpeg', alt: 'Obra de Arte Escultural Exclusiva em Madeira Nobre', type: 'image' },
@@ -124,12 +130,12 @@ export const CategoriesShowcaseSection: React.FC = () => {
   }, [isPranchaPaused, pranchaIdx]);
 
   useEffect(() => {
-    if (isEsculturaPaused) return;
+    if (isEsculturaPaused || ESCULTURA_MEDIA[esculturaIdx]?.type === 'video') return;
     const timer = setInterval(() => {
       setEsculturaIdx((prev) => (prev + 1) % ESCULTURA_MEDIA.length);
     }, 6200);
     return () => clearInterval(timer);
-  }, [isEsculturaPaused]);
+  }, [isEsculturaPaused, esculturaIdx]);
 
   // Navigation handlers
   const nextCascata = () => setCascataIdx((prev) => (prev + 1) % CASCATA_MEDIA.length);
@@ -1062,14 +1068,14 @@ export const CategoriesShowcaseSection: React.FC = () => {
                     <span className="text-[11px] font-bold text-[#be7b4c] uppercase tracking-widest font-mono">05</span>
                   </div>
                   <h3 className="font-slab text-xl lg:text-2xl text-[#1a1614] uppercase leading-[0.98] tracking-tight">
-                    ESCULTURAS <span className="text-[#be7b4c] block mt-0.5">AUTORAIS</span>
+                    ESCULTURAS & ESTRUTURAS <span className="text-[#be7b4c] block mt-0.5">AUTORAIS</span>
                   </h3>
                   <p className="text-[12px] lg:text-[13px] text-[#5c4f42] font-light leading-relaxed max-w-[250px]">
-                    Peças de arte orgânicas lapidadas a partir de madeiras nobres e raízes centenárias. Obras exclusivas que conferem imponência e alma a ambientes sofisticados.
+                    Peças de arte orgânicas e estruturas exclusivas lapidadas a partir de madeiras nobres e raízes centenárias, trazendo personalidade única ao espaço.
                   </p>
                   <div className="pt-1">
                     <a
-                      href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Esculturas Autorais.')}
+                      href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Esculturas e Estruturas Autorais.')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
@@ -1081,7 +1087,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Coluna 2: Fotografia Principal Panorâmica (Slot Grande com Drag) */}
+              {/* Coluna 2: Fotografia/Vídeo Principal Panorâmica (Slot Grande com Drag) */}
               <div 
                 className="relative h-full w-full overflow-hidden bg-[#1c1510] group cursor-grab active:cursor-grabbing select-none touch-pan-y"
                 onMouseEnter={() => setIsEsculturaPaused(true)}
@@ -1089,18 +1095,16 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 {...esculturaDrag}
               >
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <motion.div
                     key={esculturaQueue.main.src}
-                    src={esculturaQueue.main.src}
-                    alt={esculturaQueue.main.alt}
-                    draggable={false}
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.02 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
-                    className="w-full h-full object-cover object-center pointer-events-none select-none"
-                    loading="lazy"
-                  />
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    className="w-full h-full"
+                  >
+                    {renderMainMedia(esculturaQueue.main)}
+                  </motion.div>
                 </AnimatePresence>
               </div>
 
@@ -1118,20 +1122,17 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   {...esculturaDrag}
                 >
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={esculturaQueue.top.src}
-                      src={esculturaQueue.top.src}
-                      alt={esculturaQueue.top.alt}
-                      draggable={false}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.5 }}
-                      className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
-                      loading="lazy"
-                    />
+                      className="w-full h-full"
+                    >
+                      {renderThumbnail(esculturaQueue.top)}
+                    </motion.div>
                   </AnimatePresence>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
                 </div>
 
                 {/* Slot Menor 2 (Base) - Com Drag e Clique */}
@@ -1142,20 +1143,17 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   {...esculturaDrag}
                 >
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={esculturaQueue.bottom.src}
-                      src={esculturaQueue.bottom.src}
-                      alt={esculturaQueue.bottom.alt}
-                      draggable={false}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.5 }}
-                      className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
-                      loading="lazy"
-                    />
+                      className="w-full h-full"
+                    >
+                      {renderThumbnail(esculturaQueue.bottom)}
+                    </motion.div>
                   </AnimatePresence>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
                 </div>
               </div>
             </div>
@@ -1197,10 +1195,10 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   <span className="w-4 h-[2px] bg-[#be7b4c]" />
                 </div>
                 <h3 className="font-slab text-xl text-[#1a1614] uppercase leading-none text-center">
-                  ESCULTURAS <span className="text-[#be7b4c]">AUTORAIS</span>
+                  ESCULTURAS & ESTRUTURAS <span className="text-[#be7b4c]">AUTORAIS</span>
                 </h3>
                 <p className="text-[11.5px] text-[#5c4f42] font-light leading-relaxed max-w-sm text-center">
-                  Peças de arte únicas lapidadas em madeira nobre e raiz, unindo beleza orgânica e acabamento refinado.
+                  Peças de arte únicas e estruturas lapidadas em madeira nobre e raiz, unindo beleza orgânica e acabamento refinado.
                 </p>
               </div>
 
@@ -1209,13 +1207,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 className="relative aspect-[16/10] w-full overflow-hidden bg-[#1c1510] select-none touch-pan-y cursor-grab active:cursor-grabbing"
                 {...esculturaDrag}
               >
-                <img
-                  src={esculturaQueue.main.src}
-                  alt={esculturaQueue.main.alt}
-                  draggable={false}
-                  className="w-full h-full object-cover object-center pointer-events-none select-none"
-                  loading="lazy"
-                />
+                {renderMainMedia(esculturaQueue.main)}
                 {/* Setas Circulares Brancas Overlay */}
                 <button
                   onClick={(e) => {
@@ -1243,29 +1235,17 @@ export const CategoriesShowcaseSection: React.FC = () => {
               <div className="grid grid-cols-2 gap-2 w-full aspect-[2/1]">
                 <div 
                   onClick={() => setEsculturaIdx((prev) => (prev + 1) % ESCULTURA_MEDIA.length)}
-                  className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y"
+                  className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y group"
                   {...esculturaDrag}
                 >
-                  <img
-                    src={esculturaQueue.top.src}
-                    alt={esculturaQueue.top.alt}
-                    draggable={false}
-                    className="w-full h-full object-cover object-center pointer-events-none select-none"
-                    loading="lazy"
-                  />
+                  {renderThumbnail(esculturaQueue.top)}
                 </div>
                 <div 
                   onClick={() => setEsculturaIdx((prev) => (prev + 2) % ESCULTURA_MEDIA.length)}
-                  className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y"
+                  className="relative h-full w-full overflow-hidden bg-[#1c1510] cursor-pointer touch-pan-y group"
                   {...esculturaDrag}
                 >
-                  <img
-                    src={esculturaQueue.bottom.src}
-                    alt={esculturaQueue.bottom.alt}
-                    draggable={false}
-                    className="w-full h-full object-cover object-center pointer-events-none select-none"
-                    loading="lazy"
-                  />
+                  {renderThumbnail(esculturaQueue.bottom)}
                 </div>
               </div>
 

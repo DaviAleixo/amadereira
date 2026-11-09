@@ -5,13 +5,14 @@ import { WHATSAPP_BASE_URL } from '../../data/products';
 interface FeedbackVideo {
   id: string;
   src: string;
+  poster: string;
 }
 
 const FEEDBACK_VIDEOS: FeedbackVideo[] = [
-  { id: '1', src: '/feedbacks/feedback1.mp4' },
-  { id: '2', src: '/feedbacks/feedback2.mp4' },
-  { id: '3', src: '/feedbacks/feedback3.mp4' },
-  { id: '4', src: '/feedbacks/feedback4.mp4' },
+  { id: '1', src: '/feedbacks/feedback1.mp4', poster: '/feedbacks/feedback1-poster.webp' },
+  { id: '2', src: '/feedbacks/feedback2.mp4', poster: '/feedbacks/feedback2-poster.webp' },
+  { id: '3', src: '/feedbacks/feedback3.mp4', poster: '/feedbacks/feedback3-poster.webp' },
+  { id: '4', src: '/feedbacks/feedback4.mp4', poster: '/feedbacks/feedback4-poster.webp' },
 ];
 
 export const RealEnvironmentsSection: React.FC = () => {
@@ -191,7 +192,8 @@ export const RealEnvironmentsSection: React.FC = () => {
                 ref={(el) => {
                   videoRefs.current[item.id] = el;
                 }}
-                src={item.src}
+                src={`${item.src}#t=0.001`}
+                poster={item.poster}
                 playsInline
                 preload="metadata"
                 controls={playingVideoId === item.id}
