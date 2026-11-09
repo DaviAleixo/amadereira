@@ -71,7 +71,7 @@ export const PRODUCTS: Product[] = [
     tag: 'Peça Única',
     images: [
       '/images/baseraiz1.webp',
-      '/images/baseraiz2.webp',
+      '/images/fotobaseraiz.jpeg',
       '/images/baseraiz3.webp',
       '/images/baseraiz4.webp'
     ],
