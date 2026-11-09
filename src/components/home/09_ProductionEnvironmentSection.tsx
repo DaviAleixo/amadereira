@@ -1,26 +1,41 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowUpRight, Play } from 'lucide-react';
 import { WHATSAPP_BASE_URL } from '../../data/products';
 
-const AMBIENTE_PHOTOS = [
-  { id: 1, src: '/images/ambiente1.jpeg', alt: 'Ambiente Amadeireira 01' },
-  { id: 2, src: '/images/ambiente2.jpeg', alt: 'Ambiente Amadeireira 02' },
-  { id: 3, src: '/images/ambiente3.jpeg', alt: 'Ambiente Amadeireira 03' },
-  { id: 4, src: '/images/ambiente4.jpeg', alt: 'Ambiente Amadeireira 04' },
-  { id: 5, src: '/images/ambiente5.jpeg', alt: 'Ambiente Amadeireira 05' },
-  { id: 6, src: '/images/ambiente6.jpeg', alt: 'Ambiente Amadeireira 06' },
+interface AmbienteMedia {
+  id: number | string;
+  src: string;
+  alt: string;
+  type?: 'image' | 'video';
+  thumbnail?: string;
+}
+
+const AMBIENTE_MEDIA: AmbienteMedia[] = [
+  {
+    id: 'video-estrutura',
+    src: '/images/estruturavideo.mp4',
+    alt: 'Vídeo da Estrutura e Bastidores da Amadeireira',
+    type: 'video',
+    thumbnail: '/images/ambiente1.jpeg',
+  },
+  { id: 1, src: '/images/ambiente1.jpeg', alt: 'Ambiente Amadeireira 01', type: 'image' },
+  { id: 2, src: '/images/ambiente2.jpeg', alt: 'Ambiente Amadeireira 02', type: 'image' },
+  { id: 3, src: '/images/ambiente3.jpeg', alt: 'Ambiente Amadeireira 03', type: 'image' },
+  { id: 4, src: '/images/ambiente4.jpeg', alt: 'Ambiente Amadeireira 04', type: 'image' },
+  { id: 5, src: '/images/ambiente5.jpeg', alt: 'Ambiente Amadeireira 05', type: 'image' },
+  { id: 6, src: '/images/ambiente6.jpeg', alt: 'Ambiente Amadeireira 06', type: 'image' },
 ];
 
 export const ProductionEnvironmentSection: React.FC = () => {
   const [activeIdx, setActiveIdx] = useState(0);
 
   const nextPhoto = () => {
-    setActiveIdx((prev) => (prev + 1) % AMBIENTE_PHOTOS.length);
+    setActiveIdx((prev) => (prev + 1) % AMBIENTE_MEDIA.length);
   };
 
   const prevPhoto = () => {
-    setActiveIdx((prev) => (prev === 0 ? AMBIENTE_PHOTOS.length - 1 : prev - 1));
+    setActiveIdx((prev) => (prev === 0 ? AMBIENTE_MEDIA.length - 1 : prev - 1));
   };
 
   // Touch Swipe Handlers para celular
@@ -48,11 +63,61 @@ export const ProductionEnvironmentSection: React.FC = () => {
   };
 
   // Slots do Bento Grid para Desktop (calculados a partir do activeIdx)
-  const slot1 = AMBIENTE_PHOTOS[activeIdx];
-  const slot2 = AMBIENTE_PHOTOS[(activeIdx + 1) % AMBIENTE_PHOTOS.length];
-  const slot3 = AMBIENTE_PHOTOS[(activeIdx + 2) % AMBIENTE_PHOTOS.length];
-  const slot4 = AMBIENTE_PHOTOS[(activeIdx + 3) % AMBIENTE_PHOTOS.length];
+  const slot1 = AMBIENTE_MEDIA[activeIdx];
+  const slot2 = AMBIENTE_MEDIA[(activeIdx + 1) % AMBIENTE_MEDIA.length];
+  const slot3 = AMBIENTE_MEDIA[(activeIdx + 2) % AMBIENTE_MEDIA.length];
+  const slot4 = AMBIENTE_MEDIA[(activeIdx + 3) % AMBIENTE_MEDIA.length];
   const mainPhoto = slot1;
+
+  const renderSlotMedia = (item: AmbienteMedia, isMain: boolean = false) => {
+    if (item.type === 'video') {
+      if (isMain) {
+        return (
+          <div className="relative w-full h-full bg-black flex items-center justify-center overflow-hidden">
+            <video
+              key={item.src}
+              src={item.src}
+              title={item.alt}
+              aria-label={item.alt}
+              playsInline
+              controls
+              preload="auto"
+              className="w-full h-full object-contain object-center"
+            >
+              <source src={item.src} type="video/mp4" />
+            </video>
+          </div>
+        );
+      }
+      return (
+        <div className="relative h-full w-full overflow-hidden bg-[#16120e]">
+          <img
+            src={item.thumbnail || item.src}
+            alt={item.alt}
+            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none">
+            <div className="w-8 h-8 rounded-full bg-[#be7b4c] text-[#141414] flex items-center justify-center shadow-lg">
+              <Play className="w-4 h-4 fill-current translate-x-0.5" />
+            </div>
+            <div className="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-black/75 backdrop-blur-sm text-[#f3e2ba] text-[9px] font-bold uppercase tracking-wider flex items-center gap-1 border border-white/10">
+              Vídeo
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <img
+        src={item.src}
+        alt={item.alt}
+        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+        loading="lazy"
+      />
+    );
+  };
 
   return (
     <section id="estrutura" className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden bg-[#0f0f0f] border-t border-[#be7b4c]/20 text-[#f3e2ba] py-8 sm:py-10 lg:py-10">
@@ -92,7 +157,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
           {/* Controles de Navegação Desktop */}
           <div className="hidden lg:flex items-center justify-end gap-3 self-end">
             <div className="text-[11px] font-mono text-[#be7b4c] tracking-widest uppercase font-bold">
-              {String(activeIdx + 1).padStart(2, '0')} / {String(AMBIENTE_PHOTOS.length).padStart(2, '0')}
+              {String(activeIdx + 1).padStart(2, '0')} / {String(AMBIENTE_MEDIA.length).padStart(2, '0')}
             </div>
 
             <div className="flex items-center gap-1 bg-[#14100c]/90 backdrop-blur-sm p-1 border border-white/10 shadow-md">
@@ -120,22 +185,21 @@ export const ProductionEnvironmentSection: React.FC = () => {
         <div className="hidden lg:grid grid-cols-3 gap-3.5 sm:gap-4 select-none">
           {/* Card 1: Grande (2 Colunas) */}
           <div 
-            onClick={nextPhoto}
-            className="col-span-2 h-[235px] xl:h-[255px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group cursor-pointer"
-            title="Clique para avançar"
+            onClick={slot1.type === 'video' ? undefined : nextPhoto}
+            className={`col-span-2 h-[235px] xl:h-[255px] relative overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-xl group ${slot1.type === 'video' ? '' : 'cursor-pointer'}`}
+            title={slot1.type === 'video' ? undefined : 'Clique para avançar'}
           >
             <AnimatePresence mode="wait">
-              <motion.img
+              <motion.div
                 key={slot1.src}
-                src={slot1.src}
-                alt={slot1.alt}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.35 }}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                loading="eager"
-              />
+                className="w-full h-full"
+              >
+                {renderSlotMedia(slot1, true)}
+              </motion.div>
             </AnimatePresence>
           </div>
 
@@ -146,17 +210,16 @@ export const ProductionEnvironmentSection: React.FC = () => {
             title="Clique para avançar"
           >
             <AnimatePresence mode="wait">
-              <motion.img
+              <motion.div
                 key={slot2.src}
-                src={slot2.src}
-                alt={slot2.alt}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.35 }}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                loading="lazy"
-              />
+                className="w-full h-full"
+              >
+                {renderSlotMedia(slot2, false)}
+              </motion.div>
             </AnimatePresence>
           </div>
 
@@ -167,17 +230,16 @@ export const ProductionEnvironmentSection: React.FC = () => {
             title="Clique para avançar"
           >
             <AnimatePresence mode="wait">
-              <motion.img
+              <motion.div
                 key={slot3.src}
-                src={slot3.src}
-                alt={slot3.alt}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.35 }}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                loading="lazy"
-              />
+                className="w-full h-full"
+              >
+                {renderSlotMedia(slot3, false)}
+              </motion.div>
             </AnimatePresence>
           </div>
 
@@ -188,17 +250,16 @@ export const ProductionEnvironmentSection: React.FC = () => {
             title="Clique para avançar"
           >
             <AnimatePresence mode="wait">
-              <motion.img
+              <motion.div
                 key={slot4.src}
-                src={slot4.src}
-                alt={slot4.alt}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.35 }}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                loading="lazy"
-              />
+                className="w-full h-full"
+              >
+                {renderSlotMedia(slot4, false)}
+              </motion.div>
             </AnimatePresence>
           </div>
         </div>
@@ -211,22 +272,21 @@ export const ProductionEnvironmentSection: React.FC = () => {
           onTouchEnd={handleTouchEnd}
         >
           <div 
-            onClick={nextPhoto}
-            className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-2xl cursor-pointer"
-            title="Toque ou deslize para passar a foto"
+            onClick={mainPhoto.type === 'video' ? undefined : nextPhoto}
+            className={`relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden border border-[#be7b4c]/30 bg-[#16120e] shadow-2xl ${mainPhoto.type === 'video' ? '' : 'cursor-pointer'}`}
+            title={mainPhoto.type === 'video' ? undefined : 'Toque ou deslize para passar a foto'}
           >
             <AnimatePresence mode="wait">
-              <motion.img
+              <motion.div
                 key={mainPhoto.src}
-                src={mainPhoto.src}
-                alt={mainPhoto.alt}
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.02 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="w-full h-full object-cover object-center"
-                loading="eager"
-              />
+                className="w-full h-full"
+              >
+                {renderSlotMedia(mainPhoto, true)}
+              </motion.div>
             </AnimatePresence>
           </div>
 
@@ -257,7 +317,7 @@ export const ProductionEnvironmentSection: React.FC = () => {
             </div>
 
             <div className="text-[11px] font-mono text-[#be7b4c] tracking-widest uppercase font-bold">
-              {String(activeIdx + 1).padStart(2, '0')} / {String(AMBIENTE_PHOTOS.length).padStart(2, '0')}
+              {String(activeIdx + 1).padStart(2, '0')} / {String(AMBIENTE_MEDIA.length).padStart(2, '0')}
             </div>
           </div>
         </div>
