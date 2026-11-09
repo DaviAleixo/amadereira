@@ -15,7 +15,6 @@ const CASCATA_MEDIA: ShowcaseMedia[] = [
     src: '/images/cascatavideo.mp4',
     alt: 'Vídeo Oficial - Mesa Cascata em Madeira Maciça Autoral',
     type: 'video',
-    thumbnail: '/images/cascatafoto.jpeg',
   },
   { src: '/images/cascatafoto.jpeg', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
   { src: '/images/cascatafoto2.jpeg', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
@@ -29,7 +28,6 @@ const RAIZ_MEDIA: ShowcaseMedia[] = [
     src: '/images/baseraiz.mp4',
     alt: 'Vídeo Oficial - Base de Mesa Raiz Maciça Orgânica Escultural',
     type: 'video',
-    thumbnail: '/images/baseraiz1.webp',
   },
   { src: '/images/baseraiz1.webp', alt: 'Base de Mesa Raiz Maciça Orgânica Escultural - Amadeireira', type: 'image' },
   { src: '/images/fotobaseraiz2.jpeg', alt: 'Mesa Base Raiz Autoral Exclusiva sob Medida', type: 'image' },
@@ -41,7 +39,6 @@ const RESINA_MEDIA: ShowcaseMedia[] = [
     src: '/images/mesacascata.mp4',
     alt: 'Vídeo Oficial - Mesa com Rio de Resina Epóxi em Madeira Maciça',
     type: 'video',
-    thumbnail: '/images/mesaprancha2.webp',
   },
   { src: '/images/mesaprancha2.webp', alt: 'Mesa Monumental com Rio de Resina Epóxi Verde Esmeralda', type: 'image' },
   { src: '/images/mesaresinaepoxi1.webp', alt: 'Mesa de Resina Epóxi e Madeira Maciça de Alto Padrão', type: 'image' },
@@ -54,7 +51,6 @@ const PRANCHA_MEDIA: ShowcaseMedia[] = [
     src: '/images/pranchavideo.mp4',
     alt: 'Vídeo Oficial - Mesa Prancha Maciça com Bordas Vivas Naturais',
     type: 'video',
-    thumbnail: '/images/pranchafoto.jpeg',
   },
   { src: '/images/pranchafoto.jpeg', alt: 'Mesa Prancha Maciça com Borda Viva em Madeira Nobre', type: 'image' },
   { src: '/images/pranchafoto2.jpeg', alt: 'Mesa Prancha Monumental em Madeira Maciça', type: 'image' },
@@ -67,7 +63,6 @@ const ESCULTURA_MEDIA: ShowcaseMedia[] = [
     src: '/images/estruturavideo.mp4',
     alt: 'Vídeo Oficial - Escultura Autoral e Estrutura em Madeira Maciça',
     type: 'video',
-    thumbnail: '/images/estruturavideo-poster.webp',
   },
   { src: '/images/escultura1.jpeg', alt: 'Escultura Autoral em Madeira Maciça Nobre - Amadeireira', type: 'image' },
   { src: '/images/escultura2.jpeg', alt: 'Escultura Orgânica em Raiz Maciça Centenária', type: 'image' },
@@ -161,17 +156,16 @@ export const CategoriesShowcaseSection: React.FC = () => {
         <div className="relative w-full h-full bg-black/60 flex items-center justify-center overflow-hidden border border-white/15">
           <video
             key={item.src}
-            src={item.src}
+            src={`${item.src}#t=0.001`}
             title={item.alt}
             aria-label={item.alt}
             playsInline
             controls
-            preload="none"
-            poster={item.thumbnail}
+            preload="metadata"
             className="w-full h-full object-contain object-center"
           >
-            <source src={item.src} type={isMov ? 'video/quicktime' : 'video/mp4'} />
-            <source src={item.src} type="video/mp4" />
+            <source src={`${item.src}#t=0.001`} type={isMov ? 'video/quicktime' : 'video/mp4'} />
+            <source src={`${item.src}#t=0.001`} type="video/mp4" />
           </video>
           {/* Efeito sutil de borda interna translúcida e leve - 100% acelerado por hardware, peso zero */}
           <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_24px_rgba(0,0,0,0.55)] border border-white/10" />
@@ -192,13 +186,23 @@ export const CategoriesShowcaseSection: React.FC = () => {
 
   const renderThumbnail = (item: ShowcaseMedia) => (
     <div className="relative h-full w-full overflow-hidden bg-[#1c1510]">
-      <img
-        src={item.thumbnail || item.src}
-        alt={item.alt}
-        draggable={false}
-        className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
-        loading="lazy"
-      />
+      {item.type === 'video' ? (
+        <video
+          src={`${item.src}#t=0.001`}
+          preload="metadata"
+          muted
+          playsInline
+          className="w-full h-full object-cover object-center pointer-events-none select-none"
+        />
+      ) : (
+        <img
+          src={item.src}
+          alt={item.alt}
+          draggable={false}
+          className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
+          loading="lazy"
+        />
+      )}
       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
       {item.type === 'video' && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none">
