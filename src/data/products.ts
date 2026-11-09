@@ -72,6 +72,7 @@ export const PRODUCTS: Product[] = [
     images: [
       '/images/baseraiz1.webp',
       '/images/fotobaseraiz.jpeg',
+      '/images/fotobaseraiz2.jpeg',
       '/images/baseraiz3.webp'
     ],
     featured: true,
