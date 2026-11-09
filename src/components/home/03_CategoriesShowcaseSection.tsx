@@ -33,7 +33,6 @@ const RAIZ_MEDIA: ShowcaseMedia[] = [
   { src: '/images/baseraiz1.webp', alt: 'Base de Mesa Raiz Maciça Orgânica Escultural - Amadeireira', type: 'image' },
   { src: '/images/fotobaseraiz.jpeg', alt: 'Base Raiz Centenária com Acabamento Nobre', type: 'image' },
   { src: '/images/baseraiz3.webp', alt: 'Escultura Viva em Madeira Maciça - Base Raiz', type: 'image' },
-  { src: '/images/baseraiz4.webp', alt: 'Mesa Base Raiz Autoral Exclusiva sob Medida', type: 'image' },
 ];
 
 const RESINA_MEDIA: ShowcaseMedia[] = [

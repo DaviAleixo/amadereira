@@ -72,8 +72,7 @@ export const PRODUCTS: Product[] = [
     images: [
       '/images/baseraiz1.webp',
       '/images/fotobaseraiz.jpeg',
-      '/images/baseraiz3.webp',
-      '/images/baseraiz4.webp'
+      '/images/baseraiz3.webp'
     ],
     featured: true,
     catalogUrl: WHATSAPP_BASE_URL,
