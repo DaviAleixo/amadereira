@@ -73,8 +73,7 @@ export const PRODUCTS: Product[] = [
     tag: 'Peça Única',
     images: [
       '/images/baseraiz1.webp',
-      '/images/fotobaseraiz2.jpeg',
-      '/images/baseraiz3.webp'
+      '/images/fotobaseraiz2.jpeg'
     ],
     featured: true,
     catalogUrl: WHATSAPP_BASE_URL,
