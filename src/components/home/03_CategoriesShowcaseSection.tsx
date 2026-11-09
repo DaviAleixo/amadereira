@@ -15,12 +15,13 @@ const CASCATA_MEDIA: ShowcaseMedia[] = [
     src: '/images/mesacascata.mp4',
     alt: 'Vídeo Oficial - Mesa Cascata em Madeira Maciça Autoral',
     type: 'video',
-    thumbnail: '/images/mesacascata1.webp',
+    thumbnail: '/images/cascatafoto.jpeg',
   },
-  { src: '/images/mesacascata1.webp', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
-  { src: '/images/mesacascata2.webp', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
-  { src: '/images/mesacascata3.webp', alt: 'Mesa Cascata Orgânica em Madeira Maciça', type: 'image' },
-  { src: '/images/mesacascata4.webp', alt: 'Mesa Cascata Monumental sob Medida - Amadeireira', type: 'image' },
+  { src: '/images/cascatafoto.jpeg', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
+  { src: '/images/cascatafoto2.jpeg', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
+  { src: '/images/cascatafoto3.jpeg', alt: 'Mesa Cascata Orgânica em Madeira Maciça', type: 'image' },
+  { src: '/images/cascatafoto4.jpeg', alt: 'Mesa Cascata Monumental sob Medida - Amadeireira', type: 'image' },
+  { src: '/images/cascatafoto6.jpeg', alt: 'Mesa Cascata Exclusiva com Acabamento Nobre', type: 'image' },
 ];
 
 const RAIZ_MEDIA: ShowcaseMedia[] = [
