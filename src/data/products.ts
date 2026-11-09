@@ -55,7 +55,6 @@ export const PRODUCTS: Product[] = [
     images: [
       '/images/pranchafoto.jpeg',
       '/images/pranchafoto2.jpeg',
-      '/images/pranchafoto3.jpeg',
       '/images/pranchafoto4.jpeg',
       '/images/mesaprancha3.webp'
     ],

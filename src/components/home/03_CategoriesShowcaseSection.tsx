@@ -47,7 +47,6 @@ const RESINA_MEDIA: ShowcaseMedia[] = [
 const PRANCHA_MEDIA: ShowcaseMedia[] = [
   { src: '/images/pranchafoto.jpeg', alt: 'Mesa Prancha Maciça com Borda Viva em Madeira Nobre', type: 'image' },
   { src: '/images/pranchafoto2.jpeg', alt: 'Mesa Prancha Monumental em Madeira Maciça', type: 'image' },
-  { src: '/images/pranchafoto3.jpeg', alt: 'Mesa Prancha Orgânica sob Medida', type: 'image' },
   { src: '/images/pranchafoto4.jpeg', alt: 'Mesa Prancha Rústica com Acabamento Nobre', type: 'image' },
   { src: '/images/mesaprancha3.webp', alt: 'Mesa Prancha Autoral em Madeira Maciça', type: 'image' },
 ];
