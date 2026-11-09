@@ -11,6 +11,12 @@ interface ShowcaseMedia {
 }
 
 const CASCATA_MEDIA: ShowcaseMedia[] = [
+  {
+    src: '/images/cascatavideo.mp4',
+    alt: 'Vídeo Oficial - Mesa Cascata em Madeira Maciça Autoral',
+    type: 'video',
+    thumbnail: '/images/cascatafoto.jpeg',
+  },
   { src: '/images/cascatafoto.jpeg', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
   { src: '/images/cascatafoto2.jpeg', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
   { src: '/images/cascatafoto3.jpeg', alt: 'Mesa Cascata Orgânica em Madeira Maciça', type: 'image' },
@@ -44,6 +50,12 @@ const RESINA_MEDIA: ShowcaseMedia[] = [
 ];
 
 const PRANCHA_MEDIA: ShowcaseMedia[] = [
+  {
+    src: '/images/pranchavideo.mp4',
+    alt: 'Vídeo Oficial - Mesa Prancha Maciça com Bordas Vivas Naturais',
+    type: 'video',
+    thumbnail: '/images/pranchafoto.jpeg',
+  },
   { src: '/images/pranchafoto.jpeg', alt: 'Mesa Prancha Maciça com Borda Viva em Madeira Nobre', type: 'image' },
   { src: '/images/pranchafoto2.jpeg', alt: 'Mesa Prancha Monumental em Madeira Maciça', type: 'image' },
   { src: '/images/pranchafoto4.jpeg', alt: 'Mesa Prancha Rústica com Acabamento Nobre', type: 'image' },
@@ -104,12 +116,12 @@ export const CategoriesShowcaseSection: React.FC = () => {
   }, [isResinaPaused, resinaIdx]);
 
   useEffect(() => {
-    if (isPranchaPaused) return;
+    if (isPranchaPaused || PRANCHA_MEDIA[pranchaIdx]?.type === 'video') return;
     const timer = setInterval(() => {
       setPranchaIdx((prev) => (prev + 1) % PRANCHA_MEDIA.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, [isPranchaPaused]);
+  }, [isPranchaPaused, pranchaIdx]);
 
   useEffect(() => {
     if (isEsculturaPaused) return;
@@ -894,18 +906,16 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 {...pranchaDrag}
               >
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <motion.div
                     key={pranchaQueue.main.src}
-                    src={pranchaQueue.main.src}
-                    alt={pranchaQueue.main.alt}
-                    draggable={false}
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.02 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
-                    className="w-full h-full object-cover object-center pointer-events-none select-none"
-                    loading="lazy"
-                  />
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    className="w-full h-full"
+                  >
+                    {renderMainMedia(pranchaQueue.main)}
+                  </motion.div>
                 </AnimatePresence>
               </div>
 
@@ -985,13 +995,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 className="relative aspect-[16/10] w-full overflow-hidden bg-[#1c1510] select-none touch-pan-y cursor-grab active:cursor-grabbing"
                 {...pranchaDrag}
               >
-                <img
-                  src={pranchaQueue.main.src}
-                  alt={pranchaQueue.main.alt}
-                  draggable={false}
-                  className="w-full h-full object-cover object-center pointer-events-none select-none"
-                  loading="lazy"
-                />
+                {renderMainMedia(pranchaQueue.main)}
                 {/* Setas Circulares Brancas Overlay */}
                 <button
                   onClick={(e) => {
