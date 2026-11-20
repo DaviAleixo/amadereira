@@ -19,7 +19,7 @@ export const CATEGORIES: CategoryInfo[] = [
     tagline: 'Continuidade & Arquitetura',
     headline: 'O fluxo contínuo da madeira que desce ao chão.',
     description: 'A Mesa Cascata se destaca pelo corte preciso em meia-esquadria que faz os veios da madeira descerem organicamente até o piso. Uma peça que une o peso da madeira maciça à leveza escultórica contemporânea.',
-    heroImage: '/images/cascatafoto.jpeg',
+    heroImage: '/images/cascata-capa.webp',
     detailImage: '/images/cascatafoto2.jpeg',
     woodTypes: ['Pequiá Maciço', 'Muiracatiara', 'Jatobá', 'Cumaru'],
     keyAttributes: [

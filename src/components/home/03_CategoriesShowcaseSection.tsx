@@ -11,13 +11,14 @@ interface ShowcaseMedia {
 }
 
 const CASCATA_MEDIA: ShowcaseMedia[] = [
+  { src: '/images/cascata-capa.webp', alt: 'Mesa Cascata Monumental em Madeira Maciça Autoral - Amadeireira', type: 'image' },
   { src: '/images/cascatafoto.jpeg', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
-  { src: '/images/cascatafoto2.jpeg', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
   {
     src: '/images/cascatavideo.mp4',
     alt: 'Vídeo Oficial - Mesa Cascata em Madeira Maciça Autoral',
     type: 'video',
   },
+  { src: '/images/cascatafoto2.jpeg', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
   { src: '/images/cascatafoto3.jpeg', alt: 'Mesa Cascata Orgânica em Madeira Maciça', type: 'image' },
   { src: '/images/cascatafoto4.jpeg', alt: 'Mesa Cascata Monumental sob Medida - Amadeireira', type: 'image' },
   { src: '/images/cascatafoto6.jpeg', alt: 'Mesa Cascata Exclusiva com Acabamento Nobre', type: 'image' },
