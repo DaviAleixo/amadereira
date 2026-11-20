@@ -11,61 +11,61 @@ interface ShowcaseMedia {
 }
 
 const CASCATA_MEDIA: ShowcaseMedia[] = [
+  { src: '/images/cascatafoto.jpeg', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
+  { src: '/images/cascatafoto2.jpeg', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
   {
     src: '/images/cascatavideo.mp4',
     alt: 'Vídeo Oficial - Mesa Cascata em Madeira Maciça Autoral',
     type: 'video',
   },
-  { src: '/images/cascatafoto.jpeg', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
-  { src: '/images/cascatafoto2.jpeg', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
   { src: '/images/cascatafoto3.jpeg', alt: 'Mesa Cascata Orgânica em Madeira Maciça', type: 'image' },
   { src: '/images/cascatafoto4.jpeg', alt: 'Mesa Cascata Monumental sob Medida - Amadeireira', type: 'image' },
   { src: '/images/cascatafoto6.jpeg', alt: 'Mesa Cascata Exclusiva com Acabamento Nobre', type: 'image' },
 ];
 
 const RAIZ_MEDIA: ShowcaseMedia[] = [
+  { src: '/images/ultimabaseraiz.jpeg', alt: 'Mesa Base Raiz Escultural Imponente - Amadeireira', type: 'image' },
+  { src: '/images/baseraiz1.webp', alt: 'Base de Mesa Raiz Maciça Orgânica Escultural - Amadeireira', type: 'image' },
   {
     src: '/images/baseraiz.mp4',
     alt: 'Vídeo Oficial - Base de Mesa Raiz Maciça Orgânica Escultural',
     type: 'video',
   },
-  { src: '/images/baseraiz1.webp', alt: 'Base de Mesa Raiz Maciça Orgânica Escultural - Amadeireira', type: 'image' },
   { src: '/images/fotobaseraiz2.jpeg', alt: 'Mesa Base Raiz Autoral Exclusiva sob Medida', type: 'image' },
-  { src: '/images/ultimabaseraiz.jpeg', alt: 'Mesa Base Raiz Escultural Imponente - Amadeireira', type: 'image' },
 ];
 
 const RESINA_MEDIA: ShowcaseMedia[] = [
+  { src: '/images/mesaprancha2.webp', alt: 'Mesa Monumental com Rio de Resina Epóxi Verde Esmeralda', type: 'image' },
+  { src: '/images/mesaresinaepoxi1.webp', alt: 'Mesa de Resina Epóxi e Madeira Maciça de Alto Padrão', type: 'image' },
   {
     src: '/images/mesacascata.mp4',
     alt: 'Vídeo Oficial - Mesa com Rio de Resina Epóxi em Madeira Maciça',
     type: 'video',
   },
-  { src: '/images/mesaprancha2.webp', alt: 'Mesa Monumental com Rio de Resina Epóxi Verde Esmeralda', type: 'image' },
-  { src: '/images/mesaresinaepoxi1.webp', alt: 'Mesa de Resina Epóxi e Madeira Maciça de Alto Padrão', type: 'image' },
   { src: '/images/mesaresinaepoxi2.webp', alt: 'Mesa com Resina Epóxi Translúcida e Madeira Selecionada', type: 'image' },
   { src: '/images/mesaresinaepoxi3.webp', alt: 'Mesa de Jantar com Acabamento em Resina Epóxi', type: 'image' },
 ];
 
 const PRANCHA_MEDIA: ShowcaseMedia[] = [
+  { src: '/images/pranchafoto.jpeg', alt: 'Mesa Prancha Maciça com Borda Viva em Madeira Nobre', type: 'image' },
+  { src: '/images/pranchafoto2.jpeg', alt: 'Mesa Prancha Monumental em Madeira Maciça', type: 'image' },
   {
     src: '/images/pranchavideo.mp4',
     alt: 'Vídeo Oficial - Mesa Prancha Maciça com Bordas Vivas Naturais',
     type: 'video',
   },
-  { src: '/images/pranchafoto.jpeg', alt: 'Mesa Prancha Maciça com Borda Viva em Madeira Nobre', type: 'image' },
-  { src: '/images/pranchafoto2.jpeg', alt: 'Mesa Prancha Monumental em Madeira Maciça', type: 'image' },
   { src: '/images/pranchafoto4.jpeg', alt: 'Mesa Prancha Rústica com Acabamento Nobre', type: 'image' },
   { src: '/images/mesaprancha3.webp', alt: 'Mesa Prancha Autoral em Madeira Maciça', type: 'image' },
 ];
 
 const ESCULTURA_MEDIA: ShowcaseMedia[] = [
+  { src: '/images/escultura1.jpeg', alt: 'Escultura Autoral em Madeira Maciça Nobre - Amadeireira', type: 'image' },
+  { src: '/images/escultura2.jpeg', alt: 'Escultura Orgânica em Raiz Maciça Centenária', type: 'image' },
   {
     src: '/images/estruturavideo.mp4',
     alt: 'Vídeo Oficial - Escultura Autoral e Estrutura em Madeira Maciça',
     type: 'video',
   },
-  { src: '/images/escultura1.jpeg', alt: 'Escultura Autoral em Madeira Maciça Nobre - Amadeireira', type: 'image' },
-  { src: '/images/escultura2.jpeg', alt: 'Escultura Orgânica em Raiz Maciça Centenária', type: 'image' },
   { src: '/images/escultura3.jpeg', alt: 'Obra de Arte Escultural Exclusiva em Madeira Nobre', type: 'image' },
   { src: '/images/escultura4.jpeg', alt: 'Escultura Decorativa Monumental em Madeira Maciça', type: 'image' },
 ];
