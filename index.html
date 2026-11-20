@@ -63,23 +63,125 @@
       />
     </noscript>
 
-    <!-- Schema.org JSON-LD -->
+    <!-- Schema.org JSON-LD (100% invisível para os usuários, lido exclusivamente pelos robôs do Google) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "FurnitureStore",
-        "name": "Amadeireira",
-        "image": "https://amadereira.vercel.app/images/hero-bg-desktop.png",
-        "description": "Ateliê especializado em móveis autorais de madeira maciça, mesas cascata, mesas prancha e mesas raiz de alto padrão.",
-        "telephone": "+55-19-98415-3232",
-        "url": "https://amadereira.vercel.app/",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Campinas",
-          "addressRegion": "SP",
-          "addressCountry": "BR"
-        },
-        "priceRange": "$$$$"
+        "@graph": [
+          {
+            "@type": "FurnitureStore",
+            "@id": "https://amadereira.vercel.app/#store",
+            "name": "Amadeireira",
+            "image": "https://amadereira.vercel.app/images/hero-bg-desktop.png",
+            "description": "Ateliê especializado em móveis autorais de madeira maciça, mesas cascata, mesas prancha e mesas raiz de alto padrão.",
+            "telephone": "+55-19-98415-3232",
+            "url": "https://amadereira.vercel.app/",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Campinas",
+              "addressRegion": "SP",
+              "addressCountry": "BR"
+            },
+            "priceRange": "$$$$",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Coleções Exclusivas em Madeira Maciça",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product",
+                    "name": "Mesa Cascata em Madeira Maciça Nobre",
+                    "description": "Corte em meia-esquadria 45° com veios contínuos do tampo ao pé, unindo sofisticação e imponência.",
+                    "image": "https://amadereira.vercel.app/images/cascatafoto.jpeg"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product",
+                    "name": "Mesa Prancha com Borda Orgânica Viva",
+                    "description": "Tampo em peça única de tora maciça preservando o formato original e orgânico da árvore.",
+                    "image": "https://amadereira.vercel.app/images/pranchafoto.jpeg"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product",
+                    "name": "Mesa Base Raiz Orgânica Escultural",
+                    "description": "Peças únicas esculpidas pela própria natureza a partir de raízes maciças centenárias.",
+                    "image": "https://amadereira.vercel.app/images/ultimabaseraiz.jpeg"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product",
+                    "name": "Mesa River com Rio de Resina Epóxi Translúcida",
+                    "description": "União perfeita entre a madeira nobre selecionada e resina epóxi translúcida de alto brilho.",
+                    "image": "https://amadereira.vercel.app/images/mesaprancha2.webp"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product",
+                    "name": "Esculturas & Obras de Arte em Madeira Maciça",
+                    "description": "Peças decorativas e estruturas lapidadas à mão em madeira nobre e raiz centenária.",
+                    "image": "https://amadereira.vercel.app/images/escultura2.jpeg"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://amadereira.vercel.app/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "A Amadeireira faz mesas em madeira maciça sob medida?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sim. Confeccionamos mesas monumentais e móveis autorais sob medida, permitindo que você escolha as dimensões exatas (de 2m a 6m+), o tipo de tora nobre (como Pequiá e Muiracatiara) e o estilo de acabamento para o seu ambiente ou projeto de arquitetura."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "A madeira maciça racha ou empena com o tempo?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não. Nossas peças passam por rigoroso processo de seleção, estabilização e tratamento térmico contra pragas e umidade. Utilizamos acabamento acetinado com óleos naturais e vernizes de alta tecnologia que protegem a fibra da madeira contra líquidos e variações de temperatura."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quais são as linhas de mesas exclusivas disponíveis?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Trabalhamos com 5 linhas principais autorais: Mesas Cascata (com corte contínuo em 45°), Mesas Prancha (tora inteira com bordas orgânicas vivas), Mesas com Base Raiz Centenária, Mesas com Rio de Resina Epóxi Translúcida e Esculturas em Madeira Maciça."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Como funciona o frete e a entrega de mesas de grande porte?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Entregamos em todo o Brasil através de logística especializada e caminhões dedicados para transporte de móveis pesados de luxo, garantindo entrega segura e manuseio cuidadoso até o seu ambiente."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Posso visitar o showroom para escolher a tora pessoalmente?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sim. Nosso ateliê e showroom ficam localizados em Campinas - SP. Você pode agendar uma visita exclusiva via WhatsApp para escolher sua tora ou peça de raiz pessoalmente."
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
     <!-- Google Analytics (GA4) -->
