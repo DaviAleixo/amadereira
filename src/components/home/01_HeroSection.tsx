@@ -5,19 +5,21 @@ import { WHATSAPP_BASE_URL } from "../../data/products";
 export function HeroSection() {
   return (
     <section className="relative h-[100dvh] w-full overflow-hidden bg-[#141414]">
-      {/* 1. Background Image Layer - Apenas a foto hero.webp com os gradientes idênticos ao layout de exemplo */}
+      {/* 1. Background Image Layer - Foto de capa com os gradientes otimizados */}
       <div className="absolute inset-0 z-0 h-full w-full">
         <img
-          src="/images/hero.webp"
+          src="/images/hero-cascata.webp"
           alt="Amadeireira — Móveis Autorais de Madeira Maciça"
           fetchPriority="high"
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        {/* Gradiente superior para enquadrar perfeitamente o header e as vigas */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent pointer-events-none" />
+        {/* Camada de escurecimento suave para contraste perfeito da tipografia */}
+        <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+        {/* Gradiente superior para enquadrar perfeitamente o header */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-transparent pointer-events-none" />
         {/* Gradiente inferior para transição suave com a seção seguinte */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#141414] via-[#141414]/50 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#141414] via-[#141414]/60 to-transparent pointer-events-none" />
       </div>
 
       {/* 2. Content Layer - Headline e botões posicionados harmoniosamente com folga acima da mesa */}
