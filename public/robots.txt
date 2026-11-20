@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap oficial da Amadeireira
-Sitemap: https://amadeireira.com.br/sitemap.xml
+Sitemap: https://amadeireira.vercel.app/sitemap.xml
