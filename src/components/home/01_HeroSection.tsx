@@ -70,6 +70,7 @@ export function HeroSection() {
               const el = document.getElementById('produtos') || document.getElementById('colecoes');
               if (el) {
                 e.preventDefault();
+                window.dispatchEvent(new CustomEvent('reset-categories-showcase'));
                 el.scrollIntoView({ behavior: 'smooth' });
               }
             }}

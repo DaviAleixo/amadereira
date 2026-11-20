@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { buildWhatsAppUrl } from '../../data/products';
@@ -71,85 +71,208 @@ const ESCULTURA_MEDIA: ShowcaseMedia[] = [
 ];
 
 export const CategoriesShowcaseSection: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
   // Cascata Queue State
   const [cascataIdx, setCascataIdx] = useState(0);
   const [isCascataPaused, setIsCascataPaused] = useState(false);
+  const [cascataVideoPlaying, setCascataVideoPlaying] = useState(false);
 
   // Raiz Queue State
   const [raizIdx, setRaizIdx] = useState(0);
   const [isRaizPaused, setIsRaizPaused] = useState(false);
+  const [raizVideoPlaying, setRaizVideoPlaying] = useState(false);
 
   // Resina Queue State
   const [resinaIdx, setResinaIdx] = useState(0);
   const [isResinaPaused, setIsResinaPaused] = useState(false);
+  const [resinaVideoPlaying, setResinaVideoPlaying] = useState(false);
 
   // Prancha Queue State
   const [pranchaIdx, setPranchaIdx] = useState(0);
   const [isPranchaPaused, setIsPranchaPaused] = useState(false);
+  const [pranchaVideoPlaying, setPranchaVideoPlaying] = useState(false);
 
   // Escultura Queue State
   const [esculturaIdx, setEsculturaIdx] = useState(0);
   const [isEsculturaPaused, setIsEsculturaPaused] = useState(false);
+  const [esculturaVideoPlaying, setEsculturaVideoPlaying] = useState(false);
 
-  // Auto-play timers
+  // Observer to only start auto-slide when section enters viewport (avoids skipping first photo on page load)
   useEffect(() => {
-    if (isCascataPaused || CASCATA_MEDIA[cascataIdx]?.type === 'video') return;
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Reset all categories to first photo when triggered
+  useEffect(() => {
+    const handleReset = () => {
+      setCascataIdx(0);
+      setCascataVideoPlaying(false);
+      setRaizIdx(0);
+      setRaizVideoPlaying(false);
+      setResinaIdx(0);
+      setResinaVideoPlaying(false);
+      setPranchaIdx(0);
+      setPranchaVideoPlaying(false);
+      setEsculturaIdx(0);
+      setEsculturaVideoPlaying(false);
+    };
+    window.addEventListener('reset-categories-showcase', handleReset);
+    return () => window.removeEventListener('reset-categories-showcase', handleReset);
+  }, []);
+
+  // Auto-play timers: advances only when section is in view, not hovered/dragged, and video is not playing
+  useEffect(() => {
+    if (!isInView || isCascataPaused || cascataVideoPlaying) return;
     const timer = setInterval(() => {
       setCascataIdx((prev) => (prev + 1) % CASCATA_MEDIA.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [isCascataPaused, cascataIdx]);
-
-  useEffect(() => {
-    if (isRaizPaused || RAIZ_MEDIA[raizIdx]?.type === 'video') return;
-    const timer = setInterval(() => {
-      setRaizIdx((prev) => (prev + 1) % RAIZ_MEDIA.length);
     }, 5500);
     return () => clearInterval(timer);
-  }, [isRaizPaused, raizIdx]);
+  }, [isInView, isCascataPaused, cascataVideoPlaying]);
 
   useEffect(() => {
-    if (isResinaPaused || RESINA_MEDIA[resinaIdx]?.type === 'video') return;
+    if (!isInView || isRaizPaused || raizVideoPlaying) return;
     const timer = setInterval(() => {
-      setResinaIdx((prev) => (prev + 1) % RESINA_MEDIA.length);
+      setRaizIdx((prev) => (prev + 1) % RAIZ_MEDIA.length);
     }, 5800);
     return () => clearInterval(timer);
-  }, [isResinaPaused, resinaIdx]);
+  }, [isInView, isRaizPaused, raizVideoPlaying]);
 
   useEffect(() => {
-    if (isPranchaPaused || PRANCHA_MEDIA[pranchaIdx]?.type === 'video') return;
+    if (!isInView || isResinaPaused || resinaVideoPlaying) return;
     const timer = setInterval(() => {
-      setPranchaIdx((prev) => (prev + 1) % PRANCHA_MEDIA.length);
+      setResinaIdx((prev) => (prev + 1) % RESINA_MEDIA.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, [isPranchaPaused, pranchaIdx]);
+  }, [isInView, isResinaPaused, resinaVideoPlaying]);
 
   useEffect(() => {
-    if (isEsculturaPaused || ESCULTURA_MEDIA[esculturaIdx]?.type === 'video') return;
+    if (!isInView || isPranchaPaused || pranchaVideoPlaying) return;
     const timer = setInterval(() => {
-      setEsculturaIdx((prev) => (prev + 1) % ESCULTURA_MEDIA.length);
+      setPranchaIdx((prev) => (prev + 1) % PRANCHA_MEDIA.length);
     }, 6200);
     return () => clearInterval(timer);
-  }, [isEsculturaPaused, esculturaIdx]);
+  }, [isInView, isPranchaPaused, pranchaVideoPlaying]);
+
+  useEffect(() => {
+    if (!isInView || isEsculturaPaused || esculturaVideoPlaying) return;
+    const timer = setInterval(() => {
+      setEsculturaIdx((prev) => (prev + 1) % ESCULTURA_MEDIA.length);
+    }, 6400);
+    return () => clearInterval(timer);
+  }, [isInView, isEsculturaPaused, esculturaVideoPlaying]);
 
   // Navigation handlers
-  const nextCascata = () => setCascataIdx((prev) => (prev + 1) % CASCATA_MEDIA.length);
-  const prevCascata = () => setCascataIdx((prev) => (prev === 0 ? CASCATA_MEDIA.length - 1 : prev - 1));
+  const nextCascata = () => {
+    setCascataVideoPlaying(false);
+    setCascataIdx((prev) => (prev + 1) % CASCATA_MEDIA.length);
+  };
+  const prevCascata = () => {
+    setCascataVideoPlaying(false);
+    setCascataIdx((prev) => (prev === 0 ? CASCATA_MEDIA.length - 1 : prev - 1));
+  };
 
-  const nextRaiz = () => setRaizIdx((prev) => (prev + 1) % RAIZ_MEDIA.length);
-  const prevRaiz = () => setRaizIdx((prev) => (prev === 0 ? RAIZ_MEDIA.length - 1 : prev - 1));
+  const nextRaiz = () => {
+    setRaizVideoPlaying(false);
+    setRaizIdx((prev) => (prev + 1) % RAIZ_MEDIA.length);
+  };
+  const prevRaiz = () => {
+    setRaizVideoPlaying(false);
+    setRaizIdx((prev) => (prev === 0 ? RAIZ_MEDIA.length - 1 : prev - 1));
+  };
 
-  const nextResina = () => setResinaIdx((prev) => (prev + 1) % RESINA_MEDIA.length);
-  const prevResina = () => setResinaIdx((prev) => (prev === 0 ? RESINA_MEDIA.length - 1 : prev - 1));
+  const nextResina = () => {
+    setResinaVideoPlaying(false);
+    setResinaIdx((prev) => (prev + 1) % RESINA_MEDIA.length);
+  };
+  const prevResina = () => {
+    setResinaVideoPlaying(false);
+    setResinaIdx((prev) => (prev === 0 ? RESINA_MEDIA.length - 1 : prev - 1));
+  };
 
-  const nextPrancha = () => setPranchaIdx((prev) => (prev + 1) % PRANCHA_MEDIA.length);
-  const prevPrancha = () => setPranchaIdx((prev) => (prev === 0 ? PRANCHA_MEDIA.length - 1 : prev - 1));
+  const nextPrancha = () => {
+    setPranchaVideoPlaying(false);
+    setPranchaIdx((prev) => (prev + 1) % PRANCHA_MEDIA.length);
+  };
+  const prevPrancha = () => {
+    setPranchaVideoPlaying(false);
+    setPranchaIdx((prev) => (prev === 0 ? PRANCHA_MEDIA.length - 1 : prev - 1));
+  };
 
-  const nextEscultura = () => setEsculturaIdx((prev) => (prev + 1) % ESCULTURA_MEDIA.length);
-  const prevEscultura = () => setEsculturaIdx((prev) => (prev === 0 ? ESCULTURA_MEDIA.length - 1 : prev - 1));
+  const nextEscultura = () => {
+    setEsculturaVideoPlaying(false);
+    setEsculturaIdx((prev) => (prev + 1) % ESCULTURA_MEDIA.length);
+  };
+  const prevEscultura = () => {
+    setEsculturaVideoPlaying(false);
+    setEsculturaIdx((prev) => (prev === 0 ? ESCULTURA_MEDIA.length - 1 : prev - 1));
+  };
+
+  // Video event handlers per category to pause carousel while video is playing
+  const cascataVideoHandlers = {
+    onPlay: () => setCascataVideoPlaying(true),
+    onPause: () => setCascataVideoPlaying(false),
+    onEnded: () => {
+      setCascataVideoPlaying(false);
+      nextCascata();
+    },
+  };
+
+  const raizVideoHandlers = {
+    onPlay: () => setRaizVideoPlaying(true),
+    onPause: () => setRaizVideoPlaying(false),
+    onEnded: () => {
+      setRaizVideoPlaying(false);
+      nextRaiz();
+    },
+  };
+
+  const resinaVideoHandlers = {
+    onPlay: () => setResinaVideoPlaying(true),
+    onPause: () => setResinaVideoPlaying(false),
+    onEnded: () => {
+      setResinaVideoPlaying(false);
+      nextResina();
+    },
+  };
+
+  const pranchaVideoHandlers = {
+    onPlay: () => setPranchaVideoPlaying(true),
+    onPause: () => setPranchaVideoPlaying(false),
+    onEnded: () => {
+      setPranchaVideoPlaying(false);
+      nextPrancha();
+    },
+  };
+
+  const esculturaVideoHandlers = {
+    onPlay: () => setEsculturaVideoPlaying(true),
+    onPause: () => setEsculturaVideoPlaying(false),
+    onEnded: () => {
+      setEsculturaVideoPlaying(false);
+      nextEscultura();
+    },
+  };
 
   // Helpers de Renderização de Mídia
-  const renderMainMedia = (item: ShowcaseMedia) => {
+  const renderMainMedia = (
+    item: ShowcaseMedia,
+    handlers?: {
+      onPlay?: () => void;
+      onPause?: () => void;
+      onEnded?: () => void;
+    }
+  ) => {
     if (item.type === 'video') {
       const isMov = item.src.toLowerCase().endsWith('.mov');
       return (
@@ -162,6 +285,9 @@ export const CategoriesShowcaseSection: React.FC = () => {
             playsInline
             controls
             preload="metadata"
+            onPlay={handlers?.onPlay}
+            onPause={handlers?.onPause}
+            onEnded={handlers?.onEnded}
             className="w-full h-full object-contain object-center"
           >
             <source src={`${item.src}#t=0.001`} type={isMov ? 'video/quicktime' : 'video/mp4'} />
@@ -278,7 +404,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
   const esculturaQueue = getQueueImages(ESCULTURA_MEDIA, esculturaIdx);
 
   return (
-    <section id="colecoes" className="relative w-full bg-[#f5efe6] text-[#1a1614] py-14 sm:py-18 lg:py-24 overflow-hidden border-t border-[#dfd4c5] scroll-mt-20">
+    <section ref={sectionRef} id="colecoes" className="relative w-full bg-[#f5efe6] text-[#1a1614] py-14 sm:py-18 lg:py-24 overflow-hidden border-t border-[#dfd4c5] scroll-mt-20">
       <div id="produtos" className="absolute top-0 -translate-y-20 pointer-events-none" />
       <div id="mesas" className="absolute top-0 -translate-y-20 pointer-events-none" />
       <div className="max-w-[1420px] w-[calc(100%-32px)] sm:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] mx-auto">
@@ -381,7 +507,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     className="w-full h-full"
                   >
-                    {renderMainMedia(cascataQueue.main)}
+                    {renderMainMedia(cascataQueue.main, cascataVideoHandlers)}
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -485,7 +611,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 className="relative aspect-[16/10] w-full overflow-hidden bg-[#1c1510] select-none touch-pan-y cursor-grab active:cursor-grabbing"
                 {...cascataDrag}
               >
-                {renderMainMedia(cascataQueue.main)}
+                {renderMainMedia(cascataQueue.main, cascataVideoHandlers)}
                 {/* Setas Circulares Brancas Overlay */}
                 <button
                   onClick={(e) => {
@@ -564,7 +690,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     className="w-full h-full"
                   >
-                    {renderMainMedia(raizQueue.main)}
+                    {renderMainMedia(raizQueue.main, raizVideoHandlers)}
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -645,7 +771,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 className="relative aspect-[16/10] w-full overflow-hidden bg-[#1c1510] select-none touch-pan-y cursor-grab active:cursor-grabbing"
                 {...raizDrag}
               >
-                {renderMainMedia(raizQueue.main)}
+                {renderMainMedia(raizQueue.main, raizVideoHandlers)}
                 {/* Setas Circulares Brancas Overlay */}
                 <button
                   onClick={(e) => {
@@ -744,7 +870,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     className="w-full h-full"
                   >
-                    {renderMainMedia(resinaQueue.main)}
+                    {renderMainMedia(resinaQueue.main, resinaVideoHandlers)}
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -850,7 +976,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 className="relative aspect-[16/10] w-full overflow-hidden bg-[#1c1510] select-none touch-pan-y cursor-grab active:cursor-grabbing"
                 {...resinaDrag}
               >
-                {renderMainMedia(resinaQueue.main)}
+                {renderMainMedia(resinaQueue.main, resinaVideoHandlers)}
                 {/* Setas Circulares Brancas Overlay */}
                 <button
                   onClick={(e) => {
@@ -929,7 +1055,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     className="w-full h-full"
                   >
-                    {renderMainMedia(pranchaQueue.main)}
+                    {renderMainMedia(pranchaQueue.main, pranchaVideoHandlers)}
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -1010,7 +1136,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 className="relative aspect-[16/10] w-full overflow-hidden bg-[#1c1510] select-none touch-pan-y cursor-grab active:cursor-grabbing"
                 {...pranchaDrag}
               >
-                {renderMainMedia(pranchaQueue.main)}
+                {renderMainMedia(pranchaQueue.main, pranchaVideoHandlers)}
                 {/* Setas Circulares Brancas Overlay */}
                 <button
                   onClick={(e) => {
@@ -1109,7 +1235,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     className="w-full h-full"
                   >
-                    {renderMainMedia(esculturaQueue.main)}
+                    {renderMainMedia(esculturaQueue.main, esculturaVideoHandlers)}
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -1213,7 +1339,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                 className="relative aspect-[16/10] w-full overflow-hidden bg-[#1c1510] select-none touch-pan-y cursor-grab active:cursor-grabbing"
                 {...esculturaDrag}
               >
-                {renderMainMedia(esculturaQueue.main)}
+                {renderMainMedia(esculturaQueue.main, esculturaVideoHandlers)}
                 {/* Setas Circulares Brancas Overlay */}
                 <button
                   onClick={(e) => {
