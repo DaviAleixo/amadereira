@@ -59,8 +59,8 @@ const PRANCHA_MEDIA: ShowcaseMedia[] = [
 ];
 
 const ESCULTURA_MEDIA: ShowcaseMedia[] = [
-  { src: '/images/escultura1.jpeg', alt: 'Escultura Autoral em Madeira Maciça Nobre - Amadeireira', type: 'image' },
   { src: '/images/escultura2.jpeg', alt: 'Escultura Orgânica em Raiz Maciça Centenária', type: 'image' },
+  { src: '/images/escultura1.jpeg', alt: 'Escultura Autoral em Madeira Maciça Nobre - Amadeireira', type: 'image' },
   {
     src: '/images/estruturavideo.mp4',
     alt: 'Vídeo Oficial - Escultura Autoral e Estrutura em Madeira Maciça',
