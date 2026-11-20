@@ -11,14 +11,13 @@ interface ShowcaseMedia {
 }
 
 const CASCATA_MEDIA: ShowcaseMedia[] = [
-  { src: '/images/cascata-capa.webp', alt: 'Mesa Cascata Monumental em Madeira Maciça Autoral - Amadeireira', type: 'image' },
   { src: '/images/cascatafoto.jpeg', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
+  { src: '/images/cascatafoto2.jpeg', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
   {
     src: '/images/cascatavideo.mp4',
     alt: 'Vídeo Oficial - Mesa Cascata em Madeira Maciça Autoral',
     type: 'video',
   },
-  { src: '/images/cascatafoto2.jpeg', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
   { src: '/images/cascatafoto3.jpeg', alt: 'Mesa Cascata Orgânica em Madeira Maciça', type: 'image' },
   { src: '/images/cascatafoto4.jpeg', alt: 'Mesa Cascata Monumental sob Medida - Amadeireira', type: 'image' },
   { src: '/images/cascatafoto6.jpeg', alt: 'Mesa Cascata Exclusiva com Acabamento Nobre', type: 'image' },
@@ -279,7 +278,9 @@ export const CategoriesShowcaseSection: React.FC = () => {
   const esculturaQueue = getQueueImages(ESCULTURA_MEDIA, esculturaIdx);
 
   return (
-    <section id="colecoes" className="relative w-full bg-[#f5efe6] text-[#1a1614] py-14 sm:py-18 lg:py-24 overflow-hidden border-t border-[#dfd4c5]">
+    <section id="colecoes" className="relative w-full bg-[#f5efe6] text-[#1a1614] py-14 sm:py-18 lg:py-24 overflow-hidden border-t border-[#dfd4c5] scroll-mt-20">
+      <div id="produtos" className="absolute top-0 -translate-y-20 pointer-events-none" />
+      <div id="mesas" className="absolute top-0 -translate-y-20 pointer-events-none" />
       <div className="max-w-[1420px] w-[calc(100%-32px)] sm:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] mx-auto">
         
         {/* ============================================================ */}

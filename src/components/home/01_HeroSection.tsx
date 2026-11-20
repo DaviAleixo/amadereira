@@ -5,21 +5,19 @@ import { WHATSAPP_BASE_URL } from "../../data/products";
 export function HeroSection() {
   return (
     <section className="relative h-[100dvh] w-full overflow-hidden bg-[#141414]">
-      {/* 1. Background Image Layer - Foto de capa com os gradientes otimizados */}
+      {/* 1. Background Image Layer - Apenas a foto hero.webp com os gradientes idênticos ao layout de exemplo */}
       <div className="absolute inset-0 z-0 h-full w-full">
         <img
-          src="/images/hero-cascata.webp"
+          src="/images/hero.webp"
           alt="Amadeireira — Móveis Autorais de Madeira Maciça"
           fetchPriority="high"
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        {/* Camada de escurecimento suave para contraste perfeito da tipografia */}
-        <div className="absolute inset-0 bg-black/40 pointer-events-none" />
-        {/* Gradiente superior para enquadrar perfeitamente o header */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-transparent pointer-events-none" />
+        {/* Gradiente superior para enquadrar perfeitamente o header e as vigas */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent pointer-events-none" />
         {/* Gradiente inferior para transição suave com a seção seguinte */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#141414] via-[#141414]/60 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#141414] via-[#141414]/50 to-transparent pointer-events-none" />
       </div>
 
       {/* 2. Content Layer - Headline e botões posicionados harmoniosamente com folga acima da mesa */}
@@ -67,10 +65,15 @@ export function HeroSection() {
 
           {/* Secondary Button */}
           <a
-            href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Amadeireira%20e%20gostaria%20de%20conhecer%20os%20modelos%20de%20mesas.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:flex-1 h-12 sm:h-13 rounded-xl sm:rounded-2xl bg-[#141414]/75 hover:bg-[#141414]/90 border border-[#f3e2ba]/30 hover:border-[#f3e2ba]/60 backdrop-blur-md flex items-center justify-between text-[#f3e2ba] font-bebas text-base tracking-[0.16em] uppercase overflow-hidden transition-all hover:scale-[1.01] active:scale-100"
+            href="#produtos"
+            onClick={(e) => {
+              const el = document.getElementById('produtos') || document.getElementById('colecoes');
+              if (el) {
+                e.preventDefault();
+                el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="w-full sm:flex-1 h-12 sm:h-13 rounded-xl sm:rounded-2xl bg-[#141414]/75 hover:bg-[#141414]/90 border border-[#f3e2ba]/30 hover:border-[#f3e2ba]/60 backdrop-blur-md flex items-center justify-between text-[#f3e2ba] font-bebas text-base tracking-[0.16em] uppercase overflow-hidden transition-all hover:scale-[1.01] active:scale-100 cursor-pointer"
           >
             <span className="flex-1 text-center pl-5 sm:pl-6">Conhecer Nossas Mesas</span>
             <div className="w-11 sm:w-13 h-full border-l border-[#f3e2ba]/20 flex items-center justify-center shrink-0 text-[#f3e2ba]/80">

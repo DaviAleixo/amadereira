@@ -33,7 +33,6 @@ export const PRODUCTS: Product[] = [
     description: 'Continuidade perfeita do veio da madeira no corte em meia-esquadria de 90°. Uma peça arquitetônica imponente com acabamento acetinado com óleos naturais.',
     tag: 'Destaque Comercial',
     images: [
-      '/images/cascata-capa.webp',
       '/images/cascatafoto.jpeg',
       '/images/cascatafoto2.jpeg',
       '/images/cascatafoto3.jpeg',
