@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { buildWhatsAppUrl } from '../../data/products';
+import { trackWhatsAppLead } from '../../lib/tracking';
 
 interface ShowcaseMedia {
   src: string;
@@ -480,6 +481,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   <div className="pt-1">
                     <a
                       href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Cascata.')}
+                      onClick={() => trackWhatsAppLead({ category: 'Mesa Cascata', position: 'Vitrine Desktop', label: 'Solicite o Orçamento' })}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
@@ -657,6 +659,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
               <div className="pt-2 flex justify-center">
                 <a
                   href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Cascata.')}
+                  onClick={() => trackWhatsAppLead({ category: 'Mesa Cascata', position: 'Vitrine Mobile', label: 'Solicite o Orçamento' })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
@@ -711,6 +714,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   <div className="pt-2">
                     <a
                       href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Raiz.')}
+                      onClick={() => trackWhatsAppLead({ category: 'Mesa Raiz', position: 'Vitrine Desktop', label: 'Solicite o Orçamento' })}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
@@ -810,6 +814,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
               <div className="pt-2 flex justify-center">
                 <a
                   href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Raiz.')}
+                  onClick={() => trackWhatsAppLead({ category: 'Mesa Raiz', position: 'Vitrine Mobile', label: 'Solicite o Orçamento' })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
@@ -843,6 +848,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   <div className="pt-1">
                     <a
                       href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa de Resina Epóxi.')}
+                      onClick={() => trackWhatsAppLead({ category: 'Mesa Resina Epóxi', position: 'Vitrine Desktop', label: 'Solicite o Orçamento' })}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
@@ -1022,6 +1028,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
               <div className="pt-2 flex justify-center">
                 <a
                   href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa de Resina Epóxi.')}
+                  onClick={() => trackWhatsAppLead({ category: 'Mesa Resina Epóxi', position: 'Vitrine Mobile', label: 'Solicite o Orçamento' })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
@@ -1076,6 +1083,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   <div className="pt-2">
                     <a
                       href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Prancha.')}
+                      onClick={() => trackWhatsAppLead({ category: 'Mesa Prancha', position: 'Vitrine Desktop', label: 'Solicite o Orçamento' })}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
@@ -1175,6 +1183,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
               <div className="pt-2 flex justify-center">
                 <a
                   href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Mesa Prancha.')}
+                  onClick={() => trackWhatsAppLead({ category: 'Mesa Prancha', position: 'Vitrine Mobile', label: 'Solicite o Orçamento' })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
@@ -1208,6 +1217,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
                   <div className="pt-1">
                     <a
                       href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Esculturas e Estruturas Autorais.')}
+                      onClick={() => trackWhatsAppLead({ category: 'Esculturas & Estruturas', position: 'Vitrine Desktop', label: 'Solicite o Orçamento' })}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#be7b4c] hover:text-[#1a1614] transition-colors group pb-0.5 border-b border-[#be7b4c]/40 hover:border-[#1a1614]"
@@ -1385,6 +1395,7 @@ export const CategoriesShowcaseSection: React.FC = () => {
               <div className="pt-2 flex justify-center">
                 <a
                   href={buildWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Esculturas Autorais.')}
+                  onClick={() => trackWhatsAppLead({ category: 'Esculturas & Estruturas', position: 'Vitrine Mobile', label: 'Solicite o Orçamento' })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#be7b4c] hover:bg-[#a6653b] text-[#141414] font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"

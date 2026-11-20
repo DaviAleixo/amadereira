@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap oficial da Amadeireira
+Sitemap: https://amadeireira.com.br/sitemap.xml

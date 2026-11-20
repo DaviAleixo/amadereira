@@ -1,6 +1,7 @@
 "use client";
 
-import { WHATSAPP_BASE_URL } from "../../data/products";
+import { buildWhatsAppUrl } from "../../data/products";
+import { trackWhatsAppLead } from "../../lib/tracking";
 
 export function HeroSection() {
   return (
@@ -52,7 +53,8 @@ export function HeroSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-[330px] sm:max-w-xl mx-auto">
           {/* Primary Button */}
           <a
-            href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Amadeireira%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.`}
+            href={buildWhatsAppUrl('Olá! Vim pelo site da Amadeireira e gostaria de solicitar um orçamento.')}
+            onClick={() => trackWhatsAppLead({ category: 'Geral', position: 'Hero Principal', label: 'Solicitar Orçamento' })}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:flex-1 h-12 sm:h-13 rounded-xl sm:rounded-2xl bg-[#be7b4c] hover:bg-[#a76538] flex items-center justify-between text-[#141414] font-bebas text-base tracking-[0.16em] uppercase overflow-hidden shadow-[0_4px_20px_rgba(190,123,76,0.4)] transition-all hover:scale-[1.01] active:scale-100"

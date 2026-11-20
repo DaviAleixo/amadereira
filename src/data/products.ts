@@ -1,3 +1,5 @@
+import { getStoredUtms } from '../lib/tracking';
+
 export interface Product {
   id: string;
   name: string;
@@ -19,7 +21,13 @@ export const WHATSAPP_BASE_URL = 'https://wa.me/5519984153232';
 export const CATALOG_BASE_URL = WHATSAPP_BASE_URL;
 
 export const buildWhatsAppUrl = (message: string) => {
-  return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`;
+  const utms = getStoredUtms();
+  let tag = '';
+  if (utms.utm_source) {
+    tag = ` [Origem: ${utms.utm_source}${utms.utm_campaign ? ` / ${utms.utm_campaign}` : ''}]`;
+  }
+  const finalMessage = tag ? `${message}${tag}` : message;
+  return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(finalMessage)}`;
 };
 
 export const PRODUCTS: Product[] = [

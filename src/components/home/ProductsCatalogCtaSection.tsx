@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Layers, Truck, Ruler } from 'lucide-react';
-import { WHATSAPP_BASE_URL } from '../../data/products';
+import { buildWhatsAppUrl } from '../../data/products';
+import { trackWhatsAppLead } from '../../lib/tracking';
 
 export const ProductsCatalogCtaSection: React.FC = () => {
   return (
@@ -21,7 +22,8 @@ export const ProductsCatalogCtaSection: React.FC = () => {
           
           {/* Item 1: Acervo Completo */}
           <a
-            href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Gostaria%20de%20ver%20mais%20modelos%20de%20produtos%20no%20WhatsApp.`}
+            href={buildWhatsAppUrl('Olá! Gostaria de ver mais modelos de produtos no WhatsApp.')}
+            onClick={() => trackWhatsAppLead({ category: 'Catálogo Geral', position: 'Barra Benefícios', label: 'Veja os Demais Produtos' })}
             target="_blank"
             rel="noopener noreferrer"
             className="group flex flex-col items-center text-center p-3 rounded-lg hover:bg-white/[0.03] transition-all"
@@ -66,7 +68,8 @@ export const ProductsCatalogCtaSection: React.FC = () => {
           {/* Item 4: CTA Botão para o WhatsApp */}
           <div className="flex flex-col items-center text-center p-3 sm:col-span-2 lg:col-span-1 justify-center">
             <a
-              href={`${WHATSAPP_BASE_URL}?text=Ol%C3%A1!%20Gostaria%20de%20ver%20as%20pe%C3%A7as%20dispon%C3%ADveis%20no%20WhatsApp.`}
+              href={buildWhatsAppUrl('Olá! Gostaria de ver as peças disponíveis no WhatsApp.')}
+              onClick={() => trackWhatsAppLead({ category: 'Catálogo Geral', position: 'Barra Benefícios', label: 'Consultar no WhatsApp' })}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full max-w-[240px] inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 bg-gradient-to-r from-[#be7b4c] to-[#a4643a] hover:from-[#d49a6a] hover:to-[#be7b4c] text-[#0e0805] font-extrabold text-xs uppercase tracking-wider rounded transition-all duration-300 shadow-md shadow-black/40 hover:scale-[1.03] active:scale-95 group"

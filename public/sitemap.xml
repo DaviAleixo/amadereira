@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://amadeireira.com.br/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://amadeireira.com.br/images/hero.webp</image:loc>
+      <image:title>Amadeireira — Móveis Autorais de Madeira Maciça de Alto Padrão</image:title>
+      <image:caption>Mesa cascata e móveis sob medida em madeira maciça nobre</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://amadeireira.com.br/images/cascatafoto.jpeg</image:loc>
+      <image:title>Mesa Cascata em Madeira Maciça com Corte 45 Graus</image:title>
+      <image:caption>Design escultural com o tampo contínuo e veios fluídos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://amadeireira.com.br/images/ultimabaseraiz.jpeg</image:loc>
+      <image:title>Mesa Base Raiz Escultural Imponente</image:title>
+      <image:caption>Peças únicas esculpidas pela própria natureza</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://amadeireira.com.br/images/mesaprancha2.webp</image:loc>
+      <image:title>Mesa com Rio de Resina Epóxi Translúcida</image:title>
+      <image:caption>União perfeita entre a madeira maciça e resina epóxi esmeralda</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://amadeireira.com.br/images/pranchafoto.jpeg</image:loc>
+      <image:title>Mesa Prancha Maciça com Borda Orgânica Viva</image:title>
+      <image:caption>Tampo em peça única valorizando a forma original da árvore</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://amadeireira.com.br/images/escultura2.jpeg</image:loc>
+      <image:title>Escultura Orgânica Autoral em Madeira Maciça Nobre</image:title>
+      <image:caption>Obras de arte e estruturas lapidadas em madeira nobre e raiz</image:caption>
+    </image:image>
+  </url>
+</urlset>
