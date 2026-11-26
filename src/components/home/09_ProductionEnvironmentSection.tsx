@@ -4,12 +4,12 @@ import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import { WHATSAPP_BASE_URL } from '../../data/products';
 
 const AMBIENTE_PHOTOS = [
-  { id: 1, src: '/images/ambiente1.jpeg', alt: 'Ambiente Amadeireira 01' },
-  { id: 2, src: '/images/ambiente2.jpeg', alt: 'Ambiente Amadeireira 02' },
-  { id: 3, src: '/images/ambiente3.jpeg', alt: 'Ambiente Amadeireira 03' },
-  { id: 4, src: '/images/ambiente4.jpeg', alt: 'Ambiente Amadeireira 04' },
-  { id: 5, src: '/images/ambiente5.jpeg', alt: 'Ambiente Amadeireira 05' },
-  { id: 6, src: '/images/ambiente6.jpeg', alt: 'Ambiente Amadeireira 06' },
+  { id: 1, src: '/images/ambiente1.webp', alt: 'Ambiente Amadeireira 01' },
+  { id: 2, src: '/images/ambiente2.webp', alt: 'Ambiente Amadeireira 02' },
+  { id: 3, src: '/images/ambiente3.webp', alt: 'Ambiente Amadeireira 03' },
+  { id: 4, src: '/images/ambiente4.webp', alt: 'Ambiente Amadeireira 04' },
+  { id: 5, src: '/images/ambiente5.webp', alt: 'Ambiente Amadeireira 05' },
+  { id: 6, src: '/images/ambiente6.webp', alt: 'Ambiente Amadeireira 06' },
 ];
 
 export const ProductionEnvironmentSection: React.FC = () => {

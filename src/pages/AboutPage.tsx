@@ -48,7 +48,7 @@ export const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#be7b4c]/30 shadow-2xl">
               <img
-                src="/images/craft/workshop.jpg"
+                src="/images/craft/workshop.webp"
                 alt="Ateliê de marcenaria artesanal Amadeireira"
                 className="w-full h-full object-cover"
                 loading="lazy"

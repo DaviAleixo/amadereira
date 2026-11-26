@@ -11,7 +11,7 @@ export const PranchaPage: React.FC = () => {
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/pranchafoto.jpeg"
+            src="/images/pranchafoto.webp"
             alt="Mesa Prancha rústica de tora maciça inteiriça"
             className="w-full h-full object-cover object-center scale-105"
             loading="eager"
@@ -112,7 +112,7 @@ export const PranchaPage: React.FC = () => {
 
             <div className="lg:col-span-6 relative aspect-square rounded-2xl overflow-hidden border border-[#be7b4c]/30 shadow-2xl">
               <img
-                src="/images/gallery/macro-1.jpg"
+                src="/images/gallery/macro-1.webp"
                 alt="Macro dos veios da mesa prancha de madeira maciça"
                 className="w-full h-full object-cover"
                 loading="lazy"

@@ -41,11 +41,11 @@ export const PRODUCTS: Product[] = [
     description: 'Continuidade perfeita do veio da madeira no corte em meia-esquadria de 90°. Uma peça arquitetônica imponente com acabamento acetinado com óleos naturais.',
     tag: 'Destaque Comercial',
     images: [
-      '/images/cascatafoto.jpeg',
-      '/images/cascatafoto2.jpeg',
-      '/images/cascatafoto3.jpeg',
-      '/images/cascatafoto4.jpeg',
-      '/images/cascatafoto6.jpeg'
+      '/images/cascatafoto.webp',
+      '/images/cascatafoto2.webp',
+      '/images/cascatafoto3.webp',
+      '/images/cascatafoto4.webp',
+      '/images/cascatafoto6.webp'
     ],
     featured: true,
     catalogUrl: WHATSAPP_BASE_URL,
@@ -61,9 +61,9 @@ export const PRODUCTS: Product[] = [
     description: 'Tampo único esculpido pela natureza com bordas vivas preservadas e base em aço carbono com pintura eletrostática preta fosca.',
     tag: 'Grande Porte',
     images: [
-      '/images/pranchafoto.jpeg',
-      '/images/pranchafoto2.jpeg',
-      '/images/pranchafoto4.jpeg',
+      '/images/pranchafoto.webp',
+      '/images/pranchafoto2.webp',
+      '/images/pranchafoto4.webp',
       '/images/mesaprancha3.webp'
     ],
     featured: true,
@@ -81,8 +81,8 @@ export const PRODUCTS: Product[] = [
     tag: 'Peça Única',
     images: [
       '/images/baseraiz1.webp',
-      '/images/fotobaseraiz2.jpeg',
-      '/images/ultimabaseraiz.jpeg'
+      '/images/fotobaseraiz2.webp',
+      '/images/ultimabaseraiz.webp'
     ],
     featured: true,
     catalogUrl: WHATSAPP_BASE_URL,

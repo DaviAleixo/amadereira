@@ -12,27 +12,29 @@ interface ShowcaseMedia {
 }
 
 const CASCATA_MEDIA: ShowcaseMedia[] = [
-  { src: '/images/cascatafoto.jpeg', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
-  { src: '/images/cascatafoto2.jpeg', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
+  { src: '/images/cascatafoto.webp', alt: 'Mesa Cascata em Madeira Maciça com Corte 45 Graus', type: 'image' },
+  { src: '/images/cascatafoto2.webp', alt: 'Mesa Cascata com Veios Contínuos e Acabamento Nobre', type: 'image' },
   {
     src: '/images/cascatavideo.mp4',
     alt: 'Vídeo Oficial - Mesa Cascata em Madeira Maciça Autoral',
     type: 'video',
+    thumbnail: '/images/cascatafoto.webp',
   },
-  { src: '/images/cascatafoto3.jpeg', alt: 'Mesa Cascata Orgânica em Madeira Maciça', type: 'image' },
-  { src: '/images/cascatafoto4.jpeg', alt: 'Mesa Cascata Monumental sob Medida - Amadeireira', type: 'image' },
-  { src: '/images/cascatafoto6.jpeg', alt: 'Mesa Cascata Exclusiva com Acabamento Nobre', type: 'image' },
+  { src: '/images/cascatafoto3.webp', alt: 'Mesa Cascata Orgânica em Madeira Maciça', type: 'image' },
+  { src: '/images/cascatafoto4.webp', alt: 'Mesa Cascata Monumental sob Medida - Amadeireira', type: 'image' },
+  { src: '/images/cascatafoto6.webp', alt: 'Mesa Cascata Exclusiva com Acabamento Nobre', type: 'image' },
 ];
 
 const RAIZ_MEDIA: ShowcaseMedia[] = [
-  { src: '/images/ultimabaseraiz.jpeg', alt: 'Mesa Base Raiz Escultural Imponente - Amadeireira', type: 'image' },
+  { src: '/images/ultimabaseraiz.webp', alt: 'Mesa Base Raiz Escultural Imponente - Amadeireira', type: 'image' },
   { src: '/images/baseraiz1.webp', alt: 'Base de Mesa Raiz Maciça Orgânica Escultural - Amadeireira', type: 'image' },
   {
     src: '/images/baseraiz.mp4',
     alt: 'Vídeo Oficial - Base de Mesa Raiz Maciça Orgânica Escultural',
     type: 'video',
+    thumbnail: '/images/baseraiz1.webp',
   },
-  { src: '/images/fotobaseraiz2.jpeg', alt: 'Mesa Base Raiz Autoral Exclusiva sob Medida', type: 'image' },
+  { src: '/images/fotobaseraiz2.webp', alt: 'Mesa Base Raiz Autoral Exclusiva sob Medida', type: 'image' },
 ];
 
 const RESINA_MEDIA: ShowcaseMedia[] = [
@@ -42,33 +44,36 @@ const RESINA_MEDIA: ShowcaseMedia[] = [
     src: '/images/mesacascata.mp4',
     alt: 'Vídeo Oficial - Mesa com Rio de Resina Epóxi em Madeira Maciça',
     type: 'video',
+    thumbnail: '/images/mesaprancha2.webp',
   },
   { src: '/images/mesaresinaepoxi2.webp', alt: 'Mesa com Resina Epóxi Translúcida e Madeira Selecionada', type: 'image' },
   { src: '/images/mesaresinaepoxi3.webp', alt: 'Mesa de Jantar com Acabamento em Resina Epóxi', type: 'image' },
 ];
 
 const PRANCHA_MEDIA: ShowcaseMedia[] = [
-  { src: '/images/pranchafoto.jpeg', alt: 'Mesa Prancha Maciça com Borda Viva em Madeira Nobre', type: 'image' },
-  { src: '/images/pranchafoto2.jpeg', alt: 'Mesa Prancha Monumental em Madeira Maciça', type: 'image' },
+  { src: '/images/pranchafoto.webp', alt: 'Mesa Prancha Maciça com Borda Viva em Madeira Nobre', type: 'image' },
+  { src: '/images/pranchafoto2.webp', alt: 'Mesa Prancha Monumental em Madeira Maciça', type: 'image' },
   {
     src: '/images/pranchavideo.mp4',
     alt: 'Vídeo Oficial - Mesa Prancha Maciça com Bordas Vivas Naturais',
     type: 'video',
+    thumbnail: '/images/pranchafoto.webp',
   },
-  { src: '/images/pranchafoto4.jpeg', alt: 'Mesa Prancha Rústica com Acabamento Nobre', type: 'image' },
+  { src: '/images/pranchafoto4.webp', alt: 'Mesa Prancha Rústica com Acabamento Nobre', type: 'image' },
   { src: '/images/mesaprancha3.webp', alt: 'Mesa Prancha Autoral em Madeira Maciça', type: 'image' },
 ];
 
 const ESCULTURA_MEDIA: ShowcaseMedia[] = [
-  { src: '/images/escultura2.jpeg', alt: 'Escultura Orgânica em Raiz Maciça Centenária', type: 'image' },
-  { src: '/images/escultura1.jpeg', alt: 'Escultura Autoral em Madeira Maciça Nobre - Amadeireira', type: 'image' },
+  { src: '/images/escultura2.webp', alt: 'Escultura Orgânica em Raiz Maciça Centenária', type: 'image' },
+  { src: '/images/escultura1.webp', alt: 'Escultura Autoral em Madeira Maciça Nobre - Amadeireira', type: 'image' },
   {
     src: '/images/estruturavideo.mp4',
     alt: 'Vídeo Oficial - Escultura Autoral e Estrutura em Madeira Maciça',
     type: 'video',
+    thumbnail: '/images/escultura1.webp',
   },
-  { src: '/images/escultura3.jpeg', alt: 'Obra de Arte Escultural Exclusiva em Madeira Nobre', type: 'image' },
-  { src: '/images/escultura4.jpeg', alt: 'Escultura Decorativa Monumental em Madeira Maciça', type: 'image' },
+  { src: '/images/escultura3.webp', alt: 'Obra de Arte Escultural Exclusiva em Madeira Nobre', type: 'image' },
+  { src: '/images/escultura4.webp', alt: 'Escultura Decorativa Monumental em Madeira Maciça', type: 'image' },
 ];
 
 export const CategoriesShowcaseSection: React.FC = () => {
@@ -314,12 +319,12 @@ export const CategoriesShowcaseSection: React.FC = () => {
   const renderThumbnail = (item: ShowcaseMedia) => (
     <div className="relative h-full w-full overflow-hidden bg-[#1c1510]">
       {item.type === 'video' ? (
-        <video
-          src={`${item.src}#t=0.001`}
-          preload="metadata"
-          muted
-          playsInline
-          className="w-full h-full object-cover object-center pointer-events-none select-none"
+        <img
+          src={item.thumbnail || item.src}
+          alt={item.alt}
+          draggable={false}
+          className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
+          loading="lazy"
         />
       ) : (
         <img

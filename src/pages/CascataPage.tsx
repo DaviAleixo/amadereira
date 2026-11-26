@@ -11,7 +11,7 @@ export const CascataPage: React.FC = () => {
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/cascatafoto.jpeg"
+            src="/images/cascatafoto.webp"
             alt="Mesa Cascata em madeira maciça com corte 45 graus"
             className="w-full h-full object-cover object-center scale-105"
             loading="eager"

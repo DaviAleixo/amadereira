@@ -19,8 +19,8 @@ export const CATEGORIES: CategoryInfo[] = [
     tagline: 'Continuidade & Arquitetura',
     headline: 'O fluxo contínuo da madeira que desce ao chão.',
     description: 'A Mesa Cascata se destaca pelo corte preciso em meia-esquadria que faz os veios da madeira descerem organicamente até o piso. Uma peça que une o peso da madeira maciça à leveza escultórica contemporânea.',
-    heroImage: '/images/cascatafoto.jpeg',
-    detailImage: '/images/cascatafoto2.jpeg',
+    heroImage: '/images/cascatafoto.webp',
+    detailImage: '/images/cascatafoto2.webp',
     woodTypes: ['Pequiá Maciço', 'Muiracatiara', 'Jatobá', 'Cumaru'],
     keyAttributes: [
       {
@@ -45,8 +45,8 @@ export const CATEGORIES: CategoryInfo[] = [
     tagline: 'Matéria-Prima & Borda Orgânica',
     headline: 'Grandes toras únicas com bordas naturais vivas.',
     description: 'A Mesa Prancha celebra a grandiosidade da natureza em seu estado mais autêntico. Toras centenárias selecionadas individualmente, com espessuras imponentes e bordas vivas trabalhadas à mão.',
-    heroImage: '/images/pranchafoto.jpeg',
-    detailImage: '/images/pranchafoto2.jpeg',
+    heroImage: '/images/pranchafoto.webp',
+    detailImage: '/images/pranchafoto2.webp',
     woodTypes: ['Pequiá Amarelo', 'Pequiá Rajado', 'Angelim', 'Teca'],
     keyAttributes: [
       {
@@ -72,7 +72,7 @@ export const CATEGORIES: CategoryInfo[] = [
     headline: 'Formas orgânicas irrepetíveis criadas pela terra.',
     description: 'Cada Mesa Raiz é uma obra de arte única no mundo. Bases formadas por raízes centenárias de manejo sustentável e reaproveitamento, tratadas e polidas com perfeição milimétrica.',
     heroImage: '/images/baseraiz1.webp',
-    detailImage: '/images/fotobaseraiz2.jpeg',
+    detailImage: '/images/fotobaseraiz2.webp',
     woodTypes: ['Raiz de Pequiá', 'Raiz de Vinhático', 'Raiz de Jacarandá'],
     keyAttributes: [
       {
