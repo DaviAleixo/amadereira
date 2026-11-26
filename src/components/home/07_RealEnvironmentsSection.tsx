@@ -192,10 +192,10 @@ export const RealEnvironmentsSection: React.FC = () => {
                 ref={(el) => {
                   videoRefs.current[item.id] = el;
                 }}
-                src={`${item.src}#t=0.001`}
+                src={item.src}
                 poster={item.poster}
                 playsInline
-                preload="metadata"
+                preload="none"
                 controls={playingVideoId === item.id}
                 onPlay={() => handlePlay(item.id)}
                 onPause={() => {
